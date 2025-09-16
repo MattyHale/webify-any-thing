@@ -5,27 +5,27 @@ import { Satellite, Shield, Cog, GitBranch, Scale, Gauge, Bell, CheckCircle, Che
 import { useState, useEffect } from "react";
 const Index = () => {
   const [showScrollTop, setShowScrollTop] = useState(false);
-
   useEffect(() => {
     const handleScroll = () => {
       setShowScrollTop(window.scrollY > 300);
     };
-
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({
+        behavior: 'smooth'
+      });
     }
   };
-
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
   };
-
   const domains = [{
     icon: <Cog className="h-6 w-6" />,
     title: "Infrastructure",
@@ -59,17 +59,31 @@ const Index = () => {
     title: "Notifications & Event Triggers",
     description: "Real-time communication and automated responses to system events"
   }];
-
-  const navigationItems = [
-    { id: "infrastructure", title: "Infrastructure" },
-    { id: "security", title: "Security" },
-    { id: "automation", title: "Automation" },
-    { id: "consistency", title: "Consistency" },
-    { id: "governance", title: "Governance & Compliance" },
-    { id: "reliability", title: "Reliability & Resilience" },
-    { id: "scalability", title: "Scalability & Performance" },
-    { id: "notifications", title: "Notifications & Event Triggers" }
-  ];
+  const navigationItems = [{
+    id: "infrastructure",
+    title: "Infrastructure"
+  }, {
+    id: "security",
+    title: "Security"
+  }, {
+    id: "automation",
+    title: "Automation"
+  }, {
+    id: "consistency",
+    title: "Consistency"
+  }, {
+    id: "governance",
+    title: "Governance & Compliance"
+  }, {
+    id: "reliability",
+    title: "Reliability & Resilience"
+  }, {
+    id: "scalability",
+    title: "Scalability & Performance"
+  }, {
+    id: "notifications",
+    title: "Notifications & Event Triggers"
+  }];
   return <div className="min-h-screen bg-background">
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-gradient-to-br from-primary/5 to-secondary/5 py-20">
@@ -94,17 +108,9 @@ const Index = () => {
           <div className="max-w-6xl mx-auto">
             <h3 className="text-lg font-semibold text-foreground mb-4 text-center">Quick Navigation</h3>
             <div className="flex flex-wrap justify-center gap-2">
-              {navigationItems.map((item) => (
-                <Button
-                  key={item.id}
-                  variant="outline"
-                  size="sm"
-                  onClick={() => scrollToSection(item.id)}
-                  className="hover:bg-primary hover:text-primary-foreground"
-                >
+              {navigationItems.map(item => <Button key={item.id} variant="outline" size="sm" onClick={() => scrollToSection(item.id)} className="hover:bg-primary hover:text-primary-foreground">
                   {item.title}
-                </Button>
-              ))}
+                </Button>)}
             </div>
           </div>
         </div>
@@ -138,12 +144,7 @@ const Index = () => {
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {domains.map((domain, index) => (
-              <Card 
-                key={index} 
-                className="bg-card hover:bg-accent/50 transition-colors cursor-pointer"
-                onClick={() => scrollToSection(navigationItems[index].id)}
-              >
+            {domains.map((domain, index) => <Card key={index} className="bg-card hover:bg-accent/50 transition-colors cursor-pointer" onClick={() => scrollToSection(navigationItems[index].id)}>
                 <CardHeader className="text-center">
                   <div className="mx-auto mb-4 p-3 bg-primary/10 rounded-full w-fit">
                     {domain.icon}
@@ -155,8 +156,7 @@ const Index = () => {
                     {domain.description}
                   </CardDescription>
                 </CardContent>
-              </Card>
-            ))}
+              </Card>)}
           </div>
         </div>
       </section>
@@ -595,25 +595,14 @@ const Index = () => {
           <p className="text-muted-foreground mb-2">
             © 2025 Earth Observation Data Infrastructure
           </p>
-          <p className="text-muted-foreground">
-            <a href="/privacy" className="hover:text-foreground transition-colors">Privacy Policy</a> | 
-            <a href="/terms" className="hover:text-foreground transition-colors"> Terms of Use</a> | 
-            <a href="/contact" className="hover:text-foreground transition-colors"> Contact</a>
-          </p>
+          
         </div>
       </footer>
 
       {/* Scroll to Top Button */}
-      {showScrollTop && (
-        <Button
-          onClick={scrollToTop}
-          className="fixed bottom-6 right-6 z-50 rounded-full w-12 h-12 shadow-lg"
-          size="icon"
-          aria-label="Scroll to top"
-        >
+      {showScrollTop && <Button onClick={scrollToTop} className="fixed bottom-6 right-6 z-50 rounded-full w-12 h-12 shadow-lg" size="icon" aria-label="Scroll to top">
           <ChevronUp className="h-6 w-6" />
-        </Button>
-      )}
+        </Button>}
     </div>;
 };
 export default Index;
