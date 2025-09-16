@@ -2,53 +2,41 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Satellite, Shield, Cog, GitBranch, Scale, Gauge, Bell, CheckCircle } from "lucide-react";
-
 const Index = () => {
-  const domains = [
-    {
-      icon: <Cog className="h-6 w-6" />,
-      title: "Infrastructure",
-      description: "Core technical architecture underpinning the ingestion, management, and dissemination of EO data"
-    },
-    {
-      icon: <Shield className="h-6 w-6" />,
-      title: "Security",
-      description: "Protection of sensitive data and systems through comprehensive security measures"
-    },
-    {
-      icon: <Cog className="h-6 w-6" />,
-      title: "Automation",
-      description: "Streamlined processes that reduce manual intervention and increase efficiency"
-    },
-    {
-      icon: <CheckCircle className="h-6 w-6" />,
-      title: "Consistency",
-      description: "Standardized approaches ensuring reliable and predictable operations"
-    },
-    {
-      icon: <Scale className="h-6 w-6" />,
-      title: "Governance & Compliance",
-      description: "Framework for managing operations within regulatory and policy requirements"
-    },
-    {
-      icon: <GitBranch className="h-6 w-6" />,
-      title: "Reliability & Resilience",
-      description: "Systems designed to maintain operations under various conditions and recover from failures"
-    },
-    {
-      icon: <Gauge className="h-6 w-6" />,
-      title: "Scalability & Performance",
-      description: "Ability to handle growing data volumes and user demands efficiently"
-    },
-    {
-      icon: <Bell className="h-6 w-6" />,
-      title: "Notifications & Event Triggers",
-      description: "Real-time communication and automated responses to system events"
-    }
-  ];
-
-  return (
-    <div className="min-h-screen bg-background">
+  const domains = [{
+    icon: <Cog className="h-6 w-6" />,
+    title: "Infrastructure",
+    description: "Core technical architecture underpinning the ingestion, management, and dissemination of EO data"
+  }, {
+    icon: <Shield className="h-6 w-6" />,
+    title: "Security",
+    description: "Protection of sensitive data and systems through comprehensive security measures"
+  }, {
+    icon: <Cog className="h-6 w-6" />,
+    title: "Automation",
+    description: "Streamlined processes that reduce manual intervention and increase efficiency"
+  }, {
+    icon: <CheckCircle className="h-6 w-6" />,
+    title: "Consistency",
+    description: "Standardized approaches ensuring reliable and predictable operations"
+  }, {
+    icon: <Scale className="h-6 w-6" />,
+    title: "Governance & Compliance",
+    description: "Framework for managing operations within regulatory and policy requirements"
+  }, {
+    icon: <GitBranch className="h-6 w-6" />,
+    title: "Reliability & Resilience",
+    description: "Systems designed to maintain operations under various conditions and recover from failures"
+  }, {
+    icon: <Gauge className="h-6 w-6" />,
+    title: "Scalability & Performance",
+    description: "Ability to handle growing data volumes and user demands efficiently"
+  }, {
+    icon: <Bell className="h-6 w-6" />,
+    title: "Notifications & Event Triggers",
+    description: "Real-time communication and automated responses to system events"
+  }];
+  return <div className="min-h-screen bg-background">
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-gradient-to-br from-primary/5 to-secondary/5 py-20">
         <div className="container mx-auto px-4">
@@ -75,9 +63,7 @@ const Index = () => {
               <p className="mb-6">
                 The standard is organized into eight core domains – Infrastructure, Security, Automation, Consistency, Governance & Compliance, Reliability & Resilience, Scalability & Performance, and Notifications & Event Triggers – outlining for each what is expected, why it matters, and the key principles of an effective system. Together, these chapters set the minimum benchmark for any serious EODI serving technical and commercial users.
               </p>
-              <p className="mb-6">
-                Written in a clear, declarative tone, this standard directly addresses real operational challenges in the EO industry. It calls out common pain points such as fragmented data silos, vendor lock-in, labor-intensive manual workflows, and the difficulties of managing petabyte-scale datasets. Rather than hypothetical solutions, it prescribes practical approaches to overcome these issues.
-              </p>
+              <p className="mb-6">This standard directly addresses real operational challenges in the EO industry. It calls out common pain points such as fragmented data silos, vendor lock-in, labor-intensive manual workflows, and the difficulties of managing petabyte-scale datasets. Rather than hypothetical solutions, it prescribes practical approaches to overcome these issues.</p>
               <p>
                 The guidance is grounded in proven practices: modular, interoperable architecture; automation and API-first design; robust governance; and scalable, resilient operations. Ultimately, this document is a strategic blueprint for building EO data infrastructures that are modular, scalable, resilient, and user-centric, enabling program operators to focus on extracting insights from data – not struggling with the underlying infrastructure – in a cost-effective and transparent manner.
               </p>
@@ -96,8 +82,7 @@ const Index = () => {
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {domains.map((domain, index) => (
-              <Card key={index} className="bg-card hover:bg-accent/50 transition-colors">
+            {domains.map((domain, index) => <Card key={index} className="bg-card hover:bg-accent/50 transition-colors">
                 <CardHeader className="text-center">
                   <div className="mx-auto mb-4 p-3 bg-primary/10 rounded-full w-fit">
                     {domain.icon}
@@ -109,8 +94,7 @@ const Index = () => {
                     {domain.description}
                   </CardDescription>
                 </CardContent>
-              </Card>
-            ))}
+              </Card>)}
           </div>
         </div>
       </section>
@@ -551,8 +535,6 @@ const Index = () => {
           </p>
         </div>
       </footer>
-    </div>
-  );
+    </div>;
 };
-
 export default Index;
