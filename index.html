@@ -22,33 +22,37 @@
     <meta name="twitter:description" content="Scalable platform for satellite imagery and geospatial data management.">
     <meta name="twitter:image" content="https://eodatainfrastructure.com/preview.jpg">
 
-    <!-- JSON-LD Schema (Organization + Product) -->
+    <!-- JSON-LD Schema (FAQ) -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "Earth Observation Data Infrastructure",
-      "url": "https://eodatainfrastructure.com",
-      "logo": "https://eodatainfrastructure.com/logo.png",
-      "sameAs": [
-        "https://www.linkedin.com/company/eodatainfrastructure",
-        "https://twitter.com/eodinfra"
-      ],
-      "description": "Earth Observation Data Infrastructure (EODI) provides scalable tools for storing, processing, and delivering satellite imagery and geospatial data.",
-      "product": {
-        "@type": "Product",
-        "name": "EODI Platform",
-        "description": "A platform for satellite imagery and geospatial data normalisation, automation, and delivery. Includes APIs, workflow automation, and constellation orchestration.",
-        "applicationCategory": "Geospatial Software",
-        "operatingSystem": "Cloud-based",
-        "offers": {
-          "@type": "Offer",
-          "url": "https://eodatainfrastructure.com/",
-          "priceCurrency": "USD",
-          "price": "0.0",
-          "availability": "https://schema.org/InStock"
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is Earth Observation Data Infrastructure?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Earth Observation Data Infrastructure (EODI) is the backbone for storing, normalising, and delivering satellite imagery at scale. It ensures data is consistent, discoverable, and easy to use."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Who uses EODI?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "EODI supports defence, government, mining, energy, and environmental organisations by making satellite imagery accessible, consistent, and automated."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What standards are supported?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "EODI supports STAC and OGC standards for geospatial data, with flexibility for custom enterprise pipelines."
+          }
         }
-      }
+      ]
     }
     </script>
   </head>
