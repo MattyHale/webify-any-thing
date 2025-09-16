@@ -1,8 +1,31 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Satellite, Shield, Cog, GitBranch, Scale, Gauge, Bell, CheckCircle } from "lucide-react";
+import { Satellite, Shield, Cog, GitBranch, Scale, Gauge, Bell, CheckCircle, ChevronUp } from "lucide-react";
+import { useState, useEffect } from "react";
 const Index = () => {
+  const [showScrollTop, setShowScrollTop] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowScrollTop(window.scrollY > 300);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   const domains = [{
     icon: <Cog className="h-6 w-6" />,
     title: "Infrastructure",
@@ -36,6 +59,17 @@ const Index = () => {
     title: "Notifications & Event Triggers",
     description: "Real-time communication and automated responses to system events"
   }];
+
+  const navigationItems = [
+    { id: "infrastructure", title: "Infrastructure" },
+    { id: "security", title: "Security" },
+    { id: "automation", title: "Automation" },
+    { id: "consistency", title: "Consistency" },
+    { id: "governance", title: "Governance & Compliance" },
+    { id: "reliability", title: "Reliability & Resilience" },
+    { id: "scalability", title: "Scalability & Performance" },
+    { id: "notifications", title: "Notifications & Event Triggers" }
+  ];
   return <div className="min-h-screen bg-background">
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-gradient-to-br from-primary/5 to-secondary/5 py-20">
@@ -50,6 +84,28 @@ const Index = () => {
             <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
               This document establishes a rigorous standard for Earth Observation Data Infrastructure (EODI), defining the essential capabilities that any credible EO data platform must provide. It emphasizes operational integrity over product-specific features, making clear what a high-functioning EODI shall do to support mission-critical applications.
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Navigation */}
+      <section className="py-8 bg-card/50 border-b">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <h3 className="text-lg font-semibold text-foreground mb-4 text-center">Quick Navigation</h3>
+            <div className="flex flex-wrap justify-center gap-2">
+              {navigationItems.map((item) => (
+                <Button
+                  key={item.id}
+                  variant="outline"
+                  size="sm"
+                  onClick={() => scrollToSection(item.id)}
+                  className="hover:bg-primary hover:text-primary-foreground"
+                >
+                  {item.title}
+                </Button>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -82,7 +138,12 @@ const Index = () => {
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {domains.map((domain, index) => <Card key={index} className="bg-card hover:bg-accent/50 transition-colors">
+            {domains.map((domain, index) => (
+              <Card 
+                key={index} 
+                className="bg-card hover:bg-accent/50 transition-colors cursor-pointer"
+                onClick={() => scrollToSection(navigationItems[index].id)}
+              >
                 <CardHeader className="text-center">
                   <div className="mx-auto mb-4 p-3 bg-primary/10 rounded-full w-fit">
                     {domain.icon}
@@ -94,13 +155,14 @@ const Index = () => {
                     {domain.description}
                   </CardDescription>
                 </CardContent>
-              </Card>)}
+              </Card>
+            ))}
           </div>
         </div>
       </section>
 
       {/* Infrastructure Section */}
-      <section className="py-16">
+      <section id="infrastructure" className="py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="flex items-center gap-4 mb-8">
@@ -136,7 +198,7 @@ const Index = () => {
       </section>
 
       {/* Security Section */}
-      <section className="py-16 bg-muted/30">
+      <section id="security" className="py-16 bg-muted/30">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="flex items-center gap-4 mb-8">
@@ -193,7 +255,7 @@ const Index = () => {
       </section>
 
       {/* Automation Section */}
-      <section className="py-16">
+      <section id="automation" className="py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="flex items-center gap-4 mb-8">
@@ -250,7 +312,7 @@ const Index = () => {
       </section>
 
       {/* Consistency Section */}
-      <section className="py-16 bg-muted/30">
+      <section id="consistency" className="py-16 bg-muted/30">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="flex items-center gap-4 mb-8">
@@ -300,7 +362,7 @@ const Index = () => {
       </section>
 
       {/* Governance & Compliance Section */}
-      <section className="py-16">
+      <section id="governance" className="py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="flex items-center gap-4 mb-8">
@@ -357,7 +419,7 @@ const Index = () => {
       </section>
 
       {/* Reliability & Resilience Section */}
-      <section className="py-16 bg-muted/30">
+      <section id="reliability" className="py-16 bg-muted/30">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="flex items-center gap-4 mb-8">
@@ -414,7 +476,7 @@ const Index = () => {
       </section>
 
       {/* Scalability & Performance Section */}
-      <section className="py-16">
+      <section id="scalability" className="py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="flex items-center gap-4 mb-8">
@@ -471,7 +533,7 @@ const Index = () => {
       </section>
 
       {/* Notifications & Event Triggers Section */}
-      <section className="py-16 bg-muted/30">
+      <section id="notifications" className="py-16 bg-muted/30">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="flex items-center gap-4 mb-8">
@@ -535,6 +597,18 @@ const Index = () => {
           </p>
         </div>
       </footer>
+
+      {/* Scroll to Top Button */}
+      {showScrollTop && (
+        <Button
+          onClick={scrollToTop}
+          className="fixed bottom-6 right-6 z-50 rounded-full w-12 h-12 shadow-lg"
+          size="icon"
+          aria-label="Scroll to top"
+        >
+          <ChevronUp className="h-6 w-6" />
+        </Button>
+      )}
     </div>;
 };
 export default Index;
