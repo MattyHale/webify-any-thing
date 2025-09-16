@@ -592,8 +592,13 @@ const Index = () => {
       {/* Footer */}
       <footer className="bg-card py-12">
         <div className="container mx-auto px-4 text-center">
+          <p className="text-muted-foreground mb-2">
+            © 2025 Earth Observation Data Infrastructure
+          </p>
           <p className="text-muted-foreground">
-            Earth Observation Data Infrastructure (EODI) Standard
+            <a href="/privacy" className="hover:text-foreground transition-colors">Privacy Policy</a> | 
+            <a href="/terms" className="hover:text-foreground transition-colors"> Terms of Use</a> | 
+            <a href="/contact" className="hover:text-foreground transition-colors"> Contact</a>
           </p>
         </div>
       </footer>
