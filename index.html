@@ -81,7 +81,105 @@
   </head>
 
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <!-- Static content for crawlers - React will replace this -->
+      <main>
+        <header style="text-align: center; padding: 80px 20px; background: linear-gradient(to bottom right, rgba(0,0,0,0.05), rgba(0,0,0,0.02));">
+          <h1>Earth Observation Data Infrastructure (EODI) Standard</h1>
+          <p style="max-width: 900px; margin: 20px auto; font-size: 1.2em; color: #666;">
+            This document establishes a rigorous standard for Earth Observation Data Infrastructure (EODI), defining the essential capabilities that any credible EO data platform must provide. It emphasizes operational integrity over product-specific features, making clear what a high-functioning EODI shall do to support mission-critical applications.
+          </p>
+        </header>
+
+        <section style="padding: 60px 20px; max-width: 1200px; margin: 0 auto;">
+          <h2>Introduction</h2>
+          <p>The standard is organized into eight core domains – Infrastructure, Security, Automation, Consistency, Governance & Compliance, Reliability & Resilience, Scalability & Performance, and Notifications & Event Triggers – outlining for each what is expected, why it matters, and the key principles of an effective system.</p>
+          
+          <h2 style="margin-top: 60px;">Eight Core Domains</h2>
+          
+          <article style="margin-top: 40px;">
+            <h3>1. Infrastructure</h3>
+            <p>Core technical architecture underpinning the ingestion, management, and dissemination of EO data. The EODI's infrastructure must seamlessly integrate many distributed components, data sources, and partner inputs into a unified whole that behaves as a single high-functioning platform.</p>
+            <h4>Key Principles:</h4>
+            <ul>
+              <li><strong>Unified Data Integration:</strong> Bring together all relevant EO data sources under a common framework</li>
+              <li><strong>API-First Design:</strong> Programmatic access for automation and integration</li>
+              <li><strong>Multi-Constellation Support:</strong> Orchestrate data from numerous satellite missions</li>
+            </ul>
+          </article>
+
+          <article style="margin-top: 40px;">
+            <h3>2. Security</h3>
+            <p>Protection of sensitive data and systems through comprehensive security measures. Security is foundational – an EODI must safeguard data and operations through robust measures at every layer, including access control, encryption, and monitoring.</p>
+            <h4>Key Principles:</h4>
+            <ul>
+              <li><strong>Strong Authentication & Access Control:</strong> Multi-factor authentication and role-based access</li>
+              <li><strong>Encryption & Data Protection:</strong> End-to-end encryption for data at rest and in transit</li>
+              <li><strong>Continuous Monitoring:</strong> Audit logging and intrusion detection</li>
+            </ul>
+          </article>
+
+          <article style="margin-top: 40px;">
+            <h3>3. Automation</h3>
+            <p>Streamlined processes that reduce manual intervention and increase efficiency. Automation eliminates repetitive tasks, reduces human error, and enables operations at scale that would be impossible manually.</p>
+            <h4>Key Principles:</h4>
+            <ul>
+              <li><strong>Event-Driven Workflows:</strong> Automatic triggering of processing pipelines</li>
+              <li><strong>Self-Service Capabilities:</strong> Users can discover, order, and retrieve data programmatically</li>
+              <li><strong>Continuous Processing:</strong> Automated quality control and validation</li>
+            </ul>
+          </article>
+
+          <article style="margin-top: 40px;">
+            <h3>4. Consistency</h3>
+            <p>Standardized approaches ensuring reliable and predictable operations. Data normalization using STAC and OGC standards ensures interoperability across diverse satellite sources.</p>
+          </article>
+
+          <article style="margin-top: 40px;">
+            <h3>5. Governance & Compliance</h3>
+            <p>Framework for managing operations within regulatory and policy requirements. Clear policies, documentation, and audit trails ensure accountability and regulatory compliance.</p>
+          </article>
+
+          <article style="margin-top: 40px;">
+            <h3>6. Reliability & Resilience</h3>
+            <p>Systems designed to maintain operations under various conditions and recover from failures. Redundancy, failover mechanisms, and disaster recovery ensure continuous availability.</p>
+          </article>
+
+          <article style="margin-top: 40px;">
+            <h3>7. Scalability & Performance</h3>
+            <p>Ability to handle growing data volumes and user demands efficiently. Cloud-native architecture and distributed processing enable petabyte-scale operations.</p>
+          </article>
+
+          <article style="margin-top: 40px;">
+            <h3>8. Notifications & Event Triggers</h3>
+            <p>Real-time communication and automated responses to system events. Webhooks, alerts, and event-driven architecture keep users informed of data availability and processing status.</p>
+          </article>
+        </section>
+
+        <section style="padding: 60px 20px; max-width: 1200px; margin: 0 auto; background: #f9f9f9;">
+          <h2>Industry Applications</h2>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 30px;">
+            <article>
+              <h3>Defence & Government</h3>
+              <p>Mission readiness, situational awareness, and intelligence workflows with security compliance and audit trails.</p>
+            </article>
+            <article>
+              <h3>Mining & Energy</h3>
+              <p>Tailings monitoring, environmental compliance, ESG reporting, and asset monitoring across global operations.</p>
+            </article>
+            <article>
+              <h3>Environmental Monitoring</h3>
+              <p>Wildfire detection, deforestation tracking, climate resilience planning, and ecosystem monitoring at scale.</p>
+            </article>
+          </div>
+        </section>
+
+        <footer style="padding: 40px 20px; text-align: center; border-top: 1px solid #eee;">
+          <p>Earth Observation Data Infrastructure (EODI) Standard</p>
+          <p style="color: #666; margin-top: 10px;">Supporting STAC and OGC standards for geospatial data management and automation</p>
+        </footer>
+      </main>
+    </div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
