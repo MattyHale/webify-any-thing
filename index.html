@@ -1,185 +1,515 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
-    <!-- SEO Meta Tags -->
-    <title>Earth Observation Data Infrastructure (EODI) | Satellite Imagery APIs & Automation</title>
-    <meta name="description" content="Earth Observation Data Infrastructure (EODI) is the backbone for managing, automating, and scaling satellite imagery and geospatial data. Supports STAC, OGC, and APIs for defence, mining, government, and industry.">
-    <meta name="keywords" content="Earth Observation, EODI, satellite imagery, geospatial data, STAC, OGC, automation workflows, constellation orchestration">
-
-    <!-- Open Graph (Social Preview) -->
-    <meta property="og:title" content="Earth Observation Data Infrastructure (EODI)">
-    <meta property="og:description" content="The backbone for managing, automating, and scaling satellite imagery and geospatial data.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://eodatainfrastructure.com/">
-    <meta property="og:image" content="https://eodatainfrastructure.com/preview.jpg">
-
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Earth Observation Data Infrastructure (EODI)">
-    <meta name="twitter:description" content="Scalable platform for satellite imagery and geospatial data management.">
-    <meta name="twitter:image" content="https://eodatainfrastructure.com/preview.jpg">
-
-    <!-- JSON-LD Schema (FAQ) -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "What is Earth Observation Data Infrastructure?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Earth Observation Data Infrastructure (EODI) is the backbone for storing, normalising, and delivering satellite imagery at scale. It ensures data is consistent, discoverable, and easy to use."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Who uses EODI?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "EODI supports defence, government, mining, energy, and environmental organisations by making satellite imagery accessible, consistent, and automated."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What standards are supported?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "EODI supports STAC and OGC standards for geospatial data, with flexibility for custom enterprise pipelines."
-          }
-        }
-      ]
-    }
-<style>
-  /* Hide both the ID and any element that carries the marker attribute */
-  #lovable-badge, [source-lovable-badge] {
-    display: none !important;
-    visibility: hidden !important;
-    opacity: 0 !important;
-    width: 0 !important;
-    height: 0 !important;
-    pointer-events: none !important;
-  }
-</style>
-<script>
-  (function () {
-    const kill = () => {
-      document.querySelectorAll('#lovable-badge,[source-lovable-badge]').forEach(n => n.remove());
-    };
-    // run now, on load, and on any DOM changes
-    kill();
-    window.addEventListener('load', kill, { once: true });
-    new MutationObserver(kill).observe(document.documentElement, { childList: true, subtree: true });
-  })();
-</script>
-
-    </script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Earth Observation Data Infrastructure (EODI) Standard</title>
+    <meta
+      name="description"
+      content="Earth Observation Data Infrastructure (EODI) standard covering infrastructure, security, automation, governance, reliability, scalability, and notifications."
+    />
+    <link rel="icon" href="favicon.ico" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
   </head>
-
   <body>
-    <div id="root">
-      <!-- Static content for crawlers - React will replace this -->
-      <main>
-        <header style="text-align: center; padding: 80px 20px; background: linear-gradient(to bottom right, rgba(0,0,0,0.05), rgba(0,0,0,0.02));">
-          <h1>Earth Observation Data Infrastructure (EODI) Standard</h1>
-          <p style="max-width: 900px; margin: 20px auto; font-size: 1.2em; color: #666;">
-            This document establishes a rigorous standard for Earth Observation Data Infrastructure (EODI), defining the essential capabilities that any credible EO data platform must provide. It emphasizes operational integrity over product-specific features, making clear what a high-functioning EODI shall do to support mission-critical applications.
+    <header class="site-header">
+      <div class="container">
+        <div class="brand">
+          <span class="icon" aria-hidden="true">🛰️</span>
+          <span class="brand-name">EODI Standard</span>
+        </div>
+        <nav class="site-nav" aria-label="Primary navigation">
+          <a href="#introduction">Introduction</a>
+          <a href="#domains">Domains</a>
+          <a href="blog.html">Blog</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="container">
+          <div class="hero-icon" aria-hidden="true">🛰️</div>
+          <h1 id="hero-title">Earth Observation Data Infrastructure (EODI) Standard</h1>
+          <p>
+            This document establishes a rigorous standard for Earth Observation Data Infrastructure (EODI), defining the essential
+            capabilities that any credible EO data platform must provide. It emphasizes operational integrity over product-specific
+            features, making clear what a high-functioning EODI shall do to support mission-critical applications.
           </p>
-        </header>
+        </div>
+      </section>
 
-        <section style="padding: 60px 20px; max-width: 1200px; margin: 0 auto;">
-          <h2>Introduction</h2>
-          <p>The standard is organized into eight core domains – Infrastructure, Security, Automation, Consistency, Governance & Compliance, Reliability & Resilience, Scalability & Performance, and Notifications & Event Triggers – outlining for each what is expected, why it matters, and the key principles of an effective system.</p>
-          
-          <h2 style="margin-top: 60px;">Eight Core Domains</h2>
-          
-          <article style="margin-top: 40px;">
-            <h3>1. Infrastructure</h3>
-            <p>Core technical architecture underpinning the ingestion, management, and dissemination of EO data. The EODI's infrastructure must seamlessly integrate many distributed components, data sources, and partner inputs into a unified whole that behaves as a single high-functioning platform.</p>
-            <h4>Key Principles:</h4>
-            <ul>
-              <li><strong>Unified Data Integration:</strong> Bring together all relevant EO data sources under a common framework</li>
-              <li><strong>API-First Design:</strong> Programmatic access for automation and integration</li>
-              <li><strong>Multi-Constellation Support:</strong> Orchestrate data from numerous satellite missions</li>
-            </ul>
-          </article>
+      <section class="section section-muted" aria-labelledby="quick-navigation">
+        <div class="container">
+          <h2 id="quick-navigation">Quick Navigation</h2>
+          <div class="button-group">
+            <button type="button" data-scroll-target="infrastructure">Infrastructure</button>
+            <button type="button" data-scroll-target="security">Security</button>
+            <button type="button" data-scroll-target="automation">Automation</button>
+            <button type="button" data-scroll-target="consistency">Consistency</button>
+            <button type="button" data-scroll-target="governance">Governance &amp; Compliance</button>
+            <button type="button" data-scroll-target="reliability">Reliability &amp; Resilience</button>
+            <button type="button" data-scroll-target="scalability">Scalability &amp; Performance</button>
+            <button type="button" data-scroll-target="notifications">Notifications &amp; Event Triggers</button>
+          </div>
+        </div>
+      </section>
 
-          <article style="margin-top: 40px;">
-            <h3>2. Security</h3>
-            <p>Protection of sensitive data and systems through comprehensive security measures. Security is foundational – an EODI must safeguard data and operations through robust measures at every layer, including access control, encryption, and monitoring.</p>
-            <h4>Key Principles:</h4>
-            <ul>
-              <li><strong>Strong Authentication & Access Control:</strong> Multi-factor authentication and role-based access</li>
-              <li><strong>Encryption & Data Protection:</strong> End-to-end encryption for data at rest and in transit</li>
-              <li><strong>Continuous Monitoring:</strong> Audit logging and intrusion detection</li>
-            </ul>
-          </article>
+      <section class="section" id="introduction" aria-labelledby="introduction-title">
+        <div class="container narrow">
+          <h2 id="introduction-title">Introduction</h2>
+          <p>
+            The standard is organized into eight core domains – Infrastructure, Security, Automation, Consistency, Governance &amp;
+            Compliance, Reliability &amp; Resilience, Scalability &amp; Performance, and Notifications &amp; Event Triggers – outlining for
+            each what is expected, why it matters, and the key principles of an effective system. Together, these chapters set the
+            minimum benchmark for any serious EODI serving technical and commercial users.
+          </p>
+          <p>
+            This standard directly addresses real operational challenges in the EO industry. It calls out common pain points such as
+            fragmented data silos, vendor lock-in, labor-intensive manual workflows, and the difficulties of managing petabyte-scale
+            datasets. Rather than hypothetical solutions, it prescribes practical approaches to overcome these issues.
+          </p>
+          <p>
+            The guidance is grounded in proven practices: modular, interoperable architecture; automation and API-first design; robust
+            governance; and scalable, resilient operations. Ultimately, this document is a strategic blueprint for building EO data
+            infrastructures that are modular, scalable, resilient, and user-centric, enabling program operators to focus on extracting
+            insights from data – not struggling with the underlying infrastructure – in a cost-effective and transparent manner.
+          </p>
+        </div>
+      </section>
 
-          <article style="margin-top: 40px;">
-            <h3>3. Automation</h3>
-            <p>Streamlined processes that reduce manual intervention and increase efficiency. Automation eliminates repetitive tasks, reduces human error, and enables operations at scale that would be impossible manually.</p>
-            <h4>Key Principles:</h4>
-            <ul>
-              <li><strong>Event-Driven Workflows:</strong> Automatic triggering of processing pipelines</li>
-              <li><strong>Self-Service Capabilities:</strong> Users can discover, order, and retrieve data programmatically</li>
-              <li><strong>Continuous Processing:</strong> Automated quality control and validation</li>
-            </ul>
-          </article>
-
-          <article style="margin-top: 40px;">
-            <h3>4. Consistency</h3>
-            <p>Standardized approaches ensuring reliable and predictable operations. Data normalization using STAC and OGC standards ensures interoperability across diverse satellite sources.</p>
-          </article>
-
-          <article style="margin-top: 40px;">
-            <h3>5. Governance & Compliance</h3>
-            <p>Framework for managing operations within regulatory and policy requirements. Clear policies, documentation, and audit trails ensure accountability and regulatory compliance.</p>
-          </article>
-
-          <article style="margin-top: 40px;">
-            <h3>6. Reliability & Resilience</h3>
-            <p>Systems designed to maintain operations under various conditions and recover from failures. Redundancy, failover mechanisms, and disaster recovery ensure continuous availability.</p>
-          </article>
-
-          <article style="margin-top: 40px;">
-            <h3>7. Scalability & Performance</h3>
-            <p>Ability to handle growing data volumes and user demands efficiently. Cloud-native architecture and distributed processing enable petabyte-scale operations.</p>
-          </article>
-
-          <article style="margin-top: 40px;">
-            <h3>8. Notifications & Event Triggers</h3>
-            <p>Real-time communication and automated responses to system events. Webhooks, alerts, and event-driven architecture keep users informed of data availability and processing status.</p>
-          </article>
-        </section>
-
-        <section style="padding: 60px 20px; max-width: 1200px; margin: 0 auto; background: #f9f9f9;">
-          <h2>Industry Applications</h2>
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 30px;">
-            <article>
-              <h3>Defence & Government</h3>
-              <p>Mission readiness, situational awareness, and intelligence workflows with security compliance and audit trails.</p>
+      <section class="section section-alt" id="domains" aria-labelledby="domains-title">
+        <div class="container">
+          <div class="section-header">
+            <h2 id="domains-title">Eight Core Domains</h2>
+            <p>Essential capabilities that any credible EO data platform must provide.</p>
+          </div>
+          <div class="card-grid">
+            <article class="card" data-scroll-target="infrastructure">
+              <div class="card-icon" aria-hidden="true">⚙️</div>
+              <h3>Infrastructure</h3>
+              <p>Core technical architecture underpinning the ingestion, management, and dissemination of EO data.</p>
             </article>
-            <article>
-              <h3>Mining & Energy</h3>
-              <p>Tailings monitoring, environmental compliance, ESG reporting, and asset monitoring across global operations.</p>
+            <article class="card" data-scroll-target="security">
+              <div class="card-icon" aria-hidden="true">🛡️</div>
+              <h3>Security</h3>
+              <p>Protection of sensitive data and systems through comprehensive security measures.</p>
             </article>
-            <article>
-              <h3>Environmental Monitoring</h3>
-              <p>Wildfire detection, deforestation tracking, climate resilience planning, and ecosystem monitoring at scale.</p>
+            <article class="card" data-scroll-target="automation">
+              <div class="card-icon" aria-hidden="true">🤖</div>
+              <h3>Automation</h3>
+              <p>Streamlined processes that reduce manual intervention and increase efficiency.</p>
+            </article>
+            <article class="card" data-scroll-target="consistency">
+              <div class="card-icon" aria-hidden="true">✅</div>
+              <h3>Consistency</h3>
+              <p>Standardized approaches ensuring reliable and predictable operations.</p>
+            </article>
+            <article class="card" data-scroll-target="governance">
+              <div class="card-icon" aria-hidden="true">⚖️</div>
+              <h3>Governance &amp; Compliance</h3>
+              <p>Framework for managing operations within regulatory and policy requirements.</p>
+            </article>
+            <article class="card" data-scroll-target="reliability">
+              <div class="card-icon" aria-hidden="true">🌿</div>
+              <h3>Reliability &amp; Resilience</h3>
+              <p>Systems designed to maintain operations under various conditions and recover from failures.</p>
+            </article>
+            <article class="card" data-scroll-target="scalability">
+              <div class="card-icon" aria-hidden="true">📈</div>
+              <h3>Scalability &amp; Performance</h3>
+              <p>Ability to handle growing data volumes and user demands efficiently.</p>
+            </article>
+            <article class="card" data-scroll-target="notifications">
+              <div class="card-icon" aria-hidden="true">🔔</div>
+              <h3>Notifications &amp; Event Triggers</h3>
+              <p>Real-time communication and automated responses to system events.</p>
             </article>
           </div>
-        </section>
+        </div>
+      </section>
 
-        <footer style="padding: 40px 20px; text-align: center; border-top: 1px solid #eee;">
-          <p>Earth Observation Data Infrastructure (EODI) Standard</p>
-          <p style="color: #666; margin-top: 10px;">Supporting STAC and OGC standards for geospatial data management and automation</p>
-        </footer>
-      </main>
-    </div>
-    <script type="module" src="/src/main.tsx"></script>
+      <section class="section" id="infrastructure" aria-labelledby="infrastructure-title">
+        <div class="container narrow">
+          <header class="section-heading">
+            <div class="badge">Core Domain</div>
+            <h2 id="infrastructure-title">1. Infrastructure</h2>
+          </header>
+          <h3>What is Expected</h3>
+          <p>
+            The EODI's infrastructure is the core technical architecture underpinning the ingestion, management, and dissemination
+            of EO data. It must seamlessly integrate many distributed components, data sources, and partner inputs into a unified
+            whole that behaves as a single high-functioning platform. In practice, this means supporting multi-constellation
+            operations: data from numerous satellite missions and providers are orchestrated under one system so that users
+            experience one cohesive environment.
+          </p>
+          <p>
+            The infrastructure must encompass end-to-end workflows covering everything from initial data acquisition or satellite
+            tasking, through processing and cataloging, to final delivery. It should provide both intuitive, user-centric
+            interfaces and robust programmatic APIs, allowing users to self-service their needs (e.g. discover, order, and retrieve
+            imagery) with minimal manual involvement. In essence, the EODI infrastructure is the backbone that ensures all other
+            aspects (security, automation, etc.) function in concert.
+          </p>
+          <div class="callout">
+            <h4>Key Infrastructure Principles</h4>
+            <p>
+              <strong>Unified Data Integration:</strong> The EODI must bring together all relevant EO data sources (satellites, sensors,
+              archives) under a common framework. Using a distributed "system of systems" architecture, the platform supports
+              specialized processing for different data types while still presenting a unified interface. In practice this means
+              maintaining a centralized catalog or metadata repository that enables discovery across the entire holdings – for
+              example, NASA's Common Metadata Repository unifies search over all EOSDIS datasets. Users shouldn't need to know which
+              satellite or archive a given dataset came from; the infrastructure abstracts sources into one cohesive data lake.
+              Data from new suppliers or missions can be plugged in without disrupting the overall system, ensuring the platform
+              continuously grows in scope without fragmenting.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-alt" id="security" aria-labelledby="security-title">
+        <div class="container narrow">
+          <header class="section-heading">
+            <div class="badge">Core Domain</div>
+            <h2 id="security-title">2. Security</h2>
+          </header>
+          <h3>What is Expected</h3>
+          <p>
+            Security is a foundational aspect of any EO data platform – an EODI must safeguard data and operations through robust
+            measures at every layer. This includes controlling access to data and functions (strong authentication and fine-grained
+            authorization), protecting data both in storage and in transit (encryption everywhere), and monitoring for any
+            malicious or inappropriate activity. Security-by-design should be evident throughout the system: from user login and
+            API key management, to network architecture and software development practices. The platform is expected to isolate
+            each customer's data and processing in a multi-tenant environment such that one user cannot accidentally or
+            intentionally access another user's assets. All data must be encrypted end-to-end, meaning it stays encrypted on disk
+            and travels only over secure, encrypted channels. Strong identity management is required (e.g. support for multi-factor
+            authentication and single sign-on integration) along with role-based access controls so that only authorized personnel
+            can reach sensitive datasets or administrative functions. Additionally, the infrastructure must have audit logging and
+            intrusion detection in place to catch and respond to security incidents. Compliance with relevant security standards
+            and best practices (such as the principles of zero-trust architecture and least-privilege access) should be built in
+            from the start.
+          </p>
+          <h3>Why It's Important</h3>
+          <p>
+            Customers need absolute trust that the platform will protect their valuable and sensitive information. Many EODI users
+            are in government, defense, or commercial sectors where EO imagery and derived products can carry strategic or
+            competitive significance. A security breach compromising imagery (for example, revealing sensitive locations or
+            projects) could have serious consequences. Likewise, a loss or tampering of user data or analytics could undermine
+            missions and erode stakeholder confidence. Strong security, on the other hand, gives clients the confidence to
+            integrate the EODI deeply into their workflows. If the platform meets high security standards (often demonstrated via
+            certifications like ISO&nbsp;27001 or SOC&nbsp;2 compliance), users will treat it as a trusted extension of their own
+            infrastructure. Conversely, if security is weak or uncertain, clients will hesitate – they might silo the platform from
+            critical systems or avoid uploading their own data, greatly limiting its usefulness. In summary, without robust
+            security, no amount of functionality will make an EO platform viable.
+          </p>
+          <div class="callout">
+            <h4>Key Security Principles</h4>
+            <p>
+              <strong>Strong Authentication &amp; Access Control:</strong> All access to the EODI must be gated by reliable authentication and
+              fine-grained authorization. Every user (and service) should verify their identity via strong methods – e.g. passwords
+              combined with MFA, secure tokens, or federated single sign-on – and then only be allowed to perform actions consistent
+              with their role. The platform should enforce the principle of least privilege, meaning each account is granted the
+              minimum permissions necessary for its tasks. A centralized identity and access management system should make it easy
+              for administrators to add or remove users, assign roles, and audit permissions, with every access attempt logged for
+              review.
+            </p>
+            <p>
+              <strong>Encryption &amp; Data Protection:</strong> The platform must employ state-of-the-art encryption to protect data
+              confidentiality and integrity at all times. Data at rest (in databases, object storage, backups, etc.) should be
+              encrypted using strong algorithms, so that even if someone obtains the storage media, the content remains unreadable.
+              Data in transit must be encrypted via protocols like HTTPS/TLS. Proper encryption key management is critical – keys
+              should be stored securely (e.g. in hardware security modules or dedicated key vaults) with strict control over access
+              and rotated periodically to reduce exposure.
+            </p>
+            <p>
+              <strong>Continuous Monitoring &amp; Incident Response:</strong> Security is not "set and forget" – a robust EODI needs active
+              monitoring and a prepared incident response plan. Continuous monitoring means tracking system logs, user behavior, and
+              network traffic for anomalies that could indicate a breach or misuse. Coupled with that, there must be an incident
+              response process in place so the operations team can contain and investigate issues quickly, with regular security
+              audits and penetration tests probing for weaknesses.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="automation" aria-labelledby="automation-title">
+        <div class="container narrow">
+          <header class="section-heading">
+            <div class="badge">Core Domain</div>
+            <h2 id="automation-title">3. Automation</h2>
+          </header>
+          <h3>What is Expected</h3>
+          <p>
+            Automation is at the heart of an effective EO data infrastructure. The platform should take care of repetitive, complex
+            workflows automatically, without requiring manual intervention at each step. An EODI is expected to automate key
+            processes from data acquisition all the way to data delivery. For instance, onboarding a new satellite data stream,
+            updating a geospatial index, generating a derived product (like a mosaic or analysis-ready dataset), or fulfilling a
+            user's imagery order should all be handled by automated pipelines once the initial trigger or request is received. The
+            system must expose programmatic API endpoints for all major functions so that users and third-party systems can script
+            and integrate these actions into their own software pipelines. Internally, the platform should follow an event-driven
+            design so that when new raw data arrives it automatically kicks off processing jobs, moves outputs to the next stage,
+            or notifies the user.
+          </p>
+          <h3>Why It's Important</h3>
+          <p>
+            From an operational perspective, automation translates directly into speed, scalability, and consistency. Users benefit
+            by being able to incorporate the EODI into their workflows seamlessly. Without automation, users would be forced to
+            manually check for new data, run processing steps by hand, and distribute results – a slow, error-prone approach that
+            doesn't scale when hundreds or thousands of new datasets are pouring in. Automation ensures consistency – the same task
+            performed via an automated pipeline will execute the same way every time – and allows the infrastructure to respond to
+            events faster than humans ever could.
+          </p>
+          <div class="callout">
+            <h4>Key Automation Principles</h4>
+            <p>
+              <strong>API-First Design:</strong> Every core capability of the platform should be accessible via an API. The EODI's own web
+              interface should effectively be a client of the same public APIs offered to users, ensuring anything possible in the UI
+              can also be automated programmatically.
+            </p>
+            <p>
+              <strong>Workflow Orchestration:</strong> Automated platforms require an orchestration mechanism to manage complex multi-step
+              workflows. The EODI should include a workflow engine or scheduler that knows how to execute and chain tasks in the right
+              order while handling contingencies.
+            </p>
+            <p>
+              <strong>Event-Driven Operations:</strong> The EODI should be designed in an event-driven fashion so that components
+              communicate and react to events rather than relying on periodic checks. This reduces latency and decouples services for
+              greater scalability and reliability.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-alt" id="consistency" aria-labelledby="consistency-title">
+        <div class="container narrow">
+          <header class="section-heading">
+            <div class="badge">Core Domain</div>
+            <h2 id="consistency-title">4. Consistency</h2>
+          </header>
+          <h3>What is Expected</h3>
+          <p>
+            Consistency in an EODI means that data and operations behave in a uniform, predictable manner across the entire system.
+            The platform is expected to enforce standardized formats, protocols, and processes for all the data it handles,
+            regardless of source or type. Whether a user is accessing optical imagery from one satellite or radar data from
+            another, they should encounter similar metadata fields presented in the same structure and data files that adhere to a
+            common set of conventions.
+          </p>
+          <p>
+            The infrastructure should include normalization pipelines that automatically convert incoming data into the platform's
+            preferred formats and reference systems. All external interfaces – API responses, download links, coordinate systems –
+            should likewise be consistent so a user never has to handle special cases or quirks for different collections; the EODI
+            abstracts those differences away by organizing and presenting data systematically.
+          </p>
+          <h3>Why It's Important</h3>
+          <p>
+            Consistency is operationally important because it dramatically reduces the burden on users and lowers the chance of
+            errors. By providing data in a consistent, analysis-ready form, the EODI lets users focus on extracting insights rather
+            than doing data janitorial work. It also fosters interoperability and fusion of data, making it much easier to combine
+            information from multiple sources when they "fit together" out of the box.
+          </p>
+          <div class="callout">
+            <h4>Key Consistency Principles</h4>
+            <p>
+              <strong>Standardized Formats &amp; Metadata:</strong> Adopt community-established standards (such as Cloud-Optimized GeoTIFF and
+              the STAC metadata model) so that files are interoperable across common GIS tools without conversion and metadata is
+              Findable, Accessible, Interoperable, and Reusable (FAIR).
+            </p>
+            <p>
+              <strong>Normalization Pipelines:</strong> Automatically harmonize incoming datasets into the platform-wide conventions,
+              including reprojection, format conversion, metadata translation, and consistent quality preprocessing (e.g. cloud
+              masking or radiometric calibration) so users receive analysis-ready products.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="governance" aria-labelledby="governance-title">
+        <div class="container narrow">
+          <header class="section-heading">
+            <div class="badge">Core Domain</div>
+            <h2 id="governance-title">5. Governance &amp; Compliance</h2>
+          </header>
+          <h3>What is Expected</h3>
+          <p>
+            Governance and compliance in an EODI context refer to the policies, controls, and oversight that ensure data is managed
+            properly, lawfully, and in line with organizational requirements. An EODI must have strong governance mechanisms to
+            control how data is used and shared, and to comply with all relevant laws, regulations, and contractual obligations
+            associated with that data. This means clearly defining who can access what data and under what conditions and baking those
+            rules into the system's design.
+          </p>
+          <p>
+            It also means managing the data lifecycle in a way that meets both operational needs and compliance requirements – for
+            example, enforcing retention policies, ensuring right-to-be-forgotten requests can be honored if applicable, and providing
+            auditable provenance for every dataset. The platform should support robust auditing and reporting capabilities so that at
+            any time administrators can answer questions like who accessed a dataset, where it originated, and whether it has been
+            modified.
+          </p>
+          <h3>Why It's Important</h3>
+          <p>
+            Many EODI customers, especially government agencies and large enterprises, have strict compliance requirements. If they
+            use a platform that cannot demonstrate proper governance controls, they may be legally unable or very reluctant to adopt
+            it. Good governance prevents misuse of data, protects both the provider and users from legal trouble, and gives
+            organizations confidence that they remain in control of their data even when it's hosted on the platform. In the event of
+            disputes or security incidents, having proper governance logs and controls is essential to investigate and take action.
+          </p>
+          <div class="callout">
+            <h4>Key Governance &amp; Compliance Principles</h4>
+            <p>
+              <strong>Access Governance &amp; Permissions:</strong> Implement fine-grained access controls and well-defined permission
+              structures to govern who can access data and functionality. Support grouping users into roles or teams, approval
+              workflows where necessary, and secure sharing mechanics that are tracked and revocable.
+            </p>
+            <p>
+              <strong>License Management &amp; Usage Compliance:</strong> Encode license rules and enforce them automatically to prevent
+              accidental or intentional misuse of licensed datasets, including geographic or temporal restrictions, expirations, and
+              transparency about permitted uses.
+            </p>
+            <p>
+              <strong>Auditing &amp; Accountability:</strong> Maintain tamper-evident logs of all significant actions and provide tools for
+              reviewing them, ensuring transparency and accountability. Enable automated alerts for unusual behavior and furnish
+              reports needed for formal compliance audits.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-alt" id="reliability" aria-labelledby="reliability-title">
+        <div class="container narrow">
+          <header class="section-heading">
+            <div class="badge">Core Domain</div>
+            <h2 id="reliability-title">6. Reliability &amp; Resilience</h2>
+          </header>
+          <h3>What is Expected</h3>
+          <p>
+            Reliability and resilience refer to the platform's ability to function continuously, deliver consistent performance, and
+            recover gracefully from problems or disruptions. An EODI should be highly reliable: it must have minimal unplanned
+            downtime, quick response times, and be engineered without single points of failure. Resilience emphasizes the platform's
+            ability to absorb and adapt to unexpected events – from hardware failure to regional outages – and continue operating.
+          </p>
+          <p>
+            This involves redundant components, geographically diverse deployments, replicated data storage, and robust monitoring
+            so degradation is detected and addressed before it becomes a major outage. Disaster recovery plans should define how the
+            platform restores services if a catastrophic event occurs, with regular testing to ensure readiness.
+          </p>
+          <h3>Why It's Important</h3>
+          <p>
+            Many users embed the EODI deeply into time-sensitive workflows. If the platform is down or slow at critical moments, it
+            can have serious operational consequences – delaying emergency response, interrupting automated agronomic programs, or
+            undermining mission outcomes. Trust is earned through proven reliability, transparent incident communication, and rapid
+            recovery when issues arise.
+          </p>
+          <div class="callout">
+            <h4>Key Reliability &amp; Resilience Principles</h4>
+            <p>
+              <strong>High-Availability Architecture:</strong> Design for redundancy at every critical layer so that failures do not
+              interrupt service.
+            </p>
+            <p>
+              <strong>Data Redundancy &amp; Backups:</strong> Store data with replication and regular backups so that a loss or corruption in
+              one copy does not result in permanent data loss.
+            </p>
+            <p>
+              <strong>Monitoring &amp; Alerting:</strong> Instrument the platform with comprehensive monitoring of health, performance, and
+              error metrics, coupled with prioritized alerts and on-call response so issues are detected and handled before users are
+              impacted.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="scalability" aria-labelledby="scalability-title">
+        <div class="container narrow">
+          <header class="section-heading">
+            <div class="badge">Core Domain</div>
+            <h2 id="scalability-title">7. Scalability &amp; Performance</h2>
+          </header>
+          <h3>What is Expected</h3>
+          <p>
+            Scalability and performance are about the platform's capacity to handle growth and to provide fast, efficient service
+            under load. An EODI must be designed to scale along multiple dimensions – data volume, number of users, and computational
+            demand – without degradation of performance. The architecture should ensure that current performance levels can be
+            maintained (or even improved) as the system scales to much larger workloads in the future.
+          </p>
+          <p>
+            This means embracing elastic infrastructure, efficient indexing, caching, and delivery mechanisms tailored to
+            geospatial-temporal data, and distributed processing that can accelerate heavy analytics. Users should experience minimal
+            wait times for searches and downloads even as the backend manages petabyte-scale archives and thousands of concurrent
+            workflows.
+          </p>
+          <div class="callout">
+            <h4>Key Scalability &amp; Performance Principles</h4>
+            <p>
+              <strong>Elastic Resource Scaling:</strong> Use cloud-native or containerized workloads that can scale automatically as demand
+              fluctuates, adding compute, storage, and network capacity dynamically and releasing it when no longer needed.
+            </p>
+            <p>
+              <strong>Optimized Data Indexing &amp; Retrieval:</strong> Implement spatial and temporal indexing, caching, and cloud-optimized
+              data formats so that queries return quickly and downloads are efficient even against massive catalogs.
+            </p>
+            <p>
+              <strong>Parallel &amp; Distributed Processing:</strong> Distribute heavy processing across multiple workers or clusters so large
+              analytics jobs finish quickly, scaling roughly linearly with the resources added.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-alt" id="notifications" aria-labelledby="notifications-title">
+        <div class="container narrow">
+          <header class="section-heading">
+            <div class="badge">Core Domain</div>
+            <h2 id="notifications-title">8. Notifications &amp; Event Triggers</h2>
+          </header>
+          <h3>What is Expected</h3>
+          <p>
+            Notifications and event triggers refer to the platform's capability to actively inform users or external systems about
+            important events, rather than expecting users to continuously poll or check for updates. An EODI should have a robust
+            notification subsystem that can alert users when certain conditions are met – for example, when a requested image is ready
+            for download, when new data matching a saved search appears, or when a processing job completes. The system should support
+            multiple channels such as email, SMS, in-app alerts, and machine-readable callbacks like webhooks.
+          </p>
+          <h3>Why It's Important</h3>
+          <p>
+            This capability significantly improves efficiency and responsiveness for users. In many EO applications, timeliness is
+            crucial. Consider disaster response, where responders need to know the moment new imagery is available; or monitoring
+            scenarios where a threshold crossing must trigger immediate action. Event triggers also enable automation loops: a
+            notification about new data availability can automatically kick off a user's own processing pipeline, update a dashboard,
+            or inform downstream systems without human intervention.
+          </p>
+          <div class="callout">
+            <h4>Key Notifications &amp; Event Triggers Principles</h4>
+            <p>
+              <strong>Real-Time Data Alerts:</strong> Deliver notifications as close to real-time as feasible when events occur, supporting
+              multiple channels such as email, SMS, web and mobile push, and webhooks so information reaches humans and machines without
+              delay.
+            </p>
+            <p>
+              <strong>User-Defined Subscriptions &amp; Filters:</strong> Allow users to create subscriptions or watches on certain criteria so
+              they hear only about events that matter to them. Users should be able to save geospatial/temporal queries, job states, or
+              other conditions and choose the frequency or digest format of alerts.
+            </p>
+            <p>
+              <strong>Integration with External Systems:</strong> Provide developer-friendly hooks (webhooks, message queues, standard
+              messaging protocols) so notifications can trigger downstream automation and seamlessly plug into external workflows.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>© 2025 Earth Observation Data Infrastructure</p>
+        <nav aria-label="Legal">
+          <a href="#">Privacy Policy</a>
+          <span aria-hidden="true">|</span>
+          <a href="#">Terms of Use</a>
+          <span aria-hidden="true">|</span>
+          <a href="#">Contact</a>
+        </nav>
+      </div>
+    </footer>
+
+    <button class="scroll-top" type="button" aria-label="Scroll to top">▲</button>
   </body>
 </html>
