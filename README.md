@@ -1,73 +1,36 @@
-# Welcome to your Lovable project
+# Earth Observation Data Infrastructure (EODI) Standard
 
-## Project info
+This repository contains a fully static implementation of the Earth Observation Data Infrastructure (EODI) standard site. The React/Vite build chain and all Lovable-specific dependencies have been removed, leaving a lightweight HTML, CSS, and JavaScript experience that can be hosted on any static file server.
 
-**URL**: https://lovable.dev/projects/5a62ec4a-6e9e-47e4-ae10-4e26b68ece05
+## Project Structure
 
-## How can I edit this code?
-
-There are several ways of editing your application.
-
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/5a62ec4a-6e9e-47e4-ae10-4e26b68ece05) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+```
+index.html   # Main standard overview page
+blog.html    # Supporting blog article
+styles.css   # Shared styling for both pages
+script.js    # Small enhancements (smooth scrolling, cards, scroll-to-top)
+favicon.ico  # Site icon
+robots.txt   # Basic crawler directives
 ```
 
-**Edit a file directly in GitHub**
+## Viewing the Site Locally
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+There are two easy ways to explore the static site:
 
-**Use GitHub Codespaces**
+1. **Open the HTML file directly**  
+   Locate `index.html` in this repository and double-click it (or right-click → "Open With") to launch it in your default browser.  
+   This is the quickest option if you only need to view the content.
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+2. **Serve the files from a lightweight web server**  
+   Running a local server mimics how the site will behave once deployed and ensures relative links (like `blog.html` or the favicon) resolve correctly.
 
-## What technologies are used for this project?
+   ```sh
+   # From the repository root
+   python -m http.server 8000
+   ```
 
-This project is built with:
+   Then open [http://localhost:8000](http://localhost:8000) in your browser. Use `Ctrl+C` (or `Cmd+C` on macOS) in the terminal when you are done to stop the server.
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## Deployment
 
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/5a62ec4a-6e9e-47e4-ae10-4e26b68ece05) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+Because the site is now fully static, you can deploy it to any static hosting platform (S3, Netlify, GitHub Pages, etc.) by uploading the files in this repository.
