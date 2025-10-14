@@ -1,6 +1,6 @@
 # Earth Observation Data Infrastructure (EODI) Standard
 
-This repository contains a fully static implementation of the Earth Observation Data Infrastructure (EODI) standard site. The React/Vite build chain and all framework-specific dependencies have been removed, leaving a lightweight HTML, CSS, and JavaScript experience that can be hosted on any static file server.
+This repository contains a fully static implementation of the Earth Observation Data Infrastructure (EODI) standard site that powers [https://eodatainfrastructure.com](https://eodatainfrastructure.com). The React/Vite build chain and all framework-specific dependencies have been removed, leaving a lightweight HTML, CSS, and JavaScript experience that can be hosted on any static file server.
 
 ## Project Structure
 
