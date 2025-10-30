@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180" role="img" aria-label="EODI Apple touch icon">
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0A4DFF" />
+      <stop offset="100%" stop-color="#6FD6FF" />
+    </linearGradient>
+  </defs>
+  <rect width="180" height="180" rx="36" fill="#020C2C" />
+  <g fill="none" stroke="url(#grad)" stroke-width="11" stroke-linecap="round">
+    <path d="M48 56c28-28 79-28 107 0" />
+    <path d="M22 96c11 38 49 60 88 55" />
+  </g>
+  <g fill="none" stroke="#6FD6FF" stroke-width="8" stroke-linecap="round">
+    <path d="M60 80l23 23" />
+    <path d="M83 69l23 23" />
+  </g>
+  <circle cx="95" cy="84" r="17" fill="#0A4DFF" stroke="#6FD6FF" stroke-width="5" />
+</svg>

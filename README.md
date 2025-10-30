@@ -7,11 +7,22 @@ This repository contains a fully static implementation of the Earth Observation 
 ```
 index.html   # Main standard overview page
 blog.html    # Supporting blog article
-styles.css   # Shared styling for both pages
-script.js    # Small enhancements (smooth scrolling, cards, scroll-to-top)
-favicon.ico  # Site icon
-robots.txt   # Basic crawler directives
+styles.css             # Shared styling for both pages
+script.js              # Small enhancements (smooth scrolling, cards, scroll-to-top)
+favicon.svg            # Vector favicon served from the site root
+apple-touch-icon.svg   # Vector icon for iOS/Chrome mobile home-screen shortcuts
+icon-192.svg           # Manifest icon (maskable) for install surfaces
+icon-512.svg           # Manifest icon (maskable) for high-resolution install surfaces
+safari-pinned-tab.svg  # Mask icon for Safari pinned tabs
+site.webmanifest       # PWA manifest pointing at the local icon set
+robots.txt             # Basic crawler directives
 ```
+
+## Icon assets
+
+To satisfy the "no binary files" restriction in some downstream tooling, all icons are delivered as SVG. The files are hand-crafted to preserve the same orbital motif across every surface while keeping the markup lightweight.
+
+Update the `?v=svg1` cache-busting query parameter in `index.html`, `blog.html`, and `site.webmanifest` whenever you change the artwork so browsers fetch the new SVGs immediately.
 
 ## Viewing the Site Locally
 

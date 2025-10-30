@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="EODI orbital emblem large">
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0A4DFF" />
+      <stop offset="100%" stop-color="#6FD6FF" />
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="96" fill="#020C2C" />
+  <g fill="none" stroke="url(#grad)" stroke-width="32" stroke-linecap="round">
+    <path d="M138 160c80-80 224-80 304 0" />
+    <path d="M64 272c32 112 144 176 256 160" />
+  </g>
+  <g fill="none" stroke="#6FD6FF" stroke-width="24" stroke-linecap="round">
+    <path d="M176 224l64 64" />
+    <path d="M240 192l64 64" />
+  </g>
+  <circle cx="256" cy="240" r="48" fill="#0A4DFF" stroke="#6FD6FF" stroke-width="16" />
+</svg>
