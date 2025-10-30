@@ -215,6 +215,18 @@
             imagery) with minimal manual involvement. In essence, the EODI infrastructure is the backbone that ensures all other
             aspects (security, automation, etc.) function in concert.
           </p>
+          <p>
+            Earth Observation Data Infrastructure is the core system that ingests, manages, and delivers EO data as one coherent
+            platform. It must integrate distributed sensors, archives, and providers under a single architecture so users experience
+            one system rather than many. The scope covers the end-to-end flow from tasking and acquisition through processing,
+            cataloging, and delivery, with both a clear web UI and complete APIs so users can search, order, and retrieve without
+            manual handoffs.
+          </p>
+          <p>
+            A unified platform removes silos and queue friction. Requests should trigger automated fulfilment that schedules
+            collections, ingests results, standardizes outputs, and delivers them reliably, shrinking latency, reducing operational
+            overhead, and building trust that the same system will perform under load and during critical windows.
+          </p>
           <div class="callout">
             <h4>Key Infrastructure Principles</h4>
             <p>
@@ -225,7 +237,20 @@
               example, NASA's Common Metadata Repository unifies search over all EOSDIS datasets. Users shouldn't need to know which
               satellite or archive a given dataset came from; the infrastructure abstracts sources into one cohesive data lake.
               Data from new suppliers or missions can be plugged in without disrupting the overall system, ensuring the platform
-              continuously grows in scope without fragmenting.
+              continuously grows in scope without fragmenting. Consolidate satellites, sensors, and archives behind a common
+              catalog and metadata layer so the platform hides source quirks and presents a single discovery and retrieval surface.
+            </p>
+            <p>
+              <strong>Self-Service and APIs:</strong> Make every core function available in the UI and via stable APIs so users and
+              external systems can place orders, track state, and pull results without tickets or emails.
+            </p>
+            <p>
+              <strong>Automated Fulfilment:</strong> Trigger deterministic workflows for tasking, acquisition monitoring, ingestion,
+              preprocessing, and delivery, with recorded state transitions so every step is auditable.
+            </p>
+            <p>
+              <strong>Modular and Cloud-Native:</strong> Use independently deployable services for catalog, ordering, processing,
+              delivery, and authentication, scaling components in isolation and updating them without downtime.
             </p>
           </div>
         </div>
@@ -253,6 +278,11 @@
             and best practices (such as the principles of zero-trust architecture and least-privilege access) should be built in
             from the start.
           </p>
+          <p>
+            Security must be designed in from identity to network to data. Enforce strong authentication, fine-grained authorization,
+            tenant isolation, and encryption in transit and at rest while operating with continuous monitoring, intrusion detection,
+            auditable logs, SSO, and MFA so every role adheres to least-privilege boundaries.
+          </p>
           <h3>Why It's Important</h3>
           <p>
             Customers need absolute trust that the platform will protect their valuable and sensitive information. Many EODI users
@@ -266,6 +296,11 @@
             critical systems or avoid uploading their own data, greatly limiting its usefulness. In summary, without robust
             security, no amount of functionality will make an EO platform viable.
           </p>
+          <p>
+            Users move sensitive and sometimes regulated workloads onto the platform. Breaches, leaks, or silent tampering are
+            unacceptable, and only a platform that can demonstrate control, isolation, and traceability will be trusted in the
+            critical path of operations.
+          </p>
           <div class="callout">
             <h4>Key Security Principles</h4>
             <p>
@@ -275,7 +310,8 @@
               with their role. The platform should enforce the principle of least privilege, meaning each account is granted the
               minimum permissions necessary for its tasks. A centralized identity and access management system should make it easy
               for administrators to add or remove users, assign roles, and audit permissions, with every access attempt logged for
-              review.
+              review. Enforce MFA, SSO, scoped tokens, and least-privilege RBAC with centralized identity to simplify joiners,
+              movers, leavers, and service accounts.
             </p>
             <p>
               <strong>Encryption &amp; Data Protection:</strong> The platform must employ state-of-the-art encryption to protect data
@@ -283,14 +319,20 @@
               encrypted using strong algorithms, so that even if someone obtains the storage media, the content remains unreadable.
               Data in transit must be encrypted via protocols like HTTPS/TLS. Proper encryption key management is critical – keys
               should be stored securely (e.g. in hardware security modules or dedicated key vaults) with strict control over access
-              and rotated periodically to reduce exposure.
+              and rotated periodically to reduce exposure. Encrypt everywhere with robust key storage and rotation, keeping keys in
+              managed vaults or HSMs with clear administrator separation.
             </p>
             <p>
               <strong>Continuous Monitoring &amp; Incident Response:</strong> Security is not "set and forget" – a robust EODI needs active
               monitoring and a prepared incident response plan. Continuous monitoring means tracking system logs, user behavior, and
               network traffic for anomalies that could indicate a breach or misuse. Coupled with that, there must be an incident
               response process in place so the operations team can contain and investigate issues quickly, with regular security
-              audits and penetration tests probing for weaknesses.
+              audits and penetration tests probing for weaknesses. Instrument logs, metrics, and network signals, alert on anomalies,
+              and execute a tested incident-response playbook with clear containment and notification paths.
+            </p>
+            <p>
+              <strong>Compliance &amp; Data Governance:</strong> Align with relevant standards and regional controls, respecting license terms
+              and data-residency requirements through technical enforcement rather than policy alone.
             </p>
           </div>
         </div>
@@ -314,6 +356,11 @@
             design so that when new raw data arrives it automatically kicks off processing jobs, moves outputs to the next stage,
             or notifies the user.
           </p>
+          <p>
+            Automation should run the routine work. Once triggered, ingest pipelines, index updates, product generation, and order
+            fulfilment must execute without manual steps, with every capability accessible through APIs and an event-driven core
+            ensuring new data and job completions propagate state automatically.
+          </p>
           <h3>Why It's Important</h3>
           <p>
             From an operational perspective, automation translates directly into speed, scalability, and consistency. Users benefit
@@ -323,22 +370,37 @@
             performed via an automated pipeline will execute the same way every time – and allows the infrastructure to respond to
             events faster than humans ever could.
           </p>
+          <p>
+            Automation increases speed, reduces errors, and scales with demand, allowing users to integrate the platform into their
+            own processes while eliminating polling, spreadsheets, and ad hoc scripts that fail under growth.
+          </p>
           <div class="callout">
             <h4>Key Automation Principles</h4>
             <p>
               <strong>API-First Design:</strong> Every core capability of the platform should be accessible via an API. The EODI's own web
               interface should effectively be a client of the same public APIs offered to users, ensuring anything possible in the UI
-              can also be automated programmatically.
+              can also be automated programmatically. The UI should consume the same surface customers use so anything clickable is
+              scriptable, with clear versioning and documentation.
             </p>
             <p>
               <strong>Workflow Orchestration:</strong> Automated platforms require an orchestration mechanism to manage complex multi-step
               workflows. The EODI should include a workflow engine or scheduler that knows how to execute and chain tasks in the right
-              order while handling contingencies.
+              order while handling contingencies. Use orchestration to chain steps, manage retries, handle branching, and persist state
+              with observable, re-runnable runs.
             </p>
             <p>
               <strong>Event-Driven Operations:</strong> The EODI should be designed in an event-driven fashion so that components
               communicate and react to events rather than relying on periodic checks. This reduces latency and decouples services for
-              greater scalability and reliability.
+              greater scalability and reliability. Publish and react to events for data arrival, job state, and delivery to keep work
+              moving without timers or polling.
+            </p>
+            <p>
+              <strong>Remove Manual Touchpoints:</strong> Continuously replace human checks with programmatic checks so operators handle
+              exceptions and policy decisions, not the happy path.
+            </p>
+            <p>
+              <strong>User Automation:</strong> Provide examples, CLIs, and SDKs so customers can schedule pulls, push products to their
+              storage, and integrate with their own notification or ETL stacks.
             </p>
           </div>
         </div>
@@ -364,6 +426,10 @@
             should likewise be consistent so a user never has to handle special cases or quirks for different collections; the EODI
             abstracts those differences away by organizing and presenting data systematically.
           </p>
+          <p>
+            Data and interfaces should look and behave the same regardless of source, with standardized formats, metadata, and
+            normalized inputs so downstream tools can assume shared conventions for projections, band ordering, and packaging.
+          </p>
           <h3>Why It's Important</h3>
           <p>
             Consistency is operationally important because it dramatically reduces the burden on users and lowers the chance of
@@ -371,17 +437,35 @@
             than doing data janitorial work. It also fosters interoperability and fusion of data, making it much easier to combine
             information from multiple sources when they "fit together" out of the box.
           </p>
+          <p>
+            Consistency removes integration drag so analysts and pipelines can be built once and reused across providers, with
+            simpler multi-sensor fusion when products align on schema and shared quality gates.
+          </p>
           <div class="callout">
             <h4>Key Consistency Principles</h4>
             <p>
               <strong>Standardized Formats &amp; Metadata:</strong> Adopt community-established standards (such as Cloud-Optimized GeoTIFF and
               the STAC metadata model) so that files are interoperable across common GIS tools without conversion and metadata is
-              Findable, Accessible, Interoperable, and Reusable (FAIR).
+              Findable, Accessible, Interoperable, and Reusable (FAIR). Use well-adopted formats and schemas so every item arrives
+              with predictable structure.
             </p>
             <p>
               <strong>Normalization Pipelines:</strong> Automatically harmonize incoming datasets into the platform-wide conventions,
               including reprojection, format conversion, metadata translation, and consistent quality preprocessing (e.g. cloud
-              masking or radiometric calibration) so users receive analysis-ready products.
+              masking or radiometric calibration) so users receive analysis-ready products. Normalize inputs during ingestion so
+              downstream systems inherit consistency by default.
+            </p>
+            <p>
+              <strong>Uniform Access Behaviour:</strong> Keep search patterns, item shapes, links, and authentication flows stable across
+              datasets, handling special licensing rules internally while leaving interfaces fixed.
+            </p>
+            <p>
+              <strong>Quality and Versioning:</strong> Enforce quality checks and publish explicit versions for reprocessed data with
+              transparent lineage so users can track updates safely.
+            </p>
+            <p>
+              <strong>Consistent Documentation:</strong> Maintain documentation for formats, fields, error codes, and examples so they stay
+              aligned with the live system whenever interfaces change.
             </p>
           </div>
         </div>
@@ -408,6 +492,10 @@
             any time administrators can answer questions like who accessed a dataset, where it originated, and whether it has been
             modified.
           </p>
+          <p>
+            Define who can access which datasets and actions, under what terms, and for how long, enforcing those rules in code while
+            delivering full auditability, provenance, reporting, lifecycle automation, and support for regional or license constraints.
+          </p>
           <h3>Why It's Important</h3>
           <p>
             Many EODI customers, especially government agencies and large enterprises, have strict compliance requirements. If they
@@ -416,22 +504,37 @@
             organizations confidence that they remain in control of their data even when it's hosted on the platform. In the event of
             disputes or security incidents, having proper governance logs and controls is essential to investigate and take action.
           </p>
+          <p>
+            Enterprises and agencies need evidence of control, with automated enforcement preventing accidental misuse and clear logs
+            accelerating investigations and compliance reviews while reducing legal risk.
+          </p>
           <div class="callout">
             <h4>Key Governance &amp; Compliance Principles</h4>
             <p>
               <strong>Access Governance &amp; Permissions:</strong> Implement fine-grained access controls and well-defined permission
               structures to govern who can access data and functionality. Support grouping users into roles or teams, approval
-              workflows where necessary, and secure sharing mechanics that are tracked and revocable.
+              workflows where necessary, and secure sharing mechanics that are tracked and revocable. Model roles, groups, projects,
+              and dataset ACLs with request-and-approve flows and revocable sharing backed by audit trails.
             </p>
             <p>
               <strong>License Management &amp; Usage Compliance:</strong> Encode license rules and enforce them automatically to prevent
               accidental or intentional misuse of licensed datasets, including geographic or temporal restrictions, expirations, and
-              transparency about permitted uses.
+              transparency about permitted uses. Encode geographic, temporal, and redistribution limits, expiring access on schedule
+              and surfacing permitted uses to the user.
             </p>
             <p>
               <strong>Auditing &amp; Accountability:</strong> Maintain tamper-evident logs of all significant actions and provide tools for
               reviewing them, ensuring transparency and accountability. Enable automated alerts for unusual behavior and furnish
-              reports needed for formal compliance audits.
+              reports needed for formal compliance audits. Keep immutable logs of access, mutation, and sharing with administrator
+              views and scheduled reports.
+            </p>
+            <p>
+              <strong>Data Lifecycle &amp; Retention:</strong> Apply retention, archival, and deletion automatically, verifying backups and
+              integrity on a schedule.
+            </p>
+            <p>
+              <strong>Legal &amp; Regulatory Alignment:</strong> Honor residency, export controls, and sector policies through technical
+              controls with clear user feedback when actions are blocked.
             </p>
           </div>
         </div>
@@ -455,6 +558,10 @@
             so degradation is detected and addressed before it becomes a major outage. Disaster recovery plans should define how the
             platform restores services if a catastrophic event occurs, with regular testing to ensure readiness.
           </p>
+          <p>
+            Engineer for uptime, graceful degradation, and rapid recovery by removing single points of failure, replicating data,
+            monitoring health, and testing disaster recovery and failover on a routine cadence.
+          </p>
           <h3>Why It's Important</h3>
           <p>
             Many users embed the EODI deeply into time-sensitive workflows. If the platform is down or slow at critical moments, it
@@ -462,20 +569,32 @@
             undermining mission outcomes. Trust is earned through proven reliability, transparent incident communication, and rapid
             recovery when issues arise.
           </p>
+          <p>
+            Operational users depend on predictable data, so outages and data loss erode trust and force costly customer workarounds;
+            a resilient platform stays available during incidents and communicates clearly.
+          </p>
           <div class="callout">
             <h4>Key Reliability &amp; Resilience Principles</h4>
             <p>
               <strong>High-Availability Architecture:</strong> Design for redundancy at every critical layer so that failures do not
-              interrupt service.
+              interrupt service. Use multi-AZ deployments, rolling updates, and zero-downtime change management to maintain uptime.
             </p>
             <p>
               <strong>Data Redundancy &amp; Backups:</strong> Store data with replication and regular backups so that a loss or corruption in
-              one copy does not result in permanent data loss.
+              one copy does not result in permanent data loss. Replicate hot paths, verify backups, and meet documented RPO and RTO
+              targets.
+            </p>
+            <p>
+              <strong>Resilient Processing &amp; Delivery:</strong> Retry transient failures, checkpoint long jobs, provide alternate delivery
+              routes, and use elastic capacity to absorb spikes.
             </p>
             <p>
               <strong>Monitoring &amp; Alerting:</strong> Instrument the platform with comprehensive monitoring of health, performance, and
               error metrics, coupled with prioritized alerts and on-call response so issues are detected and handled before users are
-              impacted.
+              impacted. Track saturation, errors, latency, and SLOs while exposing a status page or API for users.
+            </p>
+            <p>
+              <strong>Regular Testing &amp; Drills:</strong> Run load tests and failover exercises, fixing gaps before real incidents surface.
             </p>
           </div>
         </div>
@@ -500,19 +619,38 @@
             wait times for searches and downloads even as the backend manages petabyte-scale archives and thousands of concurrent
             workflows.
           </p>
+          <p>
+            Scale with data, users, and compute without degrading the experience by using elastic infrastructure, smart indexing,
+            caching, and distributed processing that keep queries fast and delivery efficient at petabyte scale.
+          </p>
+          <p>
+            Programs grow, and if performance collapses under volume or concurrency, adoption stalls; efficient search and transfer
+            keep analysis quick and costs predictable.
+          </p>
           <div class="callout">
             <h4>Key Scalability &amp; Performance Principles</h4>
             <p>
               <strong>Elastic Resource Scaling:</strong> Use cloud-native or containerized workloads that can scale automatically as demand
-              fluctuates, adding compute, storage, and network capacity dynamically and releasing it when no longer needed.
+              fluctuates, adding compute, storage, and network capacity dynamically and releasing it when no longer needed. Autoscale
+              services, workers, and queues while scaling down when idle to control spend.
             </p>
             <p>
               <strong>Optimized Data Indexing &amp; Retrieval:</strong> Implement spatial and temporal indexing, caching, and cloud-optimized
-              data formats so that queries return quickly and downloads are efficient even against massive catalogs.
+              data formats so that queries return quickly and downloads are efficient even against massive catalogs. Use tiling and
+              cloud-optimized formats to keep reads quick.
             </p>
             <p>
               <strong>Parallel &amp; Distributed Processing:</strong> Distribute heavy processing across multiple workers or clusters so large
-              analytics jobs finish quickly, scaling roughly linearly with the resources added.
+              analytics jobs finish quickly, scaling roughly linearly with the resources added. Partition workloads and run them across
+              clusters so big jobs finish within acceptable windows.
+            </p>
+            <p>
+              <strong>Continuous Performance Tuning:</strong> Benchmark, profile, and optimize hot paths, baking performance reviews into
+              release cycles.
+            </p>
+            <p>
+              <strong>Geographic Distribution:</strong> Place services and caches near users, using CDNs or regional replicas to cut latency
+              and share load.
             </p>
           </div>
         </div>
@@ -532,6 +670,10 @@
             for download, when new data matching a saved search appears, or when a processing job completes. The system should support
             multiple channels such as email, SMS, in-app alerts, and machine-readable callbacks like webhooks.
           </p>
+          <p>
+            Notify humans and systems when events matter, supporting email, in-app, SMS, and webhooks with user-defined subscriptions
+            for saved searches, job states, or thresholds and flexible frequency or digest controls.
+          </p>
           <h3>Why It's Important</h3>
           <p>
             This capability significantly improves efficiency and responsiveness for users. In many EO applications, timeliness is
@@ -540,21 +682,35 @@
             notification about new data availability can automatically kick off a user's own processing pipeline, update a dashboard,
             or inform downstream systems without human intervention.
           </p>
+          <p>
+            Timely alerts close the loop from capture to action, eliminating polling so downstream automation starts on time and incidents
+            are handled faster.
+          </p>
           <div class="callout">
             <h4>Key Notifications &amp; Event Triggers Principles</h4>
             <p>
               <strong>Real-Time Data Alerts:</strong> Deliver notifications as close to real-time as feasible when events occur, supporting
               multiple channels such as email, SMS, web and mobile push, and webhooks so information reaches humans and machines without
-              delay.
+              delay. Emit notifications quickly when items ingest, jobs complete, or orders deliver, including enough context for immediate
+              action.
             </p>
             <p>
               <strong>User-Defined Subscriptions &amp; Filters:</strong> Allow users to create subscriptions or watches on certain criteria so
               they hear only about events that matter to them. Users should be able to save geospatial/temporal queries, job states, or
-              other conditions and choose the frequency or digest format of alerts.
+              other conditions and choose the frequency or digest format of alerts, controlling channels and cadence.
             </p>
             <p>
               <strong>Integration with External Systems:</strong> Provide developer-friendly hooks (webhooks, message queues, standard
-              messaging protocols) so notifications can trigger downstream automation and seamlessly plug into external workflows.
+              messaging protocols) so notifications can trigger downstream automation and seamlessly plug into external workflows. Offer
+              reliable webhooks and message-queue options so customer platforms can trigger pipelines, dashboards, or ticketing.
+            </p>
+            <p>
+              <strong>Reliable Delivery:</strong> Implement retries, dead-letter tracking, and delivery logs while preventing alert floods with
+              batching and rate limits.
+            </p>
+            <p>
+              <strong>Operational Communications:</strong> Use a visible status channel for maintenance windows and incidents, sharing impact
+              and remediation steps.
             </p>
           </div>
         </div>
