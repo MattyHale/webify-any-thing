@@ -1,0 +1,11 @@
+{
+  "name": "Earth Observation Data Infrastructure",
+  "short_name": "EODI",
+  "icons": [
+    { "src": "/icon.svg", "sizes": "any", "type": "image/svg+xml" }
+  ],
+  "theme_color": "#0A4DFF",
+  "background_color": "#0A4DFF",
+  "display": "standalone",
+  "start_url": "/"
+}
