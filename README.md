@@ -9,15 +9,12 @@ index.html   # Main standard overview page
 blog.html    # Supporting blog article
 styles.css   # Shared styling for both pages
 script.js    # Small enhancements (smooth scrolling, cards, scroll-to-top)
-icon.svg     # Shared SVG icon referenced from the head tags and manifest
 robots.txt   # Basic crawler directives
 ```
 
 ## Icon assets
 
-To avoid binary files in version control (which trigger "Binary files are not supported" in some review tools), the favicon, mask icon, and manifest icon all point to a single shared SVG at `icon.svg`. Browsers that support SVG favicons load it directly, while others gracefully ignore it and fall back to standard tab icons.
-
-To tweak the artwork, edit `icon.svg` directly—the `<link>` and manifest entries automatically pick up the change. If you need to preview variations, open the file in a browser or vector editor, then commit the updated SVG when you are happy with it.
+To keep the repository free of binary assets, the site now uses a temporary blank favicon (`<link rel="icon" href="data:,">`). Browsers will show a neutral placeholder until a new branded icon is added.
 
 ## Viewing the Site Locally
 
