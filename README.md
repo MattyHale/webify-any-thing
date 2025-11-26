@@ -6,8 +6,7 @@ This repository contains a fully static implementation of the Earth Observation 
 
 ```
 index.html   # Main standard overview page
-blog.html    # Supporting blog article
-styles.css   # Shared styling for both pages
+styles.css   # Shared styling for the site
 script.js    # Small enhancements (smooth scrolling, cards, scroll-to-top)
 robots.txt   # Basic crawler directives
 ```
@@ -24,8 +23,8 @@ There are two easy ways to explore the static site:
    Locate `index.html` in this repository and double-click it (or right-click → "Open With") to launch it in your default browser.  
    This is the quickest option if you only need to view the content.
 
-2. **Serve the files from a lightweight web server**  
-   Running a local server mimics how the site will behave once deployed and ensures relative links (like `blog.html` or the favicon) resolve correctly.
+2. **Serve the files from a lightweight web server**
+   Running a local server mimics how the site will behave once deployed and ensures relative links (like the favicon) resolve correctly.
 
    ```sh
    # From the repository root
