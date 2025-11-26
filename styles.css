@@ -406,58 +406,6 @@ a:focus {
   }
 }
 
-.blog .section {
-  background: var(--surface);
-}
-
-.meta {
-  color: var(--text-muted);
-  margin: 0;
-}
-
-.bullet-list {
-  list-style: none;
-  padding: 0;
-  margin: 1.5rem 0;
-  display: grid;
-  gap: 0.75rem;
-}
-
-.bullet-list li {
-  position: relative;
-  padding-left: 1.75rem;
-  color: var(--text-muted);
-}
-
-.bullet-list li::before {
-  content: "";
-  position: absolute;
-  left: 0.5rem;
-  top: 0.7rem;
-  width: 0.5rem;
-  height: 0.5rem;
-  background: var(--accent);
-  border-radius: 50%;
-}
-
-.feature-block {
-  background: rgba(29, 78, 216, 0.05);
-  border: 1px solid rgba(29, 78, 216, 0.15);
-  border-radius: 1rem;
-  padding: 1.75rem;
-  margin-bottom: 1.5rem;
-}
-
-.feature-block h3 {
-  margin-top: 0;
-}
-
-.feature-block ul {
-  margin: 1rem 0 0;
-  padding-left: 1.2rem;
-  color: var(--text-muted);
-}
-
 .faq {
   display: grid;
   gap: 1.75rem;
