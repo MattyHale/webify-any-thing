@@ -3,26 +3,26 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>EODI Briefings | Earth Observation Data Infrastructure</title>
+    <title>The Missing Layer in Earth Observation | EODI Blog</title>
     <meta
       name="description"
-      content="Monthly updates on Earth Observation Data Infrastructure, operational lessons, and how to run imagery like modern data."
+      content="Why infrastructure is the missing layer in Earth Observation and how EODI principles remove friction across national security, monitoring, and space data programs."
     />
     <meta name="author" content="Earth Observation Data Infrastructure Working Group" />
     <link rel="canonical" href="https://eodatainfrastructure.com/blog" />
-    <meta property="og:title" content="EODI Briefings" />
+    <meta property="og:title" content="The Missing Layer in Earth Observation" />
     <meta
       property="og:description"
-      content="Monthly updates on Earth Observation Data Infrastructure, operational lessons, and how to run imagery like modern data."
+      content="Earth Observation programs need infrastructure. See how EODI unlocks reliable tasking, delivery, and governance across missions."
     />
     <meta property="og:type" content="article" />
     <meta property="og:url" content="https://eodatainfrastructure.com/blog" />
     <meta property="og:site_name" content="Earth Observation Data Infrastructure" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="EODI Briefings" />
+    <meta name="twitter:title" content="The Missing Layer in Earth Observation" />
     <meta
       name="twitter:description"
-      content="Monthly updates on Earth Observation Data Infrastructure, operational lessons, and how to run imagery like modern data."
+      content="Earth Observation programs need infrastructure. See how EODI unlocks reliable tasking, delivery, and governance across missions."
     />
     <link rel="stylesheet" href="styles.css" />
     <script src="script.js" defer></script>
@@ -49,214 +49,113 @@
       <section class="hero" aria-labelledby="blog-hero-title">
         <div class="container">
           <div class="hero-icon" aria-hidden="true">🛰️</div>
-          <p class="eyebrow">Monthly EODI briefings</p>
-          <h1 id="blog-hero-title">Infrastructure first. Imagery on time.</h1>
-          <p class="lede">
-            Fresh, practical commentary on how Earth Observation should work when it is treated as data infrastructure—not inbox
-            choreography.
+          <h1 id="blog-hero-title">The Missing Layer in Earth Observation</h1>
+          <p>
+            Every modern data system assumes one thing: infrastructure. Whether it’s aviation safety, border security, wildfire risk, or commodity logistics,
+            the data flows through structured systems with built-in automation, access control, and observability. Earth Observation is the outlier.
           </p>
-          <div class="blog-hero-meta" aria-label="Recent months">
-            <div class="blog-hero-meta__item">
-              <span class="meta-label">Latest</span>
-              <span class="meta-value">Dec 2025</span>
-            </div>
-            <div class="blog-hero-meta__item">
-              <span class="meta-label">Archive</span>
-              <span class="meta-value">Nov 2025</span>
-            </div>
-          </div>
-          <nav class="blog-toc" aria-label="Blog months">
-            <h2>Monthly briefings</h2>
+        </div>
+      </section>
+
+      <article class="section" aria-label="Blog article">
+        <div class="container narrow blog-article">
+          <p>
+            Despite the rise of satellites and sensors, EO programs still rely on PDFs, ad-hoc portals, and email chains to move data. There are delays at every
+            stage—not because of satellites, but because there is no infrastructure layer connecting upstream sources to downstream decisions.
+          </p>
+          <p>
+            Without that layer, EO programs stall. Imagery sits idle. Operators burn hours scheduling. Analysts waste time on format conversion instead of
+            interpretation. Even with sensors in orbit, visibility on the ground remains manual.
+          </p>
+
+          <h2>Infrastructure Is the Fix</h2>
+          <p>
+            An EO program that runs on infrastructure does not treat imagery as a one-off deliverable. It treats it as data: ordered, standardised, governed,
+            routed, and delivered the same way every other enterprise dataset already is. This shift is non-optional. The pressure is real, and it is felt first
+            in the places where reliability matters most.
+          </p>
+
+          <h3>Operational Risk: National Security, Maritime Domain Awareness</h3>
+          <p>
+            Operational agencies are not short on imagery. They are short on control. Tasking is still routed manually. Scheduling decisions are separated from
+            field requirements. Fulfilment lives in disconnected systems with no audit trail and no time guarantees.
+          </p>
+          <p>An EODI-compliant program eliminates that friction:</p>
+          <ul>
+            <li>Tasking requests are API-triggered, not emailed</li>
+            <li>Constellations (sovereign, allied, commercial) are coordinated in one system</li>
+            <li>Capture conditions (weather, latency, obliquity) are modelled automatically</li>
+            <li>Deliveries are traceable, format-aligned, and structured for ISR ingest</li>
+          </ul>
+          <p>
+            The outcome is not just faster imagery. It is confirmed delivery, known latency, and the ability to operate without uncertainty in time-critical
+            scenarios.
+          </p>
+
+          <h3>Environmental Monitoring: Mining, Fire Detection, Methane, Weed Control</h3>
+          <p>
+            Monitoring programs often have sensors and schedules—but no reactive loop. Tailings inspections are a prime example. A dam sensor trips, alerts go
+            out, and then… someone checks satellite availability by hand. Imagery might arrive a week later, with no alignment to the event.
+          </p>
+          <p>Under EODI:</p>
+          <ul>
+            <li>Threshold breaches trigger satellite and drone tasking in real time</li>
+            <li>Multi-sensor assets are scheduled together (optical, SAR, thermal)</li>
+            <li>Raw imagery is converted to STAC-aligned formats on ingest</li>
+            <li>Results are routed into risk dashboards, SCADA overlays, or audit workflows</li>
+          </ul>
+          <p>
+            This structure removes blind spots, shortens response times, and ensures every event is logged with visual evidence tied to the alert that triggered
+            it.
+          </p>
+
+          <h3>EO &amp; Space Data: Satellite Operators, Imagery Aggregators, Space Agencies</h3>
+          <p>
+            The current pipeline for most satellite operators is still manual. Orders are placed through forms or emails. Tasking is managed in spreadsheets.
+            Archive access is gated behind human review. Sales and fulfilment workflows do not scale without adding headcount.
+          </p>
+          <p>With EODI infrastructure:</p>
+          <ul>
+            <li>Customers use self-serve portals backed by API-driven tasking and delivery</li>
+            <li>Tasking logic is handled by digital twin models that simulate capture feasibility</li>
+            <li>Fulfilment is routed automatically, with status tracking at each step</li>
+            <li>Data delivery is standardised, searchable, and usage-governed</li>
+          </ul>
+          <p>
+            This turns a manual order desk into a functional data platform. It also makes it possible to support long-tail customers, channel partners, and
+            government frameworks without duplicating workflows or risking SLA violations.
+          </p>
+
+          <h2>EODI Adoption: The First 180 Days</h2>
+          <div class="milestone">
+            <h5>Day 1–30</h5>
             <ul>
-              <li><a href="#dec-2025-title">Dec 2025 — Supplier reality check</a></li>
-              <li><a href="#nov-2025-title">Nov 2025 — The missing layer</a></li>
+              <li>Connect one satellite provider to internal systems via API</li>
+              <li>Define access policies for tasking, delivery, and archive usage</li>
+              <li>Create a traceable pipeline from order to delivery for a single region</li>
             </ul>
-          </nav>
+          </div>
+          <div class="milestone">
+            <h5>Day 31–90</h5>
+            <ul>
+              <li>Automate ingestion and conversion into standard formats</li>
+              <li>Integrate delivery into downstream tools (dashboards, search portals, planning systems)</li>
+              <li>Link tasking to upstream triggers: sensor alerts, patrol schedules, compliance deadlines</li>
+            </ul>
+          </div>
+          <div class="milestone">
+            <h5>Day 91–180</h5>
+            <ul>
+              <li>Expand sensor sources, users, and geographic coverage</li>
+              <li>Apply governance: audit trails, licensing, usage limits, and expiry controls</li>
+              <li>Decommission manual workflows (email fulfilment, static portals, ad-hoc spreadsheets)</li>
+            </ul>
+          </div>
+          <p>
+            After six months, EO data moves the way it should: securely, automatically, and predictably—through infrastructure, not inboxes.
+          </p>
         </div>
-      </section>
-
-      <section class="section section-alt" aria-label="Blog updates">
-        <div class="container narrow blog-feed" aria-live="polite">
-          <article class="blog-entry" aria-labelledby="dec-2025-title">
-            <header class="blog-entry__header">
-              <p class="eyebrow">Dec 2025</p>
-              <h2 id="dec-2025-title">The uncomfortable truth about the large imagery supplier</h2>
-              <p class="lede">
-                Everyone in Earth Observation knows them—global footprint, heritage satellites, seemingly endless demand. On paper, they
-                should set the benchmark. In practice, delivery is still manual and every customer pays the price.
-              </p>
-              <div class="post-meta" aria-label="Post details">
-                <span class="meta-chip">Operational risk</span>
-                <span class="meta-chip">SLA control</span>
-                <span class="meta-chip">Tasking automation</span>
-              </div>
-            </header>
-            <div class="blog-entry__body">
-              <p>
-                Despite the scale of their space assets, the customer experience is still running on manual processes. Orders move through
-                inboxes. Delivery timing depends on human availability. Workflows that should be triggered by APIs are instead handled
-                through coordination emails. The friction is unnecessary and every downstream organisation ends up paying for it in time,
-                money and operational risk.
-              </p>
-              <p>The problem isn’t the satellites. It’s the absence of infrastructure.</p>
-
-              <h3>The supplier becomes the bottleneck</h3>
-              <p>
-                A request can be captured in orbit within minutes, yet analysts and field teams may wait days or weeks for usable data. The
-                blocker isn’t physics. It’s the delivery model.
-              </p>
-              <p>This slowdown doesn’t just delay insights. It undermines operational trust.</p>
-              <ul>
-                <li>Analysts idle while data is “on the way”</li>
-                <li>Field operations halt or reroute</li>
-                <li>Decision-makers lose confidence</li>
-                <li>Program budgets get redirected to manual workarounds</li>
-              </ul>
-              <p>It’s not satellite tasking complexity. It’s infrastructure debt.</p>
-
-              <h3>Other industries solved this a long time ago</h3>
-              <p>
-                Banking wouldn’t tolerate manual data exchanges. Aviation wouldn’t accept PDF-based telemetry. Healthcare wouldn’t run
-                hospitals through spreadsheet attachments. Yet the EO sector excuses outdated delivery models simply because legacy
-                suppliers have normalised them.
-              </p>
-
-              <h3>Enterprises and defence now need to own their EODI strategy</h3>
-              <p>
-                Relying on imagery suppliers to drive the data infrastructure agenda has proven ineffective. Their business incentives
-                optimise for licensing scenes, not for improving customer workflows.
-              </p>
-              <p>
-                If a defence program, mining operator or government agency needs operational reliability, they cannot allow an imagery
-                provider to dictate the speed, accessibility or usability of the data that drives mission outcomes.
-              </p>
-              <p>
-                A true Earth Observation Data Infrastructure strategy must be owned by the customer — not outsourced to a supplier whose
-                incentives are misaligned.
-              </p>
-
-              <h3>The market is shifting</h3>
-              <p>
-                The winners in EO will not be the companies with the most satellites. They will be the ones who deliver usable data directly
-                into operational systems—fast, consistently and securely.
-              </p>
-              <p>
-                Organisations that take ownership of their EODI strategy will move faster, integrate more sources, and avoid being slowed
-                down by legacy supplier workflows.
-              </p>
-              <p>The satellites are not the problem. The lack of infrastructure is.</p>
-              <p>The organisations that take control of their infrastructure are the ones who will unlock the real value of EO.</p>
-            </div>
-          </article>
-
-          <article class="blog-entry" aria-labelledby="nov-2025-title">
-            <header class="blog-entry__header">
-              <p class="eyebrow">Nov 2025</p>
-              <h2 id="nov-2025-title">The Missing Layer in Earth Observation</h2>
-              <p class="lede">
-                Earth Observation programs have more satellites than ever, yet data still moves through PDFs, ad-hoc portals and inboxes.
-                The blocker isn’t orbital capacity—it’s the absence of infrastructure.
-              </p>
-              <div class="post-meta" aria-label="Post details">
-                <span class="meta-chip">Infrastructure</span>
-                <span class="meta-chip">Governance</span>
-                <span class="meta-chip">Standardisation</span>
-              </div>
-            </header>
-            <div class="blog-entry__body">
-              <p>
-                Even with more satellites in orbit than ever before, EO programs still rely on PDFs, ad-hoc portals and email chains to
-                move data. Delays appear at every stage—not because of satellites, but because there is no infrastructure layer connecting
-                upstream sources to downstream decisions.
-              </p>
-              <p>
-                Without that layer, EO programs stall. Imagery sits idle. Operators burn hours scheduling. Analysts spend time converting
-                formats instead of interpreting events. Sensors in orbit don’t translate into visibility on the ground.
-              </p>
-
-              <h3>Infrastructure is the fix</h3>
-              <p>
-                An EO program that runs on infrastructure doesn’t treat imagery as a “file to deliver.” It treats it as data: ordered,
-                standardised, governed, routed and delivered the same way every other mission-critical dataset already is.
-              </p>
-              <p>This shift is now unavoidable. The pressure is appearing first in the sectors where reliability matters most.</p>
-
-              <h4>Operational risk — National security, maritime domain awareness</h4>
-              <p>
-                These organisations are not short on imagery. They are short on control. Tasking is still routed manually. Scheduling
-                decisions are decoupled from field requirements. Fulfilment lives in disconnected systems with no audit trail and no time
-                guarantees.
-              </p>
-              <p>Under EODI:</p>
-              <ul>
-                <li>Tasking requests are API-triggered, not emailed</li>
-                <li>Constellations (sovereign, allied, commercial) are coordinated in one system</li>
-                <li>Capture conditions are modelled automatically</li>
-                <li>Deliveries are traceable, format-aligned and ISR-ready</li>
-              </ul>
-              <p>The result is not just faster imagery. It’s predictable latency and reduced uncertainty in time-critical operations.</p>
-
-              <h4>Environmental monitoring — Tailings, methane, wildfire, weed detection</h4>
-              <p>
-                Monitoring programs often have sensors, schedules and compliance requirements—but no reactive loop. A dam sensor triggers an
-                alert, emails go out, and then someone manually checks satellite availability. Imagery might arrive long after the event.
-              </p>
-              <p>Under EODI:</p>
-              <ul>
-                <li>Threshold breaches trigger satellite and drone tasking automatically</li>
-                <li>Multi-sensor assets are scheduled together (optical, SAR, thermal)</li>
-                <li>Raw imagery is normalised and converted on ingest</li>
-                <li>Results route into dashboards, SCADA overlays and audit systems</li>
-              </ul>
-              <p>This structure reduces blind spots and ensures every incident is tied to clear visual evidence.</p>
-
-              <h4>EO &amp; space data — Satellite operators, imagery aggregators, space agencies</h4>
-              <p>
-                For most satellite operators, fulfilment still scales by headcount. Orders come in via forms or emails. Tasking is managed in
-                spreadsheets. Archive access requires manual approval. It’s effective for small volumes, but not for growth.
-              </p>
-              <p>With EODI:</p>
-              <ul>
-                <li>Customers self-serve tasking and archive access</li>
-                <li>Feasibility logic runs automatically via digital twin simulation</li>
-                <li>Fulfilment is routed and tracked end-to-end</li>
-                <li>Delivery is searchable, standardised and usage-governed</li>
-              </ul>
-              <p>A manual order desk becomes a scalable data platform.</p>
-
-              <h3>EODI adoption — The first 180 days</h3>
-              <div class="milestone">
-                <h5>Day 1–30</h5>
-                <ul>
-                  <li>Connect one satellite provider via API</li>
-                  <li>Define access policies</li>
-                  <li>Create a traceable order-to-delivery pipeline</li>
-                </ul>
-              </div>
-              <div class="milestone">
-                <h5>Day 31–90</h5>
-                <ul>
-                  <li>Automate ingestion and conversion to standard formats</li>
-                  <li>Integrate delivery into dashboards and platforms</li>
-                  <li>Link tasking to upstream triggers</li>
-                </ul>
-              </div>
-              <div class="milestone">
-                <h5>Day 91–180</h5>
-                <ul>
-                  <li>Expand sensors, users and regions</li>
-                  <li>Enforce governance and audit control</li>
-                  <li>Decommission manual fulfilment workflows</li>
-                </ul>
-              </div>
-              <p>
-                After six months, EO data moves the way it should: securely, automatically and predictably—through infrastructure, not
-                inboxes and/or phones.
-              </p>
-            </div>
-          </article>
-        </div>
-      </section>
+      </article>
     </main>
 
     <button class="scroll-top" aria-label="Scroll back to top">⬆️</button>

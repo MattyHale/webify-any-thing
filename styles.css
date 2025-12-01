@@ -109,72 +109,6 @@ a:focus {
   transform: translateY(-1px);
 }
 
-.eyebrow {
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  font-size: 0.85rem;
-  font-weight: 800;
-  color: var(--accent);
-  margin: 0;
-}
-
-.lede {
-  font-size: 1.1rem;
-  color: var(--text-muted);
-  margin-top: 0.75rem;
-}
-
-.blog-hero-meta {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 0.75rem;
-  margin: 1.25rem 0 0.5rem;
-}
-
-.blog-hero-meta__item {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 0.85rem 1rem;
-  box-shadow: var(--shadow);
-}
-
-.meta-label {
-  display: block;
-  font-size: 0.75rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--text-muted);
-  margin-bottom: 0.15rem;
-}
-
-.meta-value {
-  font-weight: 700;
-}
-
-.blog-toc {
-  margin-top: 1.5rem;
-  padding: 1.25rem 1.5rem;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  box-shadow: var(--shadow);
-}
-
-.blog-toc h2 {
-  margin: 0 0 0.5rem;
-  font-size: 1rem;
-}
-
-.blog-toc ul {
-  margin: 0;
-  padding-left: 1.25rem;
-}
-
-.blog-toc li {
-  margin: 0.35rem 0;
-}
-
 .blog-article h2,
 .blog-article h3 {
   margin-top: 2rem;
@@ -219,26 +153,6 @@ a:focus {
 
 .blog-card li {
   margin-bottom: 0.35rem;
-}
-
-.post-meta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.45rem;
-  margin-top: 0.75rem;
-}
-
-.meta-chip {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  padding: 0.4rem 0.65rem;
-  background: var(--surface-muted);
-  border: 1px solid var(--border);
-  border-radius: 999px;
-  font-weight: 600;
-  color: var(--text);
-  font-size: 0.9rem;
 }
 
 .milestone {
@@ -620,10 +534,6 @@ a:focus {
 
   .blog-card {
     position: static;
-  }
-
-  .blog-entry {
-    padding: 1.5rem;
   }
 }
 
