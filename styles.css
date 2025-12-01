@@ -140,19 +140,40 @@ a:focus {
   margin: 0;
 }
 
+.share-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+}
+
 .share-link {
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
-  margin-top: 0.75rem;
   font-weight: 700;
   color: var(--accent);
   text-decoration: none;
+  background: none;
+  border: 1px solid transparent;
+  padding: 0;
+  cursor: pointer;
+}
+
+.share-link:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
 }
 
 .share-link:hover,
 .share-link:focus {
   text-decoration: underline;
+}
+
+.share-feedback {
+  font-size: 0.95rem;
+  color: var(--text-muted);
 }
 
 .post-date {
