@@ -109,6 +109,21 @@ a:focus {
   transform: translateY(-1px);
 }
 
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: var(--accent);
+  margin: 0;
+}
+
+.lede {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  margin-top: 0.75rem;
+}
+
 .blog-article h2,
 .blog-article h3 {
   margin-top: 2rem;
@@ -278,6 +293,36 @@ a:focus {
 
 .section p {
   color: var(--text-muted);
+}
+
+.blog-feed {
+  display: grid;
+  gap: 2.5rem;
+  padding: 0 0 1rem;
+}
+
+.blog-entry {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  padding: 2rem;
+  display: grid;
+  gap: 1.25rem;
+}
+
+.blog-entry__header h2 {
+  margin: 0.35rem 0 0;
+}
+
+.blog-entry__body h3,
+.blog-entry__body h4 {
+  margin-top: 1.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.blog-entry__body ul {
+  margin-top: 0.35rem;
 }
 
 .section-header {
@@ -504,6 +549,10 @@ a:focus {
 
   .blog-card {
     position: static;
+  }
+
+  .blog-entry {
+    padding: 1.5rem;
   }
 }
 
