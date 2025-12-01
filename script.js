@@ -11,6 +11,31 @@ document.addEventListener('DOMContentLoaded', () => {
   const scrollButtons = document.querySelectorAll('[data-scroll-target]');
   const cards = document.querySelectorAll('.card[data-scroll-target]');
   const scrollTopButton = document.querySelector('.scroll-top');
+  const shareSections = document.querySelectorAll('.share-actions');
+
+  const buildArticleUrl = (id) => {
+    const url = new URL(window.location.href);
+    url.hash = id;
+    return url.toString();
+  };
+
+  const showShareFeedback = (container, message) => {
+    const feedback = container.querySelector('.share-feedback');
+    if (!feedback) return;
+    feedback.textContent = message;
+    setTimeout(() => {
+      feedback.textContent = '';
+    }, 2500);
+  };
+
+  const copyToClipboard = async (text, container) => {
+    try {
+      await navigator.clipboard.writeText(text);
+      showShareFeedback(container, 'Link copied');
+    } catch (error) {
+      showShareFeedback(container, 'Unable to copy link');
+    }
+  };
 
   const handleToggle = () => {
     if (!scrollTopButton) return;
@@ -45,6 +70,39 @@ document.addEventListener('DOMContentLoaded', () => {
       window.scrollTo({ top: 0, behavior: prefersReducedMotion ? 'auto' : 'smooth' });
     });
   }
+
+  shareSections.forEach((section) => {
+    const articleId = section.getAttribute('data-article-id');
+    if (!articleId) return;
+
+    const shareUrl = buildArticleUrl(articleId);
+    const articleTitle = section.getAttribute('data-article-title') || 'Blog article';
+
+    const linkedInLink = section.querySelector('.linkedin-share');
+    if (linkedInLink) {
+      linkedInLink.href = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(shareUrl)}`;
+    }
+
+    const nativeShare = section.querySelector('.native-share');
+    if (nativeShare) {
+      nativeShare.addEventListener('click', async () => {
+        if (navigator.share) {
+          try {
+            await navigator.share({ title: articleTitle, url: shareUrl });
+          } catch (error) {
+            showShareFeedback(section, 'Share canceled');
+          }
+        } else {
+          copyToClipboard(shareUrl, section);
+        }
+      });
+    }
+
+    const copyButton = section.querySelector('.copy-link');
+    if (copyButton) {
+      copyButton.addEventListener('click', () => copyToClipboard(shareUrl, section));
+    }
+  });
 
   handleToggle();
   window.addEventListener('scroll', handleToggle, { passive: true });
