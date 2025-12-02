@@ -358,6 +358,36 @@ a:focus {
   color: var(--text-muted);
 }
 
+.blog-feed {
+  display: grid;
+  gap: 2.5rem;
+  padding: 0 0 1rem;
+}
+
+.blog-entry {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  padding: 2rem;
+  display: grid;
+  gap: 1.25rem;
+}
+
+.blog-entry__header h2 {
+  margin: 0.35rem 0 0;
+}
+
+.blog-entry__body h3,
+.blog-entry__body h4 {
+  margin-top: 1.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.blog-entry__body ul {
+  margin-top: 0.35rem;
+}
+
 .section-header {
   text-align: center;
   margin-bottom: 3rem;
