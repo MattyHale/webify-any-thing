@@ -76,26 +76,10 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!articleId) return;
 
     const shareUrl = buildArticleUrl(articleId);
-    const articleTitle = section.getAttribute('data-article-title') || 'Blog article';
 
     const linkedInLink = section.querySelector('.linkedin-share');
     if (linkedInLink) {
       linkedInLink.href = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(shareUrl)}`;
-    }
-
-    const nativeShare = section.querySelector('.native-share');
-    if (nativeShare) {
-      nativeShare.addEventListener('click', async () => {
-        if (navigator.share) {
-          try {
-            await navigator.share({ title: articleTitle, url: shareUrl });
-          } catch (error) {
-            showShareFeedback(section, 'Share canceled');
-          }
-        } else {
-          copyToClipboard(shareUrl, section);
-        }
-      });
     }
 
     const copyButton = section.querySelector('.copy-link');
