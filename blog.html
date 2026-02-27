@@ -58,6 +58,206 @@
 
       <section class="section" aria-label="Recent blog updates">
         <div class="container narrow blog-list">
+          <article class="post-card" id="mar-2026-update">
+            <header class="post-header">
+              <p class="post-date">Mar 2026</p>
+              <h2>March: Why EODI Is Relevant in ISR</h2>
+            </header>
+            <p>ISR teams are not short on sensors.</p>
+            <p>They are short on infrastructure.</p>
+            <p>
+              That is the part most people still avoid naming properly. The market is full of satellites, drones, archive libraries, tasking interfaces,
+              analytics layers, and downstream tools. On paper, the stack looks mature. In practice, it still breaks in the same place: the handoff between
+              requirement and use.
+            </p>
+            <p>
+              This month we look at a simple question: if ISR already has access to more collection than ever before, why do so many workflows still feel
+              slow, fragmented, and operationally brittle?
+            </p>
+            <hr />
+            <h3>The problem is not sensing. It is the flow between sensing and use</h3>
+            <p>
+              A lot of ISR discussion still centres on the visible layer: better resolution, better revisit, better persistence, better coverage.
+            </p>
+            <p>Those things matter. They are not the real constraint in many environments.</p>
+            <p>The real constraint sits in the workflow beneath them:</p>
+            <ul>
+              <li>how an area of interest is defined</li>
+              <li>how collection is requested or retrieved</li>
+              <li>how multiple sources are coordinated</li>
+              <li>how data is normalised</li>
+              <li>how outputs are delivered into systems people already use</li>
+            </ul>
+            <p>That is where ISR loses time.</p>
+            <p>
+              A request is raised in one system. Collection is managed in another. Data lands somewhere else. Formats vary by provider. Metadata is
+              inconsistent. Outputs need reshaping before they can support analysis. Then the same loop starts again for the next AOI.
+            </p>
+            <p>That is not a scalable ISR workflow. It is a chain of workarounds pretending to be one.</p>
+            <h3>ISR breaks in the gaps</h3>
+            <p>The question is not only whether something can be collected.</p>
+            <p>The question is whether it can be:</p>
+            <ul>
+              <li>accessed quickly</li>
+              <li>routed cleanly</li>
+              <li>prepared consistently</li>
+              <li>found again later</li>
+              <li>reused across teams</li>
+              <li>monitored over time without rebuilding the workflow from scratch</li>
+            </ul>
+            <p>This is where most of the hidden cost sits.</p>
+            <p>
+              In ISR, access latency can be just as damaging as collection latency. The data may already exist. A sensor may already have captured it. The
+              platform may technically support the mission. None of that matters if the path from availability to operational use is still blocked by manual
+              steps, disconnected systems, or inconsistent outputs.
+            </p>
+            <p>That is infrastructure debt.</p>
+            <h3>Low tempo hides bad infrastructure. Operational tempo exposes it</h3>
+            <p>A slow environment can tolerate poor workflow design.</p>
+            <p>
+              A few emails. A few manual checks. A specialist who knows which portal to use. A few format conversions before anything becomes usable.
+            </p>
+            <p>That model survives right up until tempo increases.</p>
+            <p>Once requirements stack up, the weaknesses become obvious:</p>
+            <ul>
+              <li>request pathways get congested</li>
+              <li>analysts spend time managing process instead of assessing sites</li>
+              <li>monitoring becomes difficult to sustain</li>
+              <li>data handling turns into repeated manual labour</li>
+              <li>the same site gets treated like a new workflow every time it comes up</li>
+            </ul>
+            <p>That is where ISR stops being limited by collection and starts being limited by infrastructure.</p>
+            <h3>ISR needs a cleaner front door</h3>
+            <p>One of the most common failure points is still the first one: access.</p>
+            <p>
+              A user knows the location. They know the requirement. They know the site they need to assess. What they often do not have is a clean,
+              consistent way to define an AOI, see what is available, and trigger the right collection path without jumping between provider-specific systems.
+            </p>
+            <p>That sounds minor. It is not.</p>
+            <p>When the front end is fragmented, the rest of the workflow inherits that friction. Every request becomes slower than it needs to be.</p>
+            <p>
+              A modern ISR stack needs a cleaner front door. A way to define the requirement once and move into the workflow without unnecessary
+              interface-hopping, inbox traffic, or provider-by-provider handling.
+            </p>
+            <h3>Access alone is not enough. ISR also needs orchestration</h3>
+            <p>Even where access exists, the next problem appears immediately: what happens after the request.</p>
+            <p>A source is selected. Collection is captured or retrieved. Then human effort takes over.</p>
+            <p>
+              Someone moves the data. Someone checks it. Someone converts it. Someone sends it on. Someone repeats the process the next time the same AOI
+              reappears.
+            </p>
+            <p>That is not scale. That is workflow debt.</p>
+            <p>What ISR actually needs is orchestration beneath the request:</p>
+            <ul>
+              <li>collection paths that do not rely on ad hoc coordination</li>
+              <li>handoffs that are repeatable</li>
+              <li>processing steps that can run without manual babysitting</li>
+              <li>downstream delivery that is predictable</li>
+            </ul>
+            <p>The value is not in adding another tool. It is in reducing the number of times people have to manually bridge the gaps between tools.</p>
+            <h3>Data that arrives in the wrong state is still a delay</h3>
+            <p>Fast collection is not the same as fast use.</p>
+            <p>
+              If imagery arrives in inconsistent formats, if metadata is unreliable, if outputs still need cleanup before they can be exploited, then the
+              workflow is still slow. The delay has just moved downstream.
+            </p>
+            <p>This is one of the least glamorous problems in ISR, and one of the most expensive.</p>
+            <p>
+              Every time a team has to reshape data before it becomes usable, the workflow becomes harder to repeat. Every new source adds another translation
+              burden. Every provider-specific format increases the handling cost.
+            </p>
+            <p>
+              That is why standardisation matters so much. Not as a technical preference, but as a practical requirement. The goal is to make the output
+              reusable, interoperable, and easier to absorb into existing GIS, command, and analysis environments.
+            </p>
+            <p>If the data cannot move cleanly, the ISR stack is still failing.</p>
+            <h3>Multi-source ISR only works if the infrastructure underneath it is consistent</h3>
+            <p>Modern ISR is rarely single-source.</p>
+            <p>
+              A real workflow may involve commercial satellite tasking, archive imagery, UAV collection, thermal inputs, hyperspectral layers, maritime feeds,
+              or other sensor combinations depending on the mission. That is normal.
+            </p>
+            <p>The problem is not the number of sources. The problem is the lack of a common layer underneath them.</p>
+            <p>Without consistent infrastructure:</p>
+            <ul>
+              <li>each new source creates a new interface</li>
+              <li>each provider introduces a new process</li>
+              <li>each output increases the standardisation burden</li>
+              <li>each AOI risks becoming a custom workflow</li>
+            </ul>
+            <p>That is not capability growth. That is complexity accumulation.</p>
+            <p>
+              The right model is not to force one source to do everything. It is to build the underlying infrastructure so multiple relevant sources can plug
+              into the same repeatable ISR workflow.
+            </p>
+            <h3>Persistent monitoring is where weak workflows fall apart</h3>
+            <p>One-off collection can hide a lot of inefficiency.</p>
+            <p>Persistent monitoring cannot.</p>
+            <p>
+              The moment a team needs to revisit a priority site, compare changes over time, maintain awareness across multiple locations, or keep a standing
+              watch on a shifting condition, the weakness of manual workflows becomes obvious.
+            </p>
+            <p>Without proper infrastructure:</p>
+            <ul>
+              <li>useful data becomes hard to find again</li>
+              <li>teams duplicate effort</li>
+              <li>reordering becomes common</li>
+              <li>continuity across time degrades</li>
+              <li>site history gets lost in disconnected systems</li>
+            </ul>
+            <p>Persistent monitoring only works when the data is not just delivered, but structured, indexed, and reusable.</p>
+            <p>That is an infrastructure question, not a sensor question.</p>
+            <h3>Open outputs matter because ISR does not end at collection</h3>
+            <p>The value of ISR is not the image itself. It is what happens after the image arrives.</p>
+            <p>
+              If the output cannot move into downstream systems cleanly, if it cannot be reused by the next team, if it is trapped in formats that create more
+              handling work, then the workflow remains fragile.
+            </p>
+            <p>This is why open, reusable outputs matter so much in ISR.</p>
+            <p>
+              Not because interoperability is fashionable. Because proprietary friction slows down operational use. It adds avoidable work at exactly the point
+              where speed and repeatability matter most.
+            </p>
+            <p>
+              A stronger ISR stack is one where outputs are easier to route, easier to reuse, and easier to integrate into the systems already carrying the
+              operational load.
+            </p>
+            <hr />
+            <h3>Why this matters for EODI</h3>
+            <p>
+              Earth Observation Data Infrastructure is relevant in ISR because ISR is no longer constrained by sensing alone. It is constrained by the invisible
+              infrastructure between requirement, collection, preparation, dissemination, and use.
+            </p>
+            <p>That is where speed is won or lost.</p>
+            <p>
+              A strong EODI approach gives ISR teams a cleaner front door into collection, better orchestration behind the request, more consistent data
+              handling after capture, and a stronger foundation for persistent monitoring over time. It reduces reliance on fragmented interfaces, repeated
+              manual work, and provider-specific handling that slows down operational response.
+            </p>
+            <p>The next step in ISR is not just better sensors.</p>
+            <p>It is better infrastructure underneath the sensors.</p>
+            <p>That is the role of EODI.</p>
+            <div
+              class="share-actions"
+              data-article-id="mar-2026-update"
+              data-article-title="March: Why EODI Is Relevant in ISR"
+            >
+              <button class="share-link copy-link" type="button" aria-label="Copy link to the Mar 2026 update">
+                📋 Copy link
+              </button>
+              <a
+                class="share-link linkedin-share"
+                href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Feodatainfrastructure.com%2Fblog%23mar-2026-update"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Share the Mar 2026 update on LinkedIn"
+              >
+                🔗 Share on LinkedIn
+              </a>
+              <span class="share-feedback" aria-live="polite"></span>
+            </div>
+          </article>
+
           <article class="post-card" id="jan-2026-update">
             <header class="post-header">
               <p class="post-date">Jan 2026</p>
