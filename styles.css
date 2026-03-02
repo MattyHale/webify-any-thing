@@ -312,6 +312,15 @@ a:focus {
   font-size: 1.05rem;
 }
 
+.authority-copy {
+  color: var(--text-muted);
+  font-size: 1rem;
+}
+
+.hero .authority-copy {
+  max-width: 56rem;
+}
+
 .hero-icon {
   font-size: 3.5rem;
 }
@@ -439,6 +448,12 @@ a:focus {
 
 .section-heading h2 {
   margin: 0;
+}
+
+.section-primer {
+  margin: 0;
+  font-size: 1rem;
+  color: var(--text-muted);
 }
 
 .callout {

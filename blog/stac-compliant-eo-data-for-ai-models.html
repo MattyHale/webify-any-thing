@@ -57,10 +57,11 @@
     </script>
     <link rel="stylesheet" href="../styles.css" />
   </head>
-  <body>
+  <body id="top">
     <main class="section">
       <div class="container narrow">
         <h1>STAC-Compliant EO Data for AI Models</h1>
+        <p class="authority-copy">Maintained as a living reference by practitioners working across Earth observation data infrastructure, automation, and downstream operations.</p>
         <p>
           AI teams in Earth observation often focus on model architecture before they stabilise data architecture. That order is expensive. Most production failures in EO AI are not caused by weak neural networks; they are caused by inconsistent metadata, fragmented archives, and brittle ingestion pipelines. STAC has become a practical baseline for fixing these problems because it standardises how assets are described, discovered, and linked.
         </p>
@@ -125,6 +126,17 @@
         <p>
           In short, STAC does not replace good modelling practice; it enables it. When EO data is catalogued consistently, AI teams spend less time cleaning data plumbing and more time improving mission outcomes.
         </p>
+
+
+        <h2>Using this reference</h2>
+        <p>
+          This document is intended to be read non-linearly. Teams typically return to specific sections as systems evolve, new sensors are introduced, or operational constraints change.
+        </p>
+        <p>
+          It is designed to support architecture decisions, operational reviews, and infrastructure planning rather than prescribe a single implementation.
+        </p>
+        <p><a href="../blog.html">Read related long-form notes on the blog</a>.</p>
+        <p><a href="#top">Back to top</a></p>
 
         <h2>References</h2>
         <ul>

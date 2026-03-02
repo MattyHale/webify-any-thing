@@ -70,7 +70,7 @@
     <meta name="theme-color" content="#ffffff" />
     <link rel="icon" href="data:," />
   </head>
-  <body>
+  <body id="top">
     <a class="skip-link" href="#main-content">Skip to main content</a>
     <header class="site-header">
       <div class="container">
@@ -94,6 +94,7 @@
           <div class="hero-icon" aria-hidden="true">🛰️</div>
           <h1 id="hero-title">Earth Observation Data Infrastructure (EODI) Standard</h1>
           <p class="orientation-copy">A practical reference for designing, operating, and scaling Earth observation data infrastructure.</p>
+          <p class="authority-copy">Maintained as a living reference by practitioners working across Earth observation data infrastructure, automation, and downstream operations.</p>
           <p>
             This document establishes a rigorous standard for Earth Observation Data Infrastructure (EODI), defining the essential
             capabilities that any credible EO data platform must provide. It emphasizes operational integrity over product-specific
@@ -234,6 +235,7 @@
         <div class="container narrow">
           <header class="section-heading">
             <h2 id="infrastructure-title">1. Infrastructure</h2>
+            <p class="section-primer">The foundational layer that determines whether everything else is possible or painful.</p>
           </header>
           <h3>What is Expected</h3>
           <p>
@@ -295,6 +297,7 @@
         <div class="container narrow">
           <header class="section-heading">
             <h2 id="security-title">2. Security</h2>
+            <p class="section-primer">Security defines whether the platform can be trusted to operate in real missions.</p>
           </header>
           <h3>What is Expected</h3>
           <p>
@@ -376,6 +379,7 @@
         <div class="container narrow">
           <header class="section-heading">
             <h2 id="automation-title">3. Automation</h2>
+            <p class="section-primer">Automation turns EO workflows from manual coordination into dependable operations.</p>
           </header>
           <h3>What is Expected</h3>
           <p>
@@ -443,6 +447,7 @@
         <div class="container narrow">
           <header class="section-heading">
             <h2 id="consistency-title">4. Consistency</h2>
+            <p class="section-primer">Consistency ensures every output can be relied on without reinterpreting each request.</p>
           </header>
           <h3>What is Expected</h3>
           <p>
@@ -507,6 +512,7 @@
         <div class="container narrow">
           <header class="section-heading">
             <h2 id="governance-title">5. Governance &amp; Compliance</h2>
+            <p class="section-primer">Governance keeps growth controlled so scale does not become operational disorder.</p>
           </header>
           <h3>What is Expected</h3>
           <p>
@@ -575,6 +581,7 @@
         <div class="container narrow">
           <header class="section-heading">
             <h2 id="reliability-title">6. Reliability &amp; Resilience</h2>
+            <p class="section-primer">Reliability determines whether the platform remains usable when conditions are least forgiving.</p>
           </header>
           <h3>What is Expected</h3>
           <p>
@@ -634,6 +641,7 @@
         <div class="container narrow">
           <header class="section-heading">
             <h2 id="scalability-title">7. Scalability &amp; Performance</h2>
+            <p class="section-primer">Scalability is what lets a capable system stay capable as demand and complexity increase.</p>
           </header>
           <h3>What is Expected</h3>
           <p>
@@ -689,6 +697,7 @@
         <div class="container narrow">
           <header class="section-heading">
             <h2 id="notifications-title">8. Notifications &amp; Event Triggers</h2>
+            <p class="section-primer">Notifications connect infrastructure state changes to timely human and system action.</p>
           </header>
           <h3>What is Expected</h3>
           <p>
@@ -744,21 +753,17 @@
         </div>
       </section>
 
-      <section class="section section-muted" aria-labelledby="share-eodi">
+      <section class="section section-muted" aria-labelledby="using-this-reference">
         <div class="container narrow">
-          <h2 id="share-eodi">Share the EODI standard</h2>
+          <h2 id="using-this-reference">Using this reference</h2>
           <p>
-            If this framework is useful to your team, pass it on to others shaping their Earth observation data strategy.
+            This document is intended to be read non-linearly. Teams typically return to specific sections as systems evolve, new sensors are introduced, or operational constraints change.
           </p>
-          <a
-            class="share-link"
-            href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Feodatainfrastructure.com%2F"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Share the EODI standard on LinkedIn"
-          >
-            🔗 Share on LinkedIn
-          </a>
+          <p>
+            It is designed to support architecture decisions, operational reviews, and infrastructure planning rather than prescribe a single implementation.
+          </p>
+          <p><a href="/blog.html">Read related long-form notes on the blog</a>.</p>
+          <p><a href="#top">Back to top</a></p>
         </div>
       </section>
     </main>
@@ -782,6 +787,5 @@
       </div>
     </footer>
 
-    <button class="scroll-top" type="button" aria-label="Scroll to top">▲</button>
   </body>
 </html>
