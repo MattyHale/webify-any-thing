@@ -86,29 +86,6 @@ a:focus {
   box-shadow: var(--shadow);
 }
 
-.inline-callout .button {
-  background: var(--accent);
-  color: var(--accent-contrast);
-  border: none;
-  border-radius: 12px;
-  padding: 0.7rem 1.1rem;
-  font-weight: 700;
-  cursor: pointer;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.35rem;
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
-  box-shadow: var(--shadow);
-}
-
-.inline-callout .button:hover,
-.inline-callout .button:focus {
-  text-decoration: none;
-  transform: translateY(-1px);
-}
-
 .blog-article h2,
 .blog-article h3 {
   margin-top: 2rem;
@@ -122,11 +99,8 @@ a:focus {
 }
 
 .post-card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 18px;
-  padding: 1.75rem;
-  box-shadow: var(--shadow);
+  padding: 0 0 1.25rem;
+  border-bottom: 1px solid var(--border);
 }
 
 .post-header {
@@ -332,6 +306,12 @@ a:focus {
   margin: 0;
 }
 
+.hero .orientation-copy {
+  max-width: 52rem;
+  color: var(--text);
+  font-size: 1.05rem;
+}
+
 .hero-icon {
   font-size: 3.5rem;
 }
@@ -409,7 +389,7 @@ a:focus {
 }
 
 .toc-groups a {
-  color: var(--accent);
+  color: inherit;
   text-decoration: none;
 }
 
@@ -437,20 +417,13 @@ a:focus {
 }
 
 .card {
-  background: var(--surface);
-  border-radius: 1rem;
-  padding: 1.75rem;
-  box-shadow: var(--shadow);
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  padding: 1.25rem;
   display: grid;
-  gap: 1rem;
+  gap: 0.75rem;
   cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.card:hover,
-.card:focus-within {
-  transform: translateY(-4px);
-  box-shadow: 0 20px 40px rgba(30, 64, 175, 0.18);
 }
 
 .card-icon {
@@ -468,31 +441,16 @@ a:focus {
   margin: 0;
 }
 
-.badge {
-  align-self: flex-start;
-  background: rgba(29, 78, 216, 0.12);
-  color: var(--accent);
-  border-radius: 999px;
-  padding: 0.3rem 0.9rem;
-  font-size: 0.8rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-}
-
 .callout {
-  background: rgba(29, 78, 216, 0.08);
-  border: 1px solid rgba(29, 78, 216, 0.2);
-  border-radius: 1rem;
-  padding: 1.75rem;
-  margin-top: 2.5rem;
+  border-left: 2px solid var(--border);
+  padding: 0.25rem 0 0.25rem 1rem;
+  margin-top: 2rem;
   display: grid;
-  gap: 1rem;
+  gap: 0.75rem;
 }
 
 .callout h4 {
   margin: 0;
-  color: var(--accent);
 }
 
 .site-footer {
