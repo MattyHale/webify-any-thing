@@ -312,6 +312,15 @@ a:focus {
   font-size: 1.05rem;
 }
 
+.authority-copy {
+  color: var(--text-muted);
+  font-size: 1rem;
+}
+
+.hero .authority-copy {
+  max-width: 56rem;
+}
+
 .hero-icon {
   font-size: 3.5rem;
 }
@@ -381,24 +390,40 @@ a:focus {
   display: grid;
   gap: 0.75rem;
   text-align: left;
+.preface {
+  margin: 0 0 1rem;
+  color: var(--text-muted);
+  font-size: 1rem;
+  max-width: 100%;
 }
 
-.toc-groups p {
+.contents {
+  text-align: left;
+  display: grid;
+  gap: 0.8rem;
+}
+
+.contents h3 {
+  margin: 0;
+  font-size: 1.15rem;
+}
+
+.contents p {
   margin: 0;
   color: var(--text-muted);
 }
 
-.toc-groups strong {
+.contents strong {
   color: var(--text);
 }
 
-.toc-groups a {
+.contents a {
   color: inherit;
   text-decoration: none;
 }
 
-.toc-groups a:hover,
-.toc-groups a:focus {
+.contents a:hover,
+.contents a:focus {
   text-decoration: underline;
 }
 
@@ -443,6 +468,12 @@ a:focus {
 
 .section-heading h2 {
   margin: 0;
+}
+
+.section-primer {
+  margin: 0;
+  font-size: 1rem;
+  color: var(--text-muted);
 }
 
 .callout {
