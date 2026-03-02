@@ -375,9 +375,12 @@ a:focus {
   margin: 0 0 1rem;
 }
 
+.prose {
+  max-width: 72ch;
+}
 
 .lead{
-  font-size: 16px;
+  margin: 8px 0 10px;
   opacity: 0.9;
 }
 
@@ -433,11 +436,6 @@ a:focus {
   border-radius: 10px;
 }
 
-.toc {
-  margin: 24px 0 0;
-  text-align: left;
-}
-
 .toc-card{
   max-width: 72ch;
   padding: 16px 18px;
@@ -447,14 +445,14 @@ a:focus {
   margin: 18px 0 34px;
 }
 
-.toc h3 {
+.toc-card h3 {
   margin: 0 0 12px;
 }
 
 .toc-grid{
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 16px 24px;
+  gap: 14px 24px;
 }
 
 .toc-group {
@@ -467,10 +465,7 @@ a:focus {
 }
 
 .toc-links {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 8px;
+  color: var(--text-muted);
 }
 
 .toc-links a{
@@ -481,7 +476,7 @@ a:focus {
 
 .toc-links a:hover,
 .toc-links a:focus {
-  border-bottom-color: rgba(0, 0, 0, 0.45);
+  border-bottom-color: rgba(0,0,0,0.55);
 }
 
 @media (max-width: 720px){
@@ -501,20 +496,21 @@ a:focus {
 }
 
 .domain-grid {
+  max-width: 72ch;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 14px;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
   margin: 18px 0 42px;
 }
 
 .domain-card {
   display: block;
   padding: 14px;
-  border: 1px solid rgba(0, 0, 0, 0.12);
+  border: 1px solid rgba(0,0,0,0.10);
   border-radius: 12px;
   text-decoration: none;
   color: inherit;
-  background: rgba(255, 255, 255, 0.6);
+  background: rgba(255,255,255,0.6);
 }
 
 .domain-title {
@@ -548,11 +544,12 @@ a:focus {
 }
 
 .callout {
-  border-left: 2px solid var(--border);
-  padding: 0.25rem 0 0.25rem 1rem;
-  margin-top: 2rem;
-  display: grid;
-  gap: 0.75rem;
+  max-width: 72ch;
+  padding: 14px 16px;
+  border-left: 3px solid rgba(0,0,0,0.55);
+  background: rgba(0,0,0,0.03);
+  border-radius: 10px;
+  margin: 14px 0 18px;
 }
 
 .callout-title {
@@ -560,13 +557,9 @@ a:focus {
   margin-bottom: 6px;
 }
 
-.callout.callout-definition{
+.related{
   max-width: 72ch;
-  padding: 14px 16px;
-  border-left: 3px solid rgba(0,0,0,0.55);
-  background: rgba(0,0,0,0.03);
-  border-radius: 10px;
-  margin: 14px 0 18px;
+  opacity: 0.9;
 }
 
 .callout h4 {
@@ -679,9 +672,9 @@ a:focus {
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 720px) {
   .domain-grid {
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    grid-template-columns: 1fr;
   }
 
   .hero h1 {
