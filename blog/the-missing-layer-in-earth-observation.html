@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>The Missing Layer in Earth Observation | EODI</title>
+    <meta name="description" content="EO still breaks between collection and use. The missing layer is infrastructure: automation, governance, observability, and standardised delivery." />
+    <link rel="canonical" href="https://eodatainfrastructure.com/blog/the-missing-layer-in-earth-observation.html" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="The Missing Layer in Earth Observation | EODI" />
+    <meta property="og:description" content="EO still breaks between collection and use. The missing layer is infrastructure: automation, governance, observability, and standardised delivery." />
+    <meta property="og:url" content="https://eodatainfrastructure.com/blog/the-missing-layer-in-earth-observation.html" />
+    <meta property="og:site_name" content="Earth Observation Data Infrastructure" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="The Missing Layer in Earth Observation | EODI" />
+    <meta name="twitter:description" content="EO still breaks between collection and use. The missing layer is infrastructure: automation, governance, observability, and standardised delivery." />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "The Missing Layer in Earth Observation",
+        "datePublished": "2025-11-01",
+        "dateModified": "2026-03-02",
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "https://eodatainfrastructure.com/blog/the-missing-layer-in-earth-observation.html"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Earth Observation Data Infrastructure"
+        }
+      }
+    </script>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <main class="section">
+      <div class="container narrow">
+        <h1>The Missing Layer in Earth Observation</h1>
+        <p>
+          Earth observation has progressed rapidly in spacecraft capability, sensor diversity, and revisit performance. Yet many programmes still struggle to transform imagery into dependable operational decisions. The gap is not imagination, and it is not usually hardware. The missing layer is infrastructure: the operational fabric that automates tasking, governs access, tracks quality, and routes outputs where they are actually needed.
+        </p>
+
+        <h2>The collection-to-use gap remains unresolved</h2>
+        <p>
+          EO workflows often break between “data captured” and “data usable.” Teams may have excellent source coverage but still rely on manual ordering, inconsistent metadata, and disconnected delivery channels. In this environment, every new request becomes a miniature project.
+        </p>
+        <p>Signs of a missing infrastructure layer include:</p>
+        <ul>
+          <li>Tasking requests submitted through email and manually interpreted.</li>
+          <li>No unified status model from acquisition through delivery.</li>
+          <li>Ad-hoc format conversion before analysis can begin.</li>
+          <li>Weak historical indexing, making repeat monitoring expensive.</li>
+        </ul>
+        <p>
+          The result is predictable: delayed decisions, avoidable rework, and low confidence in response timelines.
+        </p>
+
+        <h2>Automation is the first structural requirement</h2>
+        <p>
+          Automation in EO is often misunderstood as “faster processing.” In reality, the critical automation is orchestration: triggering the right sources, validating conditions, routing outputs, and notifying stakeholders without manual handoff. This is what turns episodic collection into a reliable service.
+        </p>
+        <p>
+          For high-consequence missions, orchestration should be policy-driven. Threshold events can trigger tasking. Coverage rules can select among sources. Delivery endpoints can be pre-wired into dashboards and response systems. Each step should produce observable state changes that teams can inspect in real time.
+        </p>
+
+        <h2>Governance enables scale, not bureaucracy</h2>
+        <p>
+          As EO usage expands across agencies, utilities, insurers, and defence organisations, governance becomes central. Without governance, scale creates chaos: conflicting licences, uncertain retention practices, and unclear accountability. Governance in infrastructure form means codified permissions, lineage tracking, and consistent metadata controls.
+        </p>
+        <p>
+          Good governance should make operational work easier. Analysts should know what can be shared and with whom. Programme managers should understand what evidence exists for each output. Auditors should retrieve records without reconstructing events from fragmented systems.
+        </p>
+        <p>Governance controls that matter most:</p>
+        <ul>
+          <li>Role-based access tied to mission or contract context.</li>
+          <li>Immutable event logs for requests, transformations, and deliveries.</li>
+          <li>Policy tagging for licensing, export controls, and retention limits.</li>
+          <li>Quality annotations that remain attached to downstream derivatives.</li>
+        </ul>
+
+        <h2>Observability turns EO operations from reactive to managed</h2>
+        <p>
+          Many EO teams discover failure only when users complain. Observability changes this by exposing health signals across the full chain: request volume, queue times, processing failures, delivery latency, and usage patterns. With this visibility, teams can prioritise fixes based on impact.
+        </p>
+        <p>
+          Observability also supports strategic planning. Organisations can identify which sensors or providers contribute most to mission outcomes, where bottlenecks recur, and which workflows deserve automation investment next. Over time, this creates compounding efficiency gains.
+        </p>
+
+        <h2>Standardised delivery is the bridge to operational value</h2>
+        <p>
+          Data has little value if downstream systems cannot consume it predictably. Standardised delivery means outputs arrive in agreed formats with complete metadata and machine-readable context. It reduces interpretation overhead and enables reuse across teams.
+        </p>
+        <p>
+          In practice, standardisation should span catalog models, API interfaces, event payloads, and quality indicators. Open standards are useful accelerators because they reduce custom connector work and improve interoperability across partners.
+        </p>
+
+        <h2>Building the missing layer over 180 days</h2>
+        <p>
+          The shift does not require a full replacement of existing tools. Organisations can phase it in. Start with one mission-critical flow and make it end-to-end traceable. Then add automation triggers, enforce metadata validation, and standardise delivery outputs before expanding to additional domains.
+        </p>
+        <p>Execution priorities:</p>
+        <ul>
+          <li><strong>Month 1:</strong> map the current order-to-delivery process and instrument baseline metrics.</li>
+          <li><strong>Month 2–3:</strong> implement API-driven intake and state tracking for one workflow.</li>
+          <li><strong>Month 4–6:</strong> automate ingestion, apply governance tags, and integrate outputs into operational systems.</li>
+        </ul>
+        <p>
+          Once that layer exists, EO stops behaving like a sequence of transactions and starts operating as dependable infrastructure.
+        </p>
+
+        <h2>References</h2>
+        <ul>
+          <li><a href="https://www.w3.org/TR/vocab-dcat-3/" target="_blank" rel="noopener noreferrer">W3C Data Catalog Vocabulary (DCAT)</a></li>
+          <li><a href="https://www.ogc.org/standards/cat/" target="_blank" rel="noopener noreferrer">OGC Catalog Standards</a></li>
+          <li><a href="https://www.esa.int/Applications/Observing_the_Earth/Copernicus" target="_blank" rel="noopener noreferrer">European Space Agency Copernicus Programme</a></li>
+        </ul>
+
+        <p><strong>Related posts:</strong> <a href="the-uncomfortable-truth-about-the-large-imagery-supplier.html">The Uncomfortable Truth About the Large Imagery Supplier</a> · <a href="eo-data-infrastructure-for-isr.html">EO Data Infrastructure for ISR Workflows</a> · <a href="stac-compliant-eo-data-for-ai-models.html">STAC-Compliant EO Data for AI Models</a></p>
+        <p><a href="../blog.html">Back to blog index</a> · <a href="../index.html">Return to standard</a></p>
+      </div>
+    </main>
+  </body>
+</html>
