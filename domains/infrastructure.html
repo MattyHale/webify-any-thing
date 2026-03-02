@@ -16,7 +16,7 @@
     <header class="site-header">
       <div class="container">
         <div class="brand">
-                    <span class="brand-name">Earth Observation Data Infrastructure</span>
+          <span class="brand-name">Earth Observation Data Infrastructure</span>
         </div>
         <nav class="site-nav" aria-label="Primary navigation">
           <ul>
@@ -32,22 +32,98 @@
       <section class="hero" aria-labelledby="hero-title">
         <div class="container narrow">
           <h1 id="hero-title">Infrastructure</h1>
-          <p class="orientation-copy">The foundational layer that determines whether everything else is possible or painful.</p>
+          <p class="orientation-copy">The platform foundation for ingesting, storing, processing, and delivering EO data at mission scale.</p>
         </div>
       </section>
 
       <section class="section" id="domain-content" aria-labelledby="domain-content-title">
         <div class="container narrow prose">
-          <h2 id="domain-content-title">What is Expected</h2>
-          <p>The EODI’s infrastructure is the core technical architecture underpinning the ingestion, management, and dissemination of Earth Observation data. It must seamlessly integrate many distributed components, data sources, and partner inputs into a unified whole that behaves as a single high-functioning platform.</p>
-          <p>In practice, this means supporting multi-constellation operations. Data from numerous satellite missions and providers are orchestrated under one system so that users experience one cohesive environment.</p>
-          <p>A unified platform removes silos and queue friction. Requests should trigger automated fulfilment that schedules collections, ingests results, standardizes outputs, and delivers them reliably. This shrinks latency, reduces operational overhead, and builds trust that the same system will perform under load and during critical windows.</p>
-          
-          <h2>Key Infrastructure Principles</h2>
-          <h3>Unified Data Integration</h3><p>The EODI must bring together all relevant EO data sources including satellites, sensors, and archives under a common framework. Using a distributed system-of-systems architecture, the platform supports specialized processing for different data types while still presenting a unified interface. In practice, this means maintaining a centralized catalog or metadata repository that enables discovery across the entire holdings. Users should not need to know which satellite or archive a dataset came from. The infrastructure abstracts sources into one cohesive data lake. New suppliers or missions can be integrated without disrupting the overall system.</p>
-          <h3>Self-Service and APIs</h3><p>Every core function should be available via the user interface and stable APIs so users and external systems can place orders, track state, and retrieve results without tickets or emails.</p>
-          <h3>Automated Fulfilment</h3><p>Deterministic workflows should be triggered for tasking, acquisition monitoring, ingestion, preprocessing, and delivery, with recorded state transitions so every step is auditable.</p>
-          <h3>Modular and Cloud-Native</h3><p>Use independently deployable services for catalog, ordering, processing, delivery, and authentication. Components should scale in isolation and be updated without downtime.</p>
+          <h2 id="domain-content-title">What Infrastructure Covers</h2>
+          <p>Infrastructure defines the runtime backbone of an EO data platform: ingestion paths, storage tiers, compute environments, service interfaces, and network placement. It governs how archive ingestion, tasking ingestion, and third-party provider integrations are operationalized as one coherent system.</p>
+
+          <h2>Why Infrastructure Matters</h2>
+          <p>When infrastructure is strong, teams can onboard new suppliers quickly, scale processing safely, and deliver predictable APIs and downloads. When it is weak, latency rises, provenance breaks, costs spiral, and operations become brittle during peak mission demand.</p>
+
+          <h2>What Good Looks Like</h2>
+          <p>A mature platform uses clear service boundaries and separates compute for ingestion, processing, and delivery. It maintains raw, normalized, and derived storage layers; publishes searchable metadata; captures lineage at every major transformation point; and supports multi-region or sovereign deployment where data residency requires it.</p>
+
+          <h2>Minimum Requirements</h2>
+          <ul>
+            <li>Support archive ingestion, tasking ingestion, and supplier onboarding through a repeatable integration model.</li>
+            <li>Implement raw, normalized, and derived storage layers with explicit lifecycle and cost controls.</li>
+            <li>Maintain metadata cataloging for discoverability and consistent API/download delivery.</li>
+            <li>Separate runtime workloads for ingestion, processing, and delivery with isolation controls.</li>
+            <li>Define backup, restore, and recovery objectives and test them regularly.</li>
+          </ul>
+
+          <h2>Core Architecture Components</h2>
+          <h3>Ingestion Paths</h3>
+          <p>Design distinct ingestion lanes for historical archives, scheduled tasking returns, and third-party feeds. Capture quality checks, schema validation, and lineage markers at entry points.</p>
+          <h3>Storage Tiers</h3>
+          <p>Use raw landing zones, normalized analysis-ready stores, and derived product layers with lifecycle rules tied to retention and FinOps targets.</p>
+          <h3>Catalog and Index Layer</h3>
+          <p>Run a metadata catalog with searchable spatial, temporal, and product indexes that support discoverability across all suppliers.</p>
+          <h3>Processing Environments</h3>
+          <p>Isolate processing clusters by workload type and sensitivity to prevent noisy-neighbour contention and improve blast-radius control.</p>
+          <h3>Delivery Interfaces</h3>
+          <p>Provide stable APIs and download channels with consistent payloads, access controls, and service-level expectations.</p>
+          <h3>Identity and Access Foundations</h3>
+          <p>Apply centralized identity, scoped service roles, and policy enforcement at service boundaries.</p>
+          <h3>Network and Regional Placement</h3>
+          <p>Plan data residency placement, sovereign-region deployment, and private connectivity for regulated workloads.</p>
+          <h3>Backup and Recovery Foundations</h3>
+          <p>Protect metadata, indexes, and object storage with immutable backups, restore testing, and recovery runbooks.</p>
+
+          <h2>Data Flow and Processing Topology</h2>
+          <p>Use event-driven flow from ingest to normalization to derivation, with internal service boundaries that keep contracts explicit. Workload isolation should separate high-priority tasking from bulk backfill processing. Lineage capture points should be recorded at ingest, transform, publish, and delivery stages.</p>
+
+          <h2>Infrastructure Decisions</h2>
+          <ul>
+            <li>Single-region vs multi-region and sovereign deployment strategy.</li>
+            <li>Centralized vs federated catalog architecture.</li>
+            <li>Supplier onboarding through adapters vs standardized ingestion contracts.</li>
+            <li>Storage-cost trade-offs between hot, warm, and archive tiers.</li>
+          </ul>
+
+          <h2>Metrics and Health Signals</h2>
+          <ul>
+            <li>Ingestion latency by source type (archive, tasking, third-party).</li>
+            <li>Catalog freshness and discoverability success rates.</li>
+            <li>Processing queue depth and cross-workload contention indicators.</li>
+            <li>Delivery latency and API/download success rates.</li>
+            <li>Restore test pass rates and recovery time achievement.</li>
+            <li>Storage and compute cost per delivered product.</li>
+          </ul>
+
+          <h2>Anti-Patterns</h2>
+          <ul>
+            <li>Combining ingestion, processing, and delivery in one shared runtime.</li>
+            <li>Skipping lineage capture until after incidents occur.</li>
+            <li>Adding suppliers through one-off scripts without onboarding standards.</li>
+            <li>Ignoring residency and sovereign placement requirements until late deployment.</li>
+          </ul>
+
+          <h2>Implementation Checklist</h2>
+          <ul>
+            <li>Is ownership clear?</li>
+            <li>Are minimum controls defined?</li>
+            <li>Are failure modes addressed?</li>
+            <li>Are measurable health signals defined?</li>
+            <li>Are anti-patterns named?</li>
+            <li>Are dependencies on other domains explicit?</li>
+            <li>Is there at least one EO-specific implementation example?</li>
+            <li>Is there a practical implementation checklist?</li>
+          </ul>
+
+          <h2>Example EO Patterns</h2>
+          <ul>
+            <li>National archive backfill into raw storage, automated normalization into COG collections, and derived tiling products for web delivery.</li>
+            <li>Tasking returns routed into a priority ingestion lane with separate processing compute and expedited API publishing.</li>
+            <li>Third-party SAR provider integrated through a supplier adapter that enforces common metadata contracts before catalog indexing.</li>
+          </ul>
+
+          <h2>Related Domains</h2>
+          <p><a href="automation.html">Automation</a>, <a href="consistency.html">Consistency</a>, <a href="scalability.html">Scalability and Performance</a>, <a href="governance.html">Governance and Compliance</a></p>
           <p><a href="../index.html#domains">Back to all domains</a></p>
         </div>
       </section>

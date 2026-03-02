@@ -1,71 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Consistency | Earth Observation Data Infrastructure</title>
-    <meta name="description" content="Consistency domain for the EODI standard." />
-    <link rel="canonical" href="https://eodatainfrastructure.com/domains/consistency.html" />
-    <link rel="stylesheet" href="../styles.css" />
-    <script src="../script.js" defer></script>
-    <meta name="theme-color" content="#ffffff" />
-    <link rel="icon" href="data:," />
-  </head>
-  <body id="top">
-    <a class="skip-link" href="#main-content">Skip to main content</a>
-    <header class="site-header">
-      <div class="container">
-        <div class="brand">
-                    <span class="brand-name">Earth Observation Data Infrastructure</span>
-        </div>
-        <nav class="site-nav" aria-label="Primary navigation">
-          <ul>
-            <li><a href="../index.html#introduction">Introduction</a></li>
-            <li><a href="../blog.html">Blog</a></li>
-            <li><a href="../index.html#domains">Domains</a></li>
-          </ul>
-        </nav>
-      </div>
-    </header>
-
-    <main id="main-content">
-      <section class="hero" aria-labelledby="hero-title">
-        <div class="container narrow">
-          <h1 id="hero-title">Consistency</h1>
-          <p class="orientation-copy">Consistency ensures every output can be relied on without reinterpretation.</p>
-        </div>
-      </section>
-
-      <section class="section" id="domain-content" aria-labelledby="domain-content-title">
-        <div class="container narrow prose">
-          <h2 id="domain-content-title">What is Expected</h2>
-          <p>Consistency means data and interfaces behave predictably across the platform regardless of source. Metadata fields, file formats, coordinate systems, and APIs should be standardized so users do not need to handle special cases.</p>
-          <p>Normalization pipelines should automatically convert incoming data into preferred formats and reference systems. External interfaces must remain stable so differences between providers are abstracted away.</p>
-          <h2>Why It’s Important</h2><p>Consistency reduces user effort, lowers error rates, and enables multi-sensor fusion. Analysts can build pipelines once and reuse them across providers.</p>
-          <h2>Key Consistency Principles</h2>
-          <h3>Standardized Formats and Metadata</h3><p>Adopt well-established standards such as Cloud-Optimized GeoTIFF and STAC so data is interoperable and FAIR.</p>
-          <h3>Normalization Pipelines</h3><p>Harmonize reprojection, format conversion, metadata translation, and quality preprocessing during ingestion.</p>
-          <h3>Uniform Access Behaviour</h3><p>Keep search patterns, item structures, links, and authentication consistent across datasets.</p>
-          <h3>Quality and Versioning</h3><p>Enforce quality checks and publish explicit versions with transparent lineage.</p>
-          <h3>Consistent Documentation</h3><p>Keep documentation aligned with live interfaces and data structures.</p>
-          <p><a href="../index.html#domains">Back to all domains</a></p>
-        </div>
-      </section>
-    </main>
-
-    <footer class="site-footer">
-      <div class="container">
-        <div class="footer-content">
-          <p><strong>EODI Standard</strong> documents the operational baseline for modern Earth observation platforms.</p>
-        </div>
-        <nav aria-label="Footer navigation">
-          <ul>
-            <li><a href="../index.html#introduction">Introduction</a></li>
-            <li><a href="../blog.html">Blog</a></li>
-            <li><a href="../index.html#domains">Domains</a></li>
-          </ul>
-        </nav>
-      </div>
-    </footer>
-  </body>
-</html>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>Consistency | Earth Observation Data Infrastructure</title><meta name="description" content="Consistency domain for the EODI standard." /><link rel="canonical" href="https://eodatainfrastructure.com/domains/consistency.html" /><link rel="stylesheet" href="../styles.css" /><script src="../script.js" defer></script><meta name="theme-color" content="#ffffff" /><link rel="icon" href="data:," /></head><body id="top"><a class="skip-link" href="#main-content">Skip to main content</a><header class="site-header"><div class="container"><div class="brand"><span class="brand-name">Earth Observation Data Infrastructure</span></div><nav class="site-nav" aria-label="Primary navigation"><ul><li><a href="../index.html#introduction">Introduction</a></li><li><a href="../blog.html">Blog</a></li><li><a href="../index.html#domains">Domains</a></li></ul></nav></div></header>
+<main id="main-content"><section class="hero" aria-labelledby="hero-title"><div class="container narrow"><h1 id="hero-title">Consistency</h1><p class="orientation-copy">Make EO data predictable across sources, time, and interfaces.</p></div></section><section class="section" id="domain-content" aria-labelledby="domain-content-title"><div class="container narrow prose">
+<h2 id="domain-content-title">What Consistency Covers</h2><p>Consistency governs standards, normalization, schema contracts, API behaviour, versioning, and change control so downstream users can trust repeatable data semantics.</p>
+<h2>Why Consistency Matters</h2><p>Without consistency, every supplier requires custom handling, analytics pipelines break, and interoperability costs multiply.</p>
+<h2>What Good Looks Like</h2><p>A mature platform enforces STAC-aligned metadata, cloud-optimized formats such as COG, stable API contracts, and transparent lineage for transformed outputs.</p>
+<h2>Minimum Requirements</h2><ul><li>STAC-compatible catalog and metadata behaviour.</li><li>COG or equivalent cloud-optimized output format support.</li><li>Normalized coordinate systems and timestamp standards.</li><li>Published schema contracts and API stability expectations.</li><li>Output versioning with documented change history.</li></ul>
+<h2>Standards and Interoperability</h2><h3>Metadata Standards</h3><p>Use a canonical metadata profile with controlled vocabularies.</p><h3>STAC and Catalog Behaviour</h3><p>Define mandatory fields, link behaviour, and search semantics.</p><h3>File and Packaging Standards</h3><p>Standardize structure, naming, and packaging for portable use.</p><h3>Spatial Reference Rules</h3><p>Specify accepted CRS and reprojection policies.</p><h3>Time and Timestamp Standards</h3><p>Use consistent UTC timestamps and precision rules.</p><h3>API Behaviour Standards</h3><p>Preserve stable pagination, filters, and error schemas.</p>
+<h2>Normalization and Transformation</h2><h3>Reprojection</h3><p>Apply deterministic reprojection logic with quality thresholds.</p><h3>Format Conversion</h3><p>Convert source formats to standardized delivery formats.</p><h3>Metadata Translation</h3><p>Map supplier metadata into canonical contracts.</p><h3>Quality Preprocessing</h3><p>Normalize QA masks and known artifact flags.</p><h3>Product Naming and Semantic Mapping</h3><p>Enforce consistent naming and semantic classes across suppliers.</p>
+<h2>Data Contracts and Interface Stability</h2><p>Assign interoperability ownership and maintain compatibility testing to prevent breaking downstream integrations.</p>
+<h2>Quality, Versioning, and Lineage</h2><p>Track lineage for each transformed artifact, including source scene IDs, algorithm versions, and processing timestamps.</p>
+<h2>Documentation and Change Control</h2><p>Use a deprecation policy for schema changes with migration timelines and customer notices.</p>
+<h2>Consistency Decisions</h2><p>Major decisions include strict vs permissive validation, harmonization depth across sensors, and schema evolution strategy.</p>
+<h2>Metrics and Health Signals</h2><ul><li>Schema validation pass rate.</li><li>Cross-supplier harmonization defect rate.</li><li>API contract breakage incidents.</li><li>Lineage completeness for derived outputs.</li><li>Deprecation compliance progress.</li></ul>
+<h2>Anti-Patterns</h2><ul><li>Ad-hoc field mapping by project.</li><li>Unversioned output changes.</li><li>Semantic drift across suppliers.</li><li>Undocumented timestamp and CRS exceptions.</li></ul>
+<h2>Implementation Checklist</h2><ul><li>Is ownership clear?</li><li>Are minimum controls defined?</li><li>Are failure modes addressed?</li><li>Are measurable health signals defined?</li><li>Are anti-patterns named?</li><li>Are dependencies on other domains explicit?</li><li>Is there at least one EO-specific implementation example?</li><li>Is there a practical implementation checklist?</li></ul>
+<h2>Example EO Patterns</h2><ul><li>Multi-sensor optical imagery normalized into one STAC collection with shared cloud-mask semantics.</li><li>SAR and optical products exposed through stable, versioned search APIs.</li><li>Reprocessing release notes tied to explicit output version increments.</li></ul>
+<h2>Related Domains</h2><p><a href="infrastructure.html">Infrastructure</a>, <a href="governance.html">Governance and Compliance</a>, <a href="automation.html">Automation</a></p><p><a href="../index.html#domains">Back to all domains</a></p>
+</div></section></main><footer class="site-footer"><div class="container"><div class="footer-content"><p><strong>EODI Standard</strong> documents the operational baseline for modern Earth observation platforms.</p></div><nav aria-label="Footer navigation"><ul><li><a href="../index.html#introduction">Introduction</a></li><li><a href="../blog.html">Blog</a></li><li><a href="../index.html#domains">Domains</a></li></ul></nav></div></footer></body></html>

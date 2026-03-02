@@ -1,70 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Security | Earth Observation Data Infrastructure</title>
     <meta name="description" content="Security domain for the EODI standard." />
     <link rel="canonical" href="https://eodatainfrastructure.com/domains/security.html" />
-    <link rel="stylesheet" href="../styles.css" />
-    <script src="../script.js" defer></script>
-    <meta name="theme-color" content="#ffffff" />
-    <link rel="icon" href="data:," />
-  </head>
-  <body id="top">
-    <a class="skip-link" href="#main-content">Skip to main content</a>
-    <header class="site-header">
-      <div class="container">
-        <div class="brand">
-                    <span class="brand-name">Earth Observation Data Infrastructure</span>
-        </div>
-        <nav class="site-nav" aria-label="Primary navigation">
-          <ul>
-            <li><a href="../index.html#introduction">Introduction</a></li>
-            <li><a href="../blog.html">Blog</a></li>
-            <li><a href="../index.html#domains">Domains</a></li>
-          </ul>
-        </nav>
-      </div>
-    </header>
-
-    <main id="main-content">
-      <section class="hero" aria-labelledby="hero-title">
-        <div class="container narrow">
-          <h1 id="hero-title">Security</h1>
-          <p class="orientation-copy">Security defines whether the platform can be trusted to operate in real missions.</p>
-        </div>
-      </section>
-
-      <section class="section" id="domain-content" aria-labelledby="domain-content-title">
-        <div class="container narrow prose">
-          <h2 id="domain-content-title">What is Expected</h2>
-          <p>Security is a foundational aspect of any EO data platform. An EODI must safeguard data and operations through robust measures at every layer. This includes strong authentication and fine-grained authorization, encryption of data at rest and in transit, and continuous monitoring for malicious or inappropriate activity.</p>
-          <p>Security-by-design must be evident throughout the system, from user login and API key management to network architecture and software development practices. Each customer’s data and processing must be isolated in a multi-tenant environment. All data must be encrypted end-to-end. Strong identity management is required, including multi-factor authentication and single sign-on, along with role-based access control. Audit logging and intrusion detection must be in place, and security best practices such as zero-trust and least-privilege access should be embedded from the start.</p>
-          <h2>Why It’s Important</h2><p>Users need absolute trust that the platform protects sensitive and valuable information. Many EODI users operate in government, defense, or regulated commercial environments. A breach or data leak could have serious operational or strategic consequences. Strong security enables deep integration into mission-critical workflows. Weak security undermines adoption regardless of functionality.</p>
-          <h2>Key Security Principles</h2>
-          <h3>Strong Authentication and Access Control</h3><p>All access must be gated by reliable authentication and fine-grained authorization. Enforce least-privilege access using centralized identity management, MFA, SSO, scoped tokens, and auditable role-based access control.</p>
-          <h3>Encryption and Data Protection</h3><p>Encrypt all data at rest and in transit using modern cryptography. Manage encryption keys securely, rotate them regularly, and separate key administration from data access.</p>
-          <h3>Continuous Monitoring and Incident Response</h3><p>Continuously monitor logs, metrics, and network signals for anomalies. Maintain and test an incident response playbook with clear containment and notification paths.</p>
-          <h3>Compliance and Data Governance</h3><p>Align with relevant standards and regional controls. Enforce licensing, residency, and governance requirements through technical controls rather than policy alone.</p>
-          <p><a href="../index.html#domains">Back to all domains</a></p>
-        </div>
-      </section>
-    </main>
-
-    <footer class="site-footer">
-      <div class="container">
-        <div class="footer-content">
-          <p><strong>EODI Standard</strong> documents the operational baseline for modern Earth observation platforms.</p>
-        </div>
-        <nav aria-label="Footer navigation">
-          <ul>
-            <li><a href="../index.html#introduction">Introduction</a></li>
-            <li><a href="../blog.html">Blog</a></li>
-            <li><a href="../index.html#domains">Domains</a></li>
-          </ul>
-        </nav>
-      </div>
-    </footer>
+    <link rel="stylesheet" href="../styles.css" /><script src="../script.js" defer></script><meta name="theme-color" content="#ffffff" /><link rel="icon" href="data:," /></head>
+  <body id="top"><a class="skip-link" href="#main-content">Skip to main content</a>
+    <header class="site-header"><div class="container"><div class="brand"><span class="brand-name">Earth Observation Data Infrastructure</span></div><nav class="site-nav" aria-label="Primary navigation"><ul><li><a href="../index.html#introduction">Introduction</a></li><li><a href="../blog.html">Blog</a></li><li><a href="../index.html#domains">Domains</a></li></ul></nav></div></header>
+    <main id="main-content"><section class="hero" aria-labelledby="hero-title"><div class="container narrow"><h1 id="hero-title">Security</h1><p class="orientation-copy">Protect identities, data, and services with enforceable controls and auditable operations.</p></div></section>
+      <section class="section" id="domain-content" aria-labelledby="domain-content-title"><div class="container narrow prose">
+        <h2 id="domain-content-title">What Security Covers</h2><p>Security governs identity, access, data protection, workload isolation, incident response, and platform trust across the EO stack.</p>
+        <h2>Why Security Matters</h2><p>Without strong controls, sensitive collections and customer operations are exposed. Weak security blocks regulated adoption even if technical features are strong.</p>
+        <h2>What Good Looks Like</h2><p>Mature EO platforms enforce least privilege, tenant isolation, MFA/SSO, scoped API credentials, encryption, key rotation, continuous monitoring, and rapid incident handling.</p>
+        <h2>Minimum Requirements</h2><ul><li>Tenant isolation for storage, processing, and delivery paths.</li><li>RBAC with scoped access tokens and service identities.</li><li>MFA and SSO for operator and customer access.</li><li>Encryption in transit and at rest with managed key rotation.</li><li>Audit logs, anomaly detection, and documented incident workflows.</li></ul>
+        <h2>Identity and Access Control</h2><h3>Authentication</h3><p>Use standards-based authentication for users and machine clients.</p><h3>Authorization</h3><p>Apply policy-driven authorization with least privilege defaults.</p><h3>Role and Attribute-Based Access</h3><p>Combine RBAC and ABAC for mission, tenant, and data sensitivity controls.</p><h3>API Credentials and Token Scope</h3><p>Issue short-lived credentials with narrow scopes and supplier boundaries.</p><h3>MFA and SSO</h3><p>Require MFA for privileged actions and integrate enterprise SSO.</p><h3>Service-to-Service Identity</h3><p>Use workload identities instead of static shared secrets.</p>
+        <h2>Data Protection</h2><h3>Encryption in Transit</h3><p>Enforce TLS and mutual authentication on internal APIs where needed.</p><h3>Encryption at Rest</h3><p>Protect object storage, indexes, queues, and backups with encryption.</p><h3>Key Management</h3><p>Use centrally governed KMS/HSM-backed keys with rotation and revocation processes.</p><h3>Secret Management</h3><p>Store secrets in vault systems with rotation and access auditing.</p><h3>Sensitive Dataset Handling</h3><p>Apply tagging, restricted processing pools, and controlled export workflows.</p>
+        <h2>Monitoring and Incident Response</h2><p>Correlate logs, metrics, and traces for anomaly detection. Include break-glass access controls, privileged access review, and customer communication playbooks for incidents.</p>
+        <h2>Tenant and Workload Isolation</h2><p>Define security controls for shared multi-tenant processing, including runtime isolation and resource guardrails to prevent lateral movement.</p>
+        <h2>Supply Chain and Platform Trust</h2><p>Verify software dependency trust, sign artifacts, and isolate supplier credentials so external integrations cannot escalate privileges.</p>
+        <h2>Security Decisions</h2><p>Key choices include tenant-per-account vs pooled tenancy, centralized vs delegated IAM, and managed vs customer-held keys.</p>
+        <h2>Metrics and Health Signals</h2><ul><li>Privileged access review completion rate.</li><li>MFA coverage and policy exception count.</li><li>Mean time to detect and contain incidents.</li><li>Key and secret rotation compliance.</li><li>Unauthorized access attempt trends.</li></ul>
+        <h2>Anti-Patterns</h2><ul><li>Long-lived shared API keys.</li><li>Security policy documented but not enforced in code.</li><li>Flat networks with no workload boundaries.</li><li>Missing incident drills and break-glass logging.</li></ul>
+        <h2>Implementation Checklist</h2><ul><li>Is ownership clear?</li><li>Are minimum controls defined?</li><li>Are failure modes addressed?</li><li>Are measurable health signals defined?</li><li>Are anti-patterns named?</li><li>Are dependencies on other domains explicit?</li><li>Is there at least one EO-specific implementation example?</li><li>Is there a practical implementation checklist?</li></ul>
+        <h2>Example EO Patterns</h2><ul><li>Mission data partitioned by tenant with per-tenant keys and scoped delivery tokens.</li><li>Supplier tasking API credentials isolated in dedicated trust boundaries.</li><li>High-risk collection approvals requiring MFA step-up and dual authorization.</li></ul>
+        <h2>Related Domains</h2><p><a href="governance.html">Governance and Compliance</a>, <a href="reliability.html">Reliability and Resilience</a>, <a href="infrastructure.html">Infrastructure</a></p>
+        <p><a href="../index.html#domains">Back to all domains</a></p>
+      </div></section></main>
+    <footer class="site-footer"><div class="container"><div class="footer-content"><p><strong>EODI Standard</strong> documents the operational baseline for modern Earth observation platforms.</p></div><nav aria-label="Footer navigation"><ul><li><a href="../index.html#introduction">Introduction</a></li><li><a href="../blog.html">Blog</a></li><li><a href="../index.html#domains">Domains</a></li></ul></nav></div></footer>
   </body>
 </html>
