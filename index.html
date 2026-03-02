@@ -95,11 +95,6 @@
           <h1 id="hero-title">Earth Observation Data Infrastructure (EODI) Standard</h1>
           <p class="orientation-copy">A practical reference for designing, operating, and scaling Earth observation data infrastructure.</p>
           <p class="authority-copy">Maintained as a living reference by practitioners working across Earth observation data infrastructure, automation, and downstream operations.</p>
-          <p>
-            This document establishes a rigorous standard for Earth Observation Data Infrastructure (EODI), defining the essential
-            capabilities that any credible EO data platform must provide. It emphasizes operational integrity over product-specific
-            features, making clear what a high-functioning EODI shall do to support mission-critical applications.
-          </p>
         </div>
       </section>
 
@@ -119,8 +114,8 @@
       <section class="section" aria-labelledby="contents-title">
         <div class="container narrow">
           <p class="doc-preface">
-            This is a reference blueprint for designing and operating EO data infrastructure. It does not prescribe specific
-            implementations but provides foundational principles.
+            This document is intended to be read non-linearly. Teams typically return to specific sections as systems evolve, new
+            sensors are introduced, or operational constraints change.
           </p>
           <section class="toc" aria-label="Document contents">
             <h3 id="contents-title">Contents</h3>
@@ -251,13 +246,6 @@
             whole that behaves as a single high-functioning platform. In practice, this means supporting multi-constellation
             operations: data from numerous satellite missions and providers are orchestrated under one system so that users
             experience one cohesive environment.
-          </p>
-          <p>
-            The infrastructure must encompass end-to-end workflows covering everything from initial data acquisition or satellite
-            tasking, through processing and cataloging, to final delivery. It should provide both intuitive, user-centric
-            interfaces and robust programmatic APIs, allowing users to self-service their needs (e.g. discover, order, and retrieve
-            imagery) with minimal manual involvement. In essence, the EODI infrastructure is the backbone that ensures all other
-            aspects (security, automation, etc.) function in concert.
           </p>
           <p>
             A unified platform removes silos and queue friction. Requests should trigger automated fulfilment that schedules
@@ -751,9 +739,6 @@
       <section class="section section-muted" aria-labelledby="using-this-reference">
         <div class="container narrow">
           <h2 id="using-this-reference">Using this reference</h2>
-          <p>
-            This document is intended to be read non-linearly. Teams typically return to specific sections as systems evolve, new sensors are introduced, or operational constraints change.
-          </p>
           <p>
             It is designed to support architecture decisions, operational reviews, and infrastructure planning rather than prescribe a single implementation.
           </p>
