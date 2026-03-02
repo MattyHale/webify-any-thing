@@ -1,70 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Scalability and Performance | Earth Observation Data Infrastructure</title>
-    <meta name="description" content="Scalability and performance domain for the EODI standard." />
-    <link rel="canonical" href="https://eodatainfrastructure.com/domains/scalability.html" />
-    <link rel="stylesheet" href="../styles.css" />
-    <script src="../script.js" defer></script>
-    <meta name="theme-color" content="#ffffff" />
-    <link rel="icon" href="data:," />
-  </head>
-  <body id="top">
-    <a class="skip-link" href="#main-content">Skip to main content</a>
-    <header class="site-header">
-      <div class="container">
-        <div class="brand">
-                    <span class="brand-name">Earth Observation Data Infrastructure</span>
-        </div>
-        <nav class="site-nav" aria-label="Primary navigation">
-          <ul>
-            <li><a href="../index.html#introduction">Introduction</a></li>
-            <li><a href="../blog.html">Blog</a></li>
-            <li><a href="../index.html#domains">Domains</a></li>
-          </ul>
-        </nav>
-      </div>
-    </header>
-
-    <main id="main-content">
-      <section class="hero" aria-labelledby="hero-title">
-        <div class="container narrow">
-          <h1 id="hero-title">Scalability and Performance</h1>
-          <p class="orientation-copy">Scalability allows capability to persist as demand increases.</p>
-        </div>
-      </section>
-
-      <section class="section" id="domain-content" aria-labelledby="domain-content-title">
-        <div class="container narrow prose">
-          <h2 id="domain-content-title">What is Expected</h2>
-          <p>The platform must scale across data volume, users, and compute without degrading performance. Elastic infrastructure, efficient indexing, caching, and distributed processing are required to support petabyte-scale archives and high concurrency.</p>
-          <h2>Why It’s Important</h2><p>If performance collapses under growth, adoption stalls. Efficient search and delivery keep analysis fast and costs predictable.</p>
-          <h2>Key Scalability Principles</h2>
-          <h3>Elastic Resource Scaling</h3><p>Autoscale compute, storage, and queues based on demand.</p>
-          <h3>Optimized Indexing and Retrieval</h3><p>Use spatial and temporal indexing and cloud-optimized formats for fast queries.</p>
-          <h3>Parallel and Distributed Processing</h3><p>Partition workloads across workers or clusters for linear scaling.</p>
-          <h3>Continuous Performance Tuning</h3><p>Benchmark and optimize hot paths regularly.</p>
-          <h3>Geographic Distribution</h3><p>Use regional replicas and CDNs to reduce latency.</p>
-          <p><a href="../index.html#domains">Back to all domains</a></p>
-        </div>
-      </section>
-    </main>
-
-    <footer class="site-footer">
-      <div class="container">
-        <div class="footer-content">
-          <p><strong>EODI Standard</strong> documents the operational baseline for modern Earth observation platforms.</p>
-        </div>
-        <nav aria-label="Footer navigation">
-          <ul>
-            <li><a href="../index.html#introduction">Introduction</a></li>
-            <li><a href="../blog.html">Blog</a></li>
-            <li><a href="../index.html#domains">Domains</a></li>
-          </ul>
-        </nav>
-      </div>
-    </footer>
-  </body>
-</html>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>Scalability and Performance | Earth Observation Data Infrastructure</title><meta name="description" content="Scalability and performance domain for the EODI standard." /><link rel="canonical" href="https://eodatainfrastructure.com/domains/scalability.html" /><link rel="stylesheet" href="../styles.css" /><script src="../script.js" defer></script><meta name="theme-color" content="#ffffff" /><link rel="icon" href="data:," /></head><body id="top"><a class="skip-link" href="#main-content">Skip to main content</a><header class="site-header"><div class="container"><div class="brand"><span class="brand-name">Earth Observation Data Infrastructure</span></div><nav class="site-nav" aria-label="Primary navigation"><ul><li><a href="../index.html#introduction">Introduction</a></li><li><a href="../blog.html">Blog</a></li><li><a href="../index.html#domains">Domains</a></li></ul></nav></div></header>
+<main id="main-content"><section class="hero" aria-labelledby="hero-title"><div class="container narrow"><h1 id="hero-title">Scalability and Performance</h1><p class="orientation-copy">Maintain speed and efficiency as data, users, and workload complexity grow.</p></div></section><section class="section" id="domain-content" aria-labelledby="domain-content-title"><div class="container narrow prose">
+<h2 id="domain-content-title">What Scalability Covers</h2><p>Scalability addresses growth in data volume, users, and compute demand while meeting latency, throughput, and cost objectives.</p>
+<h2>Why Scalability Matters</h2><p>EO usage is bursty and data-heavy. Without scalable design, query performance collapses, queues spike, and costs become uncontrolled.</p>
+<h2>What Good Looks Like</h2><p>Mature platforms scale horizontally with indexed catalogs, cache-aware delivery, buffered queues, and parallel processing governed by performance and cost budgets.</p>
+<h2>Minimum Requirements</h2><ul><li>Architecture that scales data ingestion, users, and compute independently.</li><li>Indexing, caching, and queue buffering for critical workflows.</li><li>Parallelization controls with tenant fairness under load.</li><li>Geographic distribution strategy for delivery latency and sovereignty.</li><li>Cost controls with FinOps visibility and safeguards.</li></ul>
+<h2>Scaling Data, Users, and Compute</h2><h3>Archive Growth</h3><p>Plan storage/index growth for long-term scene accumulation.</p><h3>Concurrent Users</h3><p>Protect interactive workloads with priority-aware throttling.</p><h3>Large AOIs</h3><p>Use tiling and chunked processing for large-area requests.</p><h3>Burst Processing</h3><p>Auto-scale compute for sudden mission or disaster demand.</p><h3>Background Jobs</h3><p>Separate low-priority jobs from latency-sensitive paths.</p>
+<h2>Performance Architecture</h2><h3>Indexing</h3><p>Maintain spatial-temporal indexes and query plan tuning.</p><h3>Caching</h3><p>Use cache tiers for metadata and high-demand products.</p><h3>Distributed Processing</h3><p>Distribute workloads by scene, tile, and product class.</p><h3>Queue Buffering</h3><p>Absorb bursts while preserving priority and fairness.</p><h3>CDN and Regional Delivery</h3><p>Deliver outputs close to users with region-aware caching.</p><h3>Hot Path Optimization</h3><p>Optimize latency-critical order-to-access workflows.</p>
+<h2>Cost-Aware Scaling</h2><h3>Storage Cost Controls</h3><p>Apply lifecycle policies and deduplication where valid.</p><h3>Compute Cost Controls</h3><p>Use rightsizing, schedule-aware scaling, and quota limits.</p><h3>Retention Trade-Offs</h3><p>Align retention depth with business and compliance value.</p><h3>Performance vs Cost Decisions</h3><p>Document trade-offs with measurable budgets and ceilings.</p>
+<h2>Capacity Planning and Bottleneck Management</h2><p>Forecast demand, track bottlenecks, and prioritize key workflows under constrained capacity.</p>
+<h2>Geographic and Multi-Tenant Scaling</h2><p>Define placement for global users and maintain multi-tenant fairness during high load.</p>
+<h2>Scalability Decisions</h2><p>Key choices include active region count, queue partitioning strategy, and strict performance budgets for mission-critical paths.</p>
+<h2>Metrics and Health Signals</h2><ul><li>P95/P99 latency for search, order, and delivery.</li><li>Queue backlog age and throughput by priority class.</li><li>Autoscaling efficiency and saturation indicators.</li><li>Cost per terabyte ingested and per product delivered.</li><li>Fairness metrics across tenants under load.</li></ul>
+<h2>Anti-Patterns</h2><ul><li>Scaling compute without fixing indexing bottlenecks.</li><li>No cost ceilings for burst workloads.</li><li>Single shared queue for all priorities.</li><li>Ignoring performance regressions in release criteria.</li></ul>
+<h2>Implementation Checklist</h2><ul><li>Is ownership clear?</li><li>Are minimum controls defined?</li><li>Are failure modes addressed?</li><li>Are measurable health signals defined?</li><li>Are anti-patterns named?</li><li>Are dependencies on other domains explicit?</li><li>Is there at least one EO-specific implementation example?</li><li>Is there a practical implementation checklist?</li></ul>
+<h2>Example EO Patterns</h2><ul><li>Wildfire surge mode allocates burst compute and prioritizes near-real-time detection products.</li><li>Regional CDN edge caching reduces repeated download latency for common AOIs.</li><li>Performance budget gates block releases that degrade order-to-first-byte latency.</li></ul>
+<h2>Related Domains</h2><p><a href="infrastructure.html">Infrastructure</a>, <a href="reliability.html">Reliability and Resilience</a>, <a href="governance.html">Governance and Compliance</a></p><p><a href="../index.html#domains">Back to all domains</a></p>
+</div></section></main><footer class="site-footer"><div class="container"><div class="footer-content"><p><strong>EODI Standard</strong> documents the operational baseline for modern Earth observation platforms.</p></div><nav aria-label="Footer navigation"><ul><li><a href="../index.html#introduction">Introduction</a></li><li><a href="../blog.html">Blog</a></li><li><a href="../index.html#domains">Domains</a></li></ul></nav></div></footer></body></html>

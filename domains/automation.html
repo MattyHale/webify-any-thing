@@ -1,71 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Automation | Earth Observation Data Infrastructure</title>
-    <meta name="description" content="Automation domain for the EODI standard." />
-    <link rel="canonical" href="https://eodatainfrastructure.com/domains/automation.html" />
-    <link rel="stylesheet" href="../styles.css" />
-    <script src="../script.js" defer></script>
-    <meta name="theme-color" content="#ffffff" />
-    <link rel="icon" href="data:," />
-  </head>
-  <body id="top">
-    <a class="skip-link" href="#main-content">Skip to main content</a>
-    <header class="site-header">
-      <div class="container">
-        <div class="brand">
-                    <span class="brand-name">Earth Observation Data Infrastructure</span>
-        </div>
-        <nav class="site-nav" aria-label="Primary navigation">
-          <ul>
-            <li><a href="../index.html#introduction">Introduction</a></li>
-            <li><a href="../blog.html">Blog</a></li>
-            <li><a href="../index.html#domains">Domains</a></li>
-          </ul>
-        </nav>
-      </div>
-    </header>
-
-    <main id="main-content">
-      <section class="hero" aria-labelledby="hero-title">
-        <div class="container narrow">
-          <h1 id="hero-title">Automation</h1>
-          <p class="orientation-copy">Automation turns EO workflows from manual coordination into dependable operations.</p>
-        </div>
-      </section>
-
-      <section class="section" id="domain-content" aria-labelledby="domain-content-title">
-        <div class="container narrow prose">
-          <h2 id="domain-content-title">What is Expected</h2>
-          <p>Automation should handle repetitive and complex workflows without manual intervention. The platform is expected to automate ingestion, indexing, processing, and delivery once a trigger or request is received. All major functions must be accessible via APIs so users and third-party systems can integrate them into their own pipelines.</p>
-          <p>The platform should follow an event-driven design so new data automatically triggers downstream processing, state updates, and notifications.</p>
-          <h2>Why It’s Important</h2><p>Automation improves speed, scalability, and consistency. Manual workflows do not scale and introduce errors. Automated pipelines ensure repeatability and allow the platform to respond faster than human operators.</p>
-          <h2>Key Automation Principles</h2>
-          <h3>API-First Design</h3><p>Every capability available in the UI must also be available via APIs. The UI should consume the same APIs exposed to users.</p>
-          <h3>Workflow Orchestration</h3><p>Use orchestration to chain steps, manage retries, handle branching, and persist state in observable, re-runnable workflows.</p>
-          <h3>Event-Driven Operations</h3><p>Publish and react to events for data arrival, job state changes, and delivery to eliminate polling and reduce latency.</p>
-          <h3>Remove Manual Touchpoints</h3><p>Replace human checks with programmatic checks so operators handle exceptions, not the happy path.</p>
-          <h3>User Automation</h3><p>Provide CLIs, SDKs, and examples so customers can integrate the platform into their own automation stacks.</p>
-          <p><a href="../index.html#domains">Back to all domains</a></p>
-        </div>
-      </section>
-    </main>
-
-    <footer class="site-footer">
-      <div class="container">
-        <div class="footer-content">
-          <p><strong>EODI Standard</strong> documents the operational baseline for modern Earth observation platforms.</p>
-        </div>
-        <nav aria-label="Footer navigation">
-          <ul>
-            <li><a href="../index.html#introduction">Introduction</a></li>
-            <li><a href="../blog.html">Blog</a></li>
-            <li><a href="../index.html#domains">Domains</a></li>
-          </ul>
-        </nav>
-      </div>
-    </footer>
-  </body>
-</html>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>Automation | Earth Observation Data Infrastructure</title><meta name="description" content="Automation domain for the EODI standard." /><link rel="canonical" href="https://eodatainfrastructure.com/domains/automation.html" /><link rel="stylesheet" href="../styles.css" /><script src="../script.js" defer></script><meta name="theme-color" content="#ffffff" /><link rel="icon" href="data:," /></head><body id="top"><a class="skip-link" href="#main-content">Skip to main content</a><header class="site-header"><div class="container"><div class="brand"><span class="brand-name">Earth Observation Data Infrastructure</span></div><nav class="site-nav" aria-label="Primary navigation"><ul><li><a href="../index.html#introduction">Introduction</a></li><li><a href="../blog.html">Blog</a></li><li><a href="../index.html#domains">Domains</a></li></ul></nav></div></header>
+<main id="main-content"><section class="hero" aria-labelledby="hero-title"><div class="container narrow"><h1 id="hero-title">Automation</h1><p class="orientation-copy">Turn EO operations into reliable, repeatable workflows from tasking to delivery.</p></div></section><section class="section" id="domain-content" aria-labelledby="domain-content-title"><div class="container narrow prose">
+<h2 id="domain-content-title">What Automation Covers</h2><p>Automation defines orchestration, event handling, approvals, reprocessing, and customer-facing automation interfaces across EO workflows.</p>
+<h2>Why Automation Matters</h2><p>Manual orchestration slows delivery and increases errors. Mature automation improves speed, consistency, and operator capacity.</p>
+<h2>What Good Looks Like</h2><p>A mature platform supports end-to-end tasking-to-delivery automation with stateful workflow execution, idempotent retries, exception routing, and auditable human approvals for sensitive actions.</p>
+<h2>Minimum Requirements</h2><ul><li>Event-driven triggers for ingestion, processing, and delivery stages.</li><li>State persistence and replay support for long-running workflows.</li><li>Retry and idempotency policies with dead-letter queues.</li><li>Exception handling with safe rollback behaviour.</li><li>Customer automation via APIs, webhooks, and SDK/CLI options.</li></ul>
+<h2>Workflow Orchestration</h2><h3>Trigger Sources</h3><p>Use tasking updates, ingestion completion events, schedules, and operator actions.</p><h3>Stateful Workflow Execution</h3><p>Persist workflow state transitions for traceability and re-runs.</p><h3>Retries and Idempotency</h3><p>Ensure repeat-safe operations with bounded retries and duplicate suppression.</p><h3>Branching and Conditional Logic</h3><p>Route logic by sensor, customer SLA, and policy controls.</p><h3>Re-runs and Replay</h3><p>Allow selective replay of failed or outdated processing stages.</p><h3>Scheduling vs Event Triggers</h3><p>Use schedules for predictable jobs and events for low-latency responses.</p>
+<h2>Event-Driven Processing</h2><p>Implement queue-backed event pipelines with visibility into backlog age, throughput, and stuck states.</p>
+<h2>Human-in-the-Loop Controls</h2><p>Introduce approval gates for high-risk jobs such as restricted-area delivery, high-cost reprocessing, or policy exceptions.</p>
+<h2>Failure Handling and Recovery</h2><p>Include DLQ triage, rollback/compensation steps, and manual override procedures for blocked automations.</p>
+<h2>Customer Automation Interfaces</h2><h3>APIs</h3><p>Stable endpoints for ordering, tracking, and retrieval.</p><h3>Webhooks</h3><p>Signed callbacks with retries and delivery status.</p><h3>SDKs</h3><p>Reference SDKs for common customer stacks.</p><h3>CLI Support</h3><p>Operator-friendly command automation for batch runs.</p><h3>Sample Integrations</h3><p>Templates for SIEM, GIS, and alerting-system ingestion.</p>
+<h2>Automation Decisions</h2><p>Key choices include batch vs near-real-time workflows, orchestration engine selection, and approval escalation policy.</p>
+<h2>Metrics and Health Signals</h2><ul><li>Tasking-to-delivery cycle time.</li><li>Workflow success rate and replay frequency.</li><li>DLQ volume and mean time to recovery.</li><li>Automation observability coverage (logs/metrics/traces).</li><li>Manual intervention rate by workflow class.</li></ul>
+<h2>Anti-Patterns</h2><ul><li>Manual scripts with no state history.</li><li>Retries without idempotency protection.</li><li>No approval checkpoints for high-impact actions.</li><li>Customer automation limited to polling-only models.</li></ul>
+<h2>Implementation Checklist</h2><ul><li>Is ownership clear?</li><li>Are minimum controls defined?</li><li>Are failure modes addressed?</li><li>Are measurable health signals defined?</li><li>Are anti-patterns named?</li><li>Are dependencies on other domains explicit?</li><li>Is there at least one EO-specific implementation example?</li><li>Is there a practical implementation checklist?</li></ul>
+<h2>Example EO Patterns</h2><ul><li>Tasking acceptance triggers ingestion reservation, preprocessing, and delivery notification automatically.</li><li>Cloud cover threshold breach triggers alternate sensor acquisition workflow.</li><li>Customer webhook receives signed job-state events with replayable history.</li></ul>
+<h2>Related Domains</h2><p><a href="notifications.html">Notifications and Event Triggers</a>, <a href="reliability.html">Reliability and Resilience</a>, <a href="infrastructure.html">Infrastructure</a></p><p><a href="../index.html#domains">Back to all domains</a></p>
+</div></section></main><footer class="site-footer"><div class="container"><div class="footer-content"><p><strong>EODI Standard</strong> documents the operational baseline for modern Earth observation platforms.</p></div><nav aria-label="Footer navigation"><ul><li><a href="../index.html#introduction">Introduction</a></li><li><a href="../blog.html">Blog</a></li><li><a href="../index.html#domains">Domains</a></li></ul></nav></div></footer></body></html>

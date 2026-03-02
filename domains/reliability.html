@@ -1,70 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Reliability and Resilience | Earth Observation Data Infrastructure</title>
-    <meta name="description" content="Reliability and resilience domain for the EODI standard." />
-    <link rel="canonical" href="https://eodatainfrastructure.com/domains/reliability.html" />
-    <link rel="stylesheet" href="../styles.css" />
-    <script src="../script.js" defer></script>
-    <meta name="theme-color" content="#ffffff" />
-    <link rel="icon" href="data:," />
-  </head>
-  <body id="top">
-    <a class="skip-link" href="#main-content">Skip to main content</a>
-    <header class="site-header">
-      <div class="container">
-        <div class="brand">
-                    <span class="brand-name">Earth Observation Data Infrastructure</span>
-        </div>
-        <nav class="site-nav" aria-label="Primary navigation">
-          <ul>
-            <li><a href="../index.html#introduction">Introduction</a></li>
-            <li><a href="../blog.html">Blog</a></li>
-            <li><a href="../index.html#domains">Domains</a></li>
-          </ul>
-        </nav>
-      </div>
-    </header>
-
-    <main id="main-content">
-      <section class="hero" aria-labelledby="hero-title">
-        <div class="container narrow">
-          <h1 id="hero-title">Reliability and Resilience</h1>
-          <p class="orientation-copy">Reliability determines whether the platform works when conditions are least forgiving.</p>
-        </div>
-      </section>
-
-      <section class="section" id="domain-content" aria-labelledby="domain-content-title">
-        <div class="container narrow prose">
-          <h2 id="domain-content-title">What is Expected</h2>
-          <p>The platform must deliver consistent performance with minimal downtime and no single points of failure. Resilience requires redundancy, geographic distribution, monitoring, and tested disaster recovery plans.</p>
-          <h2>Why It’s Important</h2><p>Many users rely on EO data in time-sensitive operations. Outages and data loss erode trust and force costly workarounds. A resilient platform stays available and communicates clearly during incidents.</p>
-          <h2>Key Reliability Principles</h2>
-          <h3>High-Availability Architecture</h3><p>Use redundancy, multi-AZ deployments, rolling updates, and zero-downtime changes.</p>
-          <h3>Data Redundancy and Backups</h3><p>Replicate data, verify backups, and meet defined recovery objectives.</p>
-          <h3>Resilient Processing and Delivery</h3><p>Retry transient failures, checkpoint long jobs, and absorb spikes with elastic capacity.</p>
-          <h3>Monitoring and Alerting</h3><p>Track health, performance, errors, and service-level objectives with proactive alerting.</p>
-          <h3>Regular Testing and Drills</h3><p>Run load tests and failover exercises routinely.</p>
-          <p><a href="../index.html#domains">Back to all domains</a></p>
-        </div>
-      </section>
-    </main>
-
-    <footer class="site-footer">
-      <div class="container">
-        <div class="footer-content">
-          <p><strong>EODI Standard</strong> documents the operational baseline for modern Earth observation platforms.</p>
-        </div>
-        <nav aria-label="Footer navigation">
-          <ul>
-            <li><a href="../index.html#introduction">Introduction</a></li>
-            <li><a href="../blog.html">Blog</a></li>
-            <li><a href="../index.html#domains">Domains</a></li>
-          </ul>
-        </nav>
-      </div>
-    </footer>
-  </body>
-</html>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>Reliability and Resilience | Earth Observation Data Infrastructure</title><meta name="description" content="Reliability and resilience domain for the EODI standard." /><link rel="canonical" href="https://eodatainfrastructure.com/domains/reliability.html" /><link rel="stylesheet" href="../styles.css" /><script src="../script.js" defer></script><meta name="theme-color" content="#ffffff" /><link rel="icon" href="data:," /></head><body id="top"><a class="skip-link" href="#main-content">Skip to main content</a><header class="site-header"><div class="container"><div class="brand"><span class="brand-name">Earth Observation Data Infrastructure</span></div><nav class="site-nav" aria-label="Primary navigation"><ul><li><a href="../index.html#introduction">Introduction</a></li><li><a href="../blog.html">Blog</a></li><li><a href="../index.html#domains">Domains</a></li></ul></nav></div></header>
+<main id="main-content"><section class="hero" aria-labelledby="hero-title"><div class="container narrow"><h1 id="hero-title">Reliability and Resilience</h1><p class="orientation-copy">Keep EO services dependable through failures, spikes, and external disruptions.</p></div></section><section class="section" id="domain-content" aria-labelledby="domain-content-title"><div class="container narrow prose">
+<h2 id="domain-content-title">What Reliability Covers</h2><p>Reliability defines availability targets, failure handling, data restoration, observability, and readiness practices for sustained EO operations.</p>
+<h2>Why Reliability Matters</h2><p>Mission users depend on timely, complete data. Unreliable services break workflows, reduce trust, and increase operational risk.</p>
+<h2>What Good Looks Like</h2><p>Mature platforms design for redundancy, high availability, failover, and degraded service behaviour, backed by tested recovery and clear incident communication.</p>
+<h2>Minimum Requirements</h2><ul><li>Defined uptime targets, SLIs/SLOs, and recovery objectives.</li><li>Backup validation and tested restore procedures.</li><li>Central monitoring, alerting, and on-call incident response.</li><li>Regional failover and dependency outage plans.</li><li>Regular drills for technical and communication readiness.</li></ul>
+<h2>Availability and Service Levels</h2><h3>Uptime Targets</h3><p>Set explicit uptime commitments by service tier.</p><h3>SLIs and SLOs</h3><p>Track availability, latency, correctness, completeness, and timeliness.</p><h3>Error Budgets</h3><p>Use error budgets to balance reliability and delivery speed.</p><h3>Degraded Modes</h3><p>Define safe degraded modes when dependencies fail.</p>
+<h2>Failure Modes and Recovery</h2><h3>Transient Failures</h3><p>Use bounded retries and circuit breakers.</p><h3>Dependency Outages</h3><p>Isolate dependency failures and degrade gracefully.</p><h3>Queue Backlogs</h3><p>Monitor backlog growth with load-shedding policies.</p><h3>Processing Failure Recovery</h3><p>Support targeted reprocessing and checkpoint resumes.</p><h3>Regional Failover</h3><p>Exercise failover paths and data replication validity.</p>
+<h2>Data Protection and Restore</h2><p>Treat backups and restore tests as first-class reliability controls, not infrequent compliance tasks.</p>
+<h2>Monitoring and Observability</h2><h3>Metrics</h3><p>Capture service, workflow, and customer-impact metrics.</p><h3>Logs</h3><p>Centralize structured logs with retention and searchability.</p><h3>Traces</h3><p>Trace cross-service flows for bottleneck and failure analysis.</p><h3>Alert Thresholds</h3><p>Set severity-based thresholds tied to action playbooks.</p><h3>Incident Visibility</h3><p>Provide internal and customer-facing incident status views.</p>
+<h2>Testing and Operational Readiness</h2><p>Run game days, dependency-risk reviews, and data timeliness/completeness checks to validate readiness.</p>
+<h2>Reliability Decisions</h2><p>Decide target SLOs, active-active vs active-passive failover, and degradation priorities for critical workflows.</p>
+<h2>Metrics and Health Signals</h2><ul><li>SLO attainment and error budget burn rate.</li><li>MTTD/MTTR and incident recurrence rate.</li><li>Backup restore success and objective compliance.</li><li>Data completeness and freshness at delivery time.</li><li>Customer incident communication timeliness.</li></ul>
+<h2>Anti-Patterns</h2><ul><li>Operating without measurable SLOs.</li><li>No rehearsed recovery drills.</li><li>Alert noise without prioritization.</li><li>Treating observability as optional.</li></ul>
+<h2>Implementation Checklist</h2><ul><li>Is ownership clear?</li><li>Are minimum controls defined?</li><li>Are failure modes addressed?</li><li>Are measurable health signals defined?</li><li>Are anti-patterns named?</li><li>Are dependencies on other domains explicit?</li><li>Is there at least one EO-specific implementation example?</li><li>Is there a practical implementation checklist?</li></ul>
+<h2>Example EO Patterns</h2><ul><li>Regional outage triggers failover with catalog read-only mode and delayed bulk processing.</li><li>Critical alerting products prioritized while non-critical derivations queue during incidents.</li><li>Monthly restore drills validate catalog/index recovery and customer download continuity.</li></ul>
+<h2>Related Domains</h2><p><a href="infrastructure.html">Infrastructure</a>, <a href="automation.html">Automation</a>, <a href="security.html">Security</a></p><p><a href="../index.html#domains">Back to all domains</a></p>
+</div></section></main><footer class="site-footer"><div class="container"><div class="footer-content"><p><strong>EODI Standard</strong> documents the operational baseline for modern Earth observation platforms.</p></div><nav aria-label="Footer navigation"><ul><li><a href="../index.html#introduction">Introduction</a></li><li><a href="../blog.html">Blog</a></li><li><a href="../index.html#domains">Domains</a></li></ul></nav></div></footer></body></html>
