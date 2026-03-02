@@ -18,6 +18,9 @@ function slugify(text, fallback = 'section') {
 }
 
 function ensureSectionAnchors(main) {
+  const sectionsWithIds = Array.from(main.querySelectorAll('section[id]'));
+  if (sectionsWithIds.length >= 3) return sectionsWithIds;
+
   const withIds = Array.from(main.querySelectorAll('section[id], h2[id]'));
   if (withIds.length >= 3) return withIds;
 
@@ -38,6 +41,9 @@ function ensureSectionAnchors(main) {
     seen.add(id);
   });
 
+  const normalized = Array.from(main.querySelectorAll('section[id]'));
+  if (normalized.length >= 3) return normalized;
+
   return Array.from(main.querySelectorAll('section[id], h2[id]'));
 }
 
@@ -54,7 +60,12 @@ function buildPageNavigator(main, sections) {
 
   const list = document.createElement('ul');
 
+  const seenIds = new Set();
+
   sections.forEach((section) => {
+    if (!section.id || seenIds.has(section.id)) return;
+    seenIds.add(section.id);
+
     const listItem = document.createElement('li');
     const link = document.createElement('a');
     link.href = `#${section.id}`;
