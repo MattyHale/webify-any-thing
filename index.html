@@ -206,11 +206,20 @@
             <p class="section-primer">The foundational layer that determines whether everything else is possible or painful.</p>
           </header>
           <h3>What is Expected</h3>
-          <p>Infrastructure must unify ingestion, storage, cataloging, and delivery into one platform that supports multi-sensor workflows through stable APIs and automated fulfillment.</p>
+          <p>
+            The EODI's infrastructure is the core technical architecture underpinning ingestion, management, and dissemination of EO data. It should integrate distributed components,
+            partner inputs, and multi-constellation data sources into one cohesive platform so users experience a single operating environment rather than disconnected systems.
+          </p>
+          <p>
+            A unified platform should remove silos and queue friction by triggering automated fulfilment end-to-end: scheduling collections, ingesting results, standardizing outputs, and
+            delivering data reliably with low latency.
+          </p>
+          <h3>Key Infrastructure Principles</h3>
           <ul class="bullets">
-            <li>Expose all core workflows through documented APIs and self-service interfaces.</li>
-            <li>Orchestrate deterministic tasking, ingestion, processing, and delivery pipelines.</li>
-            <li>Use modular services that can scale independently and update without downtime.</li>
+            <li>Unified data integration through a common catalog and metadata layer that hides source-specific quirks.</li>
+            <li>Self-service UI and stable APIs for ordering, tracking, and retrieval without tickets or email loops.</li>
+            <li>Automated, auditable fulfilment across tasking, acquisition monitoring, ingestion, preprocessing, and delivery.</li>
+            <li>Modular cloud-native services for catalog, ordering, processing, delivery, and identity, with independent scaling and no-downtime updates.</li>
           </ul>
         </div>
       </section>
@@ -222,11 +231,21 @@
             <p class="section-primer">Security defines whether the platform can be trusted to operate in real missions.</p>
           </header>
           <h3>What is Expected</h3>
-          <p>Security controls must protect EO data and operations end-to-end using strong identity, tenant isolation, encryption, and audit-ready monitoring.</p>
+          <p>
+            Security must be designed into every layer of the platform: strong identity controls, fine-grained authorization, encryption in transit and at rest, tenant isolation,
+            continuous monitoring, and incident response readiness. One customer must never be able to view or affect another customer's assets.
+          </p>
+          <h3>Why It's Important</h3>
+          <p>
+            EO workloads are often sensitive or regulated. Breaches, data leaks, or silent tampering can cause operational, legal, and strategic damage. Security maturity is therefore a
+            prerequisite for trust and deep mission integration.
+          </p>
+          <h3>Key Security Principles</h3>
           <ul class="bullets">
-            <li>Enforce role-based access control, SSO, and MFA for sensitive operations.</li>
-            <li>Encrypt data in transit and at rest, with managed key lifecycle policies.</li>
-            <li>Maintain tamper-evident logs and continuous detection for suspicious activity.</li>
+            <li>Strong authentication and least-privilege access control with MFA, SSO, scoped tokens, and centralized identity management.</li>
+            <li>Encryption and data protection everywhere, backed by managed keys, vault/HSM controls, and key rotation.</li>
+            <li>Continuous monitoring and tested incident response with anomaly alerting, containment workflows, and audit logs.</li>
+            <li>Compliance and data governance controls for residency, licensing, and regional requirements enforced in code.</li>
           </ul>
         </div>
       </section>
@@ -238,11 +257,22 @@
             <p class="section-primer">Automation is what turns a catalog into an operating system for EO programs.</p>
           </header>
           <h3>What is Expected</h3>
-          <p>Automation must connect ordering, ingestion, processing, quality checks, and delivery through reliable workflows that minimize manual intervention.</p>
+          <p>
+            Automation should run routine EO workflows from acquisition through delivery. Once triggered, ingestion, indexing, product generation, and fulfilment should execute through
+            deterministic pipelines with minimal manual touchpoints.
+          </p>
+          <h3>Why It's Important</h3>
+          <p>
+            Automation increases speed, consistency, and scalability while reducing human error. It enables users to integrate the platform into their own systems without brittle manual
+            processes.
+          </p>
+          <h3>Key Automation Principles</h3>
           <ul class="bullets">
-            <li>Trigger workflows from APIs, schedules, and event conditions.</li>
-            <li>Track execution state, retries, and failures with clear operational visibility.</li>
-            <li>Support human approvals only where policy or mission constraints require them.</li>
+            <li>API-first design so everything possible in the UI is also scriptable with versioned, documented interfaces.</li>
+            <li>Workflow orchestration for retries, branching, state persistence, and observable, re-runnable execution.</li>
+            <li>Event-driven operations that react to data arrival, job updates, and delivery completion without polling.</li>
+            <li>Progressive removal of manual touchpoints so operators focus on exceptions and policy decisions.</li>
+            <li>User automation support via examples, SDKs, and CLIs for downstream ETL and notification integration.</li>
           </ul>
         </div>
       </section>
@@ -254,11 +284,21 @@
             <p class="section-primer">Consistency makes data reusable across teams, tools, and missions.</p>
           </header>
           <h3>What is Expected</h3>
-          <p>Consistency requires standardized metadata, schemas, and delivery contracts so users can trust that outputs remain predictable across providers and time.</p>
+          <p>
+            Consistency means data and platform behavior remain predictable regardless of source. Metadata, packaging, coordinate handling, and API response shapes should be normalized so
+            users do not have to implement source-specific logic.
+          </p>
+          <h3>Why It's Important</h3>
+          <p>
+            Consistency reduces integration overhead and operational errors, enabling teams to build pipelines once and reuse them across providers, missions, and time windows.
+          </p>
+          <h3>Key Consistency Principles</h3>
           <ul class="bullets">
-            <li>Adopt common metadata models (for example, STAC) across all collections.</li>
-            <li>Apply uniform product naming, packaging, and quality signals.</li>
-            <li>Version schemas and communicate breaking changes with migration guidance.</li>
+            <li>Standardized formats and metadata using established standards such as STAC and cloud-optimized file formats.</li>
+            <li>Normalization pipelines for reprojection, format conversion, metadata translation, and quality preprocessing.</li>
+            <li>Uniform access behavior across collections, with stable search patterns, item shapes, links, and auth flows.</li>
+            <li>Quality and versioning controls with explicit lineage and transparent reprocessing updates.</li>
+            <li>Consistent documentation for fields, formats, errors, and examples aligned to live interfaces.</li>
           </ul>
         </div>
       </section>
@@ -270,11 +310,22 @@
             <p class="section-primer">Governance keeps operational speed aligned with policy, legal, and mission boundaries.</p>
           </header>
           <h3>What is Expected</h3>
-          <p>Governance controls must encode data rights, retention rules, and access policy so compliance is enforced automatically rather than handled ad hoc.</p>
+          <p>
+            Governance and compliance should define and enforce who can access what, under which conditions, and for how long. These controls must be implemented directly in workflows,
+            not left to informal policy documents.
+          </p>
+          <h3>Why It's Important</h3>
+          <p>
+            Agencies and enterprises often require demonstrable control and auditability before adoption. Strong governance reduces legal risk and ensures accountability during incidents or
+            disputes.
+          </p>
+          <h3>Key Governance &amp; Compliance Principles</h3>
           <ul class="bullets">
-            <li>Implement policy-aware access and sharing controls with revocation support.</li>
-            <li>Enforce license, residency, and retention requirements at execution time.</li>
-            <li>Provide auditable evidence for compliance reviews and incident investigations.</li>
+            <li>Access governance with roles, groups, project scoping, approval flows, and revocable sharing.</li>
+            <li>License management and usage enforcement for geographic, temporal, redistribution, and expiration constraints.</li>
+            <li>Auditing and accountability through immutable logs, alerting, and compliance reporting views.</li>
+            <li>Automated lifecycle and retention controls for archival, deletion, backup validation, and integrity checks.</li>
+            <li>Legal and regulatory alignment for residency, export controls, and sector-specific policy enforcement.</li>
           </ul>
         </div>
       </section>
@@ -286,11 +337,21 @@
             <p class="section-primer">Reliability determines whether the platform remains usable when conditions are least forgiving.</p>
           </header>
           <h3>What is Expected</h3>
-          <p>Reliability architecture must sustain service during component failure, recover quickly from incidents, and provide transparent operational status.</p>
+          <p>
+            Reliability and resilience require high uptime, graceful degradation, and rapid recovery from failures. The platform should avoid single points of failure, replicate critical
+            data and services, and continuously monitor health to detect issues early.
+          </p>
+          <h3>Why It's Important</h3>
+          <p>
+            EO users often depend on time-sensitive outputs. Outages or data loss during critical windows can disrupt missions and erode confidence, while resilient operations sustain trust.
+          </p>
+          <h3>Key Reliability &amp; Resilience Principles</h3>
           <ul class="bullets">
-            <li>Design for redundancy across compute, storage, and critical control paths.</li>
-            <li>Define and test disaster recovery objectives, failover, and restoration drills.</li>
-            <li>Instrument health, latency, and error budgets with proactive alerting.</li>
+            <li>High-availability architecture with redundancy across critical layers and zero-downtime deployment practices.</li>
+            <li>Data redundancy and backup verification tied to documented RPO and RTO objectives.</li>
+            <li>Resilient processing and delivery with retries, checkpoints, alternate routes, and elastic surge handling.</li>
+            <li>Comprehensive monitoring and alerting for latency, errors, saturation, and user-facing SLOs.</li>
+            <li>Regular resilience testing through failover drills and load exercises that close identified gaps.</li>
           </ul>
         </div>
       </section>
@@ -302,11 +363,21 @@
             <p class="section-primer">Scalability ensures growth in users, sensors, and volume does not degrade mission outcomes.</p>
           </header>
           <h3>What is Expected</h3>
-          <p>Scalability and performance controls must maintain predictable throughput and latency under changing demand, data volume, and processing complexity.</p>
+          <p>
+            Scalability and performance should hold steady as data volumes, user concurrency, and compute-heavy analytics grow. Architectures must use elastic infrastructure,
+            geospatial-temporal indexing, caching, and distributed execution to keep queries and delivery fast at scale.
+          </p>
+          <h3>Why It's Important</h3>
+          <p>
+            Programs expand over time, and if performance collapses under load, adoption stalls. Predictable throughput and latency keep analysis timely and operational costs manageable.
+          </p>
+          <h3>Key Scalability &amp; Performance Principles</h3>
           <ul class="bullets">
-            <li>Auto-scale compute, queues, and storage tiers to match real-time workload.</li>
-            <li>Optimize retrieval with indexing, caching, and cloud-optimized formats.</li>
-            <li>Profile and tune critical paths continuously using operational benchmarks.</li>
+            <li>Elastic resource scaling for services, workers, queues, storage, and network paths.</li>
+            <li>Optimized indexing and retrieval using spatial-temporal indexes, tiling, caching, and cloud-optimized formats.</li>
+            <li>Parallel and distributed processing that partitions workloads across clusters for faster large-job completion.</li>
+            <li>Continuous performance tuning through benchmarking, profiling, and release-cycle optimization.</li>
+            <li>Geographic distribution of services and caches to lower latency and balance regional demand.</li>
           </ul>
         </div>
       </section>
@@ -318,11 +389,21 @@
             <p class="section-primer">Notifications connect infrastructure state changes to timely human and system action.</p>
           </header>
           <h3>What is Expected</h3>
-          <p>Notifications must publish meaningful events to users and systems in near real time so operational decisions and downstream automation happen without polling.</p>
+          <p>
+            Notifications and event triggers should proactively inform users and systems when meaningful state changes occur. The platform should support channels such as email, in-app,
+            SMS, webhooks, and queue-based delivery with user-defined filters and cadence controls.
+          </p>
+          <h3>Why It's Important</h3>
+          <p>
+            Timely alerts connect data availability to immediate action, enabling both humans and downstream systems to respond without polling delays.
+          </p>
+          <h3>Key Notifications &amp; Event Triggers Principles</h3>
           <ul class="bullets">
-            <li>Support delivery across email, in-app alerts, SMS, webhooks, and queues.</li>
-            <li>Allow subscription rules by geography, time, job state, and threshold.</li>
-            <li>Guarantee reliable delivery with retries, dead-letter handling, and logs.</li>
+            <li>Real-time data alerts for ingestion, job completion, and order delivery with actionable context.</li>
+            <li>User-defined subscriptions and filters by saved search, geography, time, threshold, and job state.</li>
+            <li>Integration hooks through reliable webhooks, queues, and messaging protocols for downstream automation.</li>
+            <li>Reliable delivery via retries, dead-letter queues, delivery logs, and anti-flood controls.</li>
+            <li>Operational communications through a clear status channel for incidents and maintenance notices.</li>
           </ul>
         </div>
       </section>
