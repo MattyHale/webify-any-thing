@@ -75,7 +75,7 @@
     <link rel="stylesheet" href="styles.css" />
     <script src="script.js" defer></script>
   </head>
-  <body>
+  <body data-disable-toc="true">
     <a class="skip-link" href="#main-content">Skip to main content</a>
     <header class="site-header">
       <div class="container">
@@ -96,47 +96,58 @@
     <main id="main-content">
       <section class="hero" aria-labelledby="blog-hero-title">
         <div class="container">
-          <div class="hero-icon" aria-hidden="true">🛰️</div>
           <h1 id="blog-hero-title">EODI Blog Index</h1>
-          <p class="orientation-copy">A practical reference index for implementation notes, field patterns, and operational guidance aligned to the EODI standard.</p>
+          <p class="blog-intro">
+            Notes on Earth observation data infrastructure, automation, standards, and operating realities. Short, technical, and opinionated where needed.
+          </p>
         </div>
       </section>
 
       <section class="section" aria-label="Blog post index">
         <div class="container narrow blog-list">
           <article class="post-card">
-            <p class="post-date">Mar 2026</p>
-            <h2><a href="blog/eo-data-infrastructure-for-isr.html">EO Data Infrastructure for ISR Workflows</a></h2>
-            <p>ISR teams are not only constrained by sensing quality; they are constrained by how quickly data can be orchestrated, standardised, and reused. This post examines where workflows typically fail between collection and decision. It outlines practical infrastructure priorities for repeatable multi-source ISR operations.</p>
-            <p><a href="blog/eo-data-infrastructure-for-isr.html">Read full post</a></p>
+            <h2><a href="/blog/eo-data-infrastructure-for-isr.html">EO Data Infrastructure for ISR Workflows</a></h2>
+            <div class="post-meta">Mar 2026 · ISR</div>
+            <p class="post-excerpt">
+              ISR performance depends less on sensor abundance and more on how quickly multi-source data can be discovered, normalized, and delivered into decision systems. This piece maps the infrastructure bottlenecks that delay operations and outlines pragmatic fixes that improve tempo and reliability.
+            </p>
+            <a class="post-link" href="/blog/eo-data-infrastructure-for-isr.html">Read</a>
           </article>
 
           <article class="post-card">
-            <p class="post-date">Feb 2026</p>
-            <h2><a href="blog/stac-compliant-eo-data-for-ai-models.html">STAC-Compliant EO Data for AI Models</a></h2>
-            <p>EO AI pipelines often break because metadata and catalog structure are inconsistent across sources. This article explains how STAC provides a practical data contract for discovery, automation, and lifecycle governance. It also covers adoption patterns that improve reproducibility without full platform replacement.</p>
-            <p><a href="blog/stac-compliant-eo-data-for-ai-models.html">Read full post</a></p>
+            <h2><a href="/blog/stac-compliant-eo-data-for-ai-models.html">STAC-Compliant EO Data for AI Models</a></h2>
+            <div class="post-meta">Feb 2026 · AI/ML</div>
+            <p class="post-excerpt">
+              EO model quality often degrades because catalogs and metadata are inconsistent across providers. This article explains how STAC creates a stable contract for ingestion, feature engineering, and retraining, helping teams make pipelines reproducible without rebuilding their entire platform stack.
+            </p>
+            <a class="post-link" href="/blog/stac-compliant-eo-data-for-ai-models.html">Read</a>
           </article>
 
           <article class="post-card">
-            <p class="post-date">Jan 2026</p>
-            <h2><a href="blog/eo-data-pipelines-for-downstream-engagement.html">EO Data Pipelines for Downstream Engagement</a></h2>
-            <p>Downstream engagement depends on more than product quality. Discovery, ordering, licensing, fulfilment, and post-delivery confidence must work as one observable pipeline. This post shows how infrastructure maturity turns fragmented engagement into repeatable revenue.</p>
-            <p><a href="blog/eo-data-pipelines-for-downstream-engagement.html">Read full post</a></p>
+            <h2><a href="/blog/eo-data-pipelines-for-downstream-engagement.html">EO Data Pipelines for Downstream Engagement</a></h2>
+            <div class="post-meta">Jan 2026 · Commercial Ops</div>
+            <p class="post-excerpt">
+              Strong products still underperform when discovery, ordering, licensing, and fulfillment are fragmented. This post shows how to design downstream EO pipelines as one observable system, turning customer friction into predictable delivery and making recurring engagement far easier to scale.
+            </p>
+            <a class="post-link" href="/blog/eo-data-pipelines-for-downstream-engagement.html">Read</a>
           </article>
 
           <article class="post-card">
-            <p class="post-date">Dec 2025</p>
-            <h2><a href="blog/the-uncomfortable-truth-about-the-large-imagery-supplier.html">The Uncomfortable Truth About the Large Imagery Supplier</a></h2>
-            <p>Large imagery suppliers may have world-class assets, but many customers still face manual fulfilment and inconsistent delivery operations. This post explores the hidden downstream risk and argues for customer-owned data infrastructure. It outlines how organisations can integrate suppliers without inheriting brittle processes.</p>
-            <p><a href="blog/the-uncomfortable-truth-about-the-large-imagery-supplier.html">Read full post</a></p>
+            <h2><a href="/blog/the-uncomfortable-truth-about-the-large-imagery-supplier.html">The Uncomfortable Truth About the Large Imagery Supplier</a></h2>
+            <div class="post-meta">Dec 2025 · Procurement</div>
+            <p class="post-excerpt">
+              Large suppliers can still expose buyers to manual workflows, opaque lead times, and brittle delivery paths. This analysis explains why asset scale does not guarantee operational reliability and offers an infrastructure-first approach for integrating vendors without inheriting their process risk.
+            </p>
+            <a class="post-link" href="/blog/the-uncomfortable-truth-about-the-large-imagery-supplier.html">Read</a>
           </article>
 
           <article class="post-card">
-            <p class="post-date">Nov 2025</p>
-            <h2><a href="blog/the-missing-layer-in-earth-observation.html">The Missing Layer in Earth Observation</a></h2>
-            <p>EO capabilities often stall between collection and use because the infrastructure layer is incomplete. The article covers automation, governance, observability, and standardised delivery as the foundations for dependable operations. It also includes a practical 180-day implementation approach.</p>
-            <p><a href="blog/the-missing-layer-in-earth-observation.html">Read full post</a></p>
+            <h2><a href="/blog/the-missing-layer-in-earth-observation.html">The Missing Layer in Earth Observation</a></h2>
+            <div class="post-meta">Nov 2025 · Foundations</div>
+            <p class="post-excerpt">
+              Many EO programs stall between collection and real-world use because the infrastructure layer is incomplete. This article details the operational primitives—automation, metadata governance, observability, and distribution controls—that convert isolated capability into dependable delivery.
+            </p>
+            <a class="post-link" href="/blog/the-missing-layer-in-earth-observation.html">Read</a>
           </article>
         </div>
       </section>
