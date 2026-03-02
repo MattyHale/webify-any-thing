@@ -687,3 +687,98 @@ ol {
 ol li {
   margin-bottom: 0.5rem;
 }
+
+.page-navigator {
+  position: sticky;
+  top: 5.5rem;
+  z-index: 8;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 0.85rem 1rem;
+  margin-bottom: 1.5rem;
+  box-shadow: var(--shadow);
+}
+
+.page-navigator h2 {
+  font-size: 0.9rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  margin: 0 0 0.55rem;
+  color: var(--text-muted);
+}
+
+.page-navigator ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.page-navigator a {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.32rem 0.7rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  font-weight: 600;
+  font-size: 0.92rem;
+  text-decoration: none;
+  background: var(--surface);
+}
+
+.page-navigator a.active,
+.page-navigator a:hover,
+.page-navigator a:focus {
+  color: var(--accent);
+  border-color: rgba(29, 78, 216, 0.4);
+  background: rgba(29, 78, 216, 0.08);
+  text-decoration: none;
+}
+
+.section-stepper {
+  position: fixed;
+  right: 1.5rem;
+  bottom: 5.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  z-index: 12;
+}
+
+.stepper-button {
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  padding: 0.55rem 0.85rem;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.82rem;
+  cursor: pointer;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.14);
+}
+
+.stepper-button:hover,
+.stepper-button:focus {
+  border-color: rgba(29, 78, 216, 0.4);
+  color: var(--accent);
+}
+
+@media (max-width: 768px) {
+  .page-navigator {
+    top: 0.85rem;
+  }
+
+  .section-stepper {
+    right: 1rem;
+    bottom: 5.1rem;
+  }
+
+  .stepper-button {
+    font-size: 0.75rem;
+    padding: 0.45rem 0.72rem;
+  }
+}
