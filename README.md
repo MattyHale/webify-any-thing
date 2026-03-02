@@ -33,6 +33,25 @@ There are two easy ways to explore the static site:
 
    Then open [http://localhost:8000](http://localhost:8000) in your browser. Use `Ctrl+C` (or `Cmd+C` on macOS) in the terminal when you are done to stop the server.
 
+
+### Preview troubleshooting
+
+If a preview pane shows `Not Found`, the static server is usually not running (or you are opening a non-existent path).
+
+1. Start a server from the repository root:
+
+   ```sh
+   python -m http.server 8000
+   ```
+
+2. Open the explicit index route:
+
+   - `http://localhost:8000/`
+   - `http://localhost:8000/index.html`
+
+For automated browser previews (including Codex screenshots), always point to `/index.html` to avoid path ambiguity.
+
+
 ## Deployment
 
 Because the site is now fully static, you can deploy it to any static hosting platform (S3, Netlify, GitHub Pages, etc.) by uploading the files in this repository.

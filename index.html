@@ -118,36 +118,34 @@
             sensors are introduced, or operational constraints change.
           </p>
           <section class="toc" aria-label="Document contents">
-            <h3 id="contents-title">Contents</h3>
+            <div class="toc-card">
+              <h3 id="contents-title">Contents</h3>
+              <div class="toc-grid">
+                <div class="toc-group">
+                  <div class="toc-label">Foundations</div>
+                  <div class="toc-links">
+                    <a href="#infrastructure">Infrastructure</a>
+                    <a href="#security">Security</a>
+                    <a href="#governance">Governance</a>
+                  </div>
+                </div>
 
-            <div class="toc-group">
-              <div class="toc-label">Foundations</div>
-              <div class="toc-links">
-                <a href="#infrastructure">Infrastructure</a>
-                <span class="dot">·</span>
-                <a href="#security">Security</a>
-                <span class="dot">·</span>
-                <a href="#governance">Governance</a>
-              </div>
-            </div>
+                <div class="toc-group">
+                  <div class="toc-label">Operations</div>
+                  <div class="toc-links">
+                    <a href="#automation">Automation</a>
+                    <a href="#notifications">Notifications</a>
+                    <a href="#reliability">Reliability</a>
+                  </div>
+                </div>
 
-            <div class="toc-group">
-              <div class="toc-label">Operations</div>
-              <div class="toc-links">
-                <a href="#automation">Automation</a>
-                <span class="dot">·</span>
-                <a href="#notifications">Notifications</a>
-                <span class="dot">·</span>
-                <a href="#reliability">Reliability</a>
-              </div>
-            </div>
-
-            <div class="toc-group">
-              <div class="toc-label">Scale</div>
-              <div class="toc-links">
-                <a href="#consistency">Consistency</a>
-                <span class="dot">·</span>
-                <a href="#scalability">Scalability</a>
+                <div class="toc-group">
+                  <div class="toc-label">Scale</div>
+                  <div class="toc-links">
+                    <a href="#consistency">Consistency</a>
+                    <a href="#scalability">Scalability</a>
+                  </div>
+                </div>
               </div>
             </div>
           </section>
@@ -157,12 +155,24 @@
       <section class="section" id="introduction" aria-labelledby="introduction-title">
         <div class="container narrow">
           <h2 id="introduction-title">Introduction</h2>
-          <p>
-            The standard is organized into eight core domains – Infrastructure, Security, Automation, Consistency, Governance &amp;
-            Compliance, Reliability &amp; Resilience, Scalability &amp; Performance, and Notifications &amp; Event Triggers – outlining for
-            each what is expected, why it matters, and the key principles of an effective system. Together, these chapters set the
-            minimum benchmark for any serious EODI serving technical and commercial users.
-          </p>
+          <div class="callout callout-definition">
+            <div class="callout-title">Definition</div>
+            <p>
+              Earth Observation Data Infrastructure is the layer between collection and use that standardises discovery, access,
+              orchestration, and delivery across sensors and vendors.
+            </p>
+          </div>
+          <p class="lead">This standard defines baseline requirements for EO data infrastructure across eight domains:</p>
+          <ul class="bullets">
+            <li><strong>Infrastructure</strong> — architecture for ingestion, storage, and delivery.</li>
+            <li><strong>Security</strong> — access control, isolation, auditability.</li>
+            <li><strong>Automation</strong> — orchestration from tasking to delivery.</li>
+            <li><strong>Consistency</strong> — standardised metadata and outputs (e.g., STAC).</li>
+            <li><strong>Governance</strong> — policy, compliance, and operational guardrails.</li>
+            <li><strong>Reliability</strong> — monitoring, resilience, and failure handling.</li>
+            <li><strong>Scalability</strong> — performance under growth and variable demand.</li>
+            <li><strong>Notifications</strong> — triggers, events, and downstream integrations.</li>
+          </ul>
           <p>
             This standard directly addresses real operational challenges in the EO industry. It calls out common pain points such as
             fragmented data silos, vendor lock in, labor intensive workflows, and the difficulty of managing petabyte scale datasets.
