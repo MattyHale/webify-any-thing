@@ -12,6 +12,16 @@
   font-family: "Inter", "Segoe UI", Roboto, sans-serif;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
 * {
   box-sizing: border-box;
 }
@@ -335,6 +345,7 @@ a:focus {
 .section {
   padding: 3.75rem 0;
   background: var(--surface);
+  scroll-margin-top: 6.5rem;
 }
 
 .section-alt {
