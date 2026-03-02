@@ -392,14 +392,32 @@ a:focus {
   color: inherit;
 }
 
-.button-group {
-  display: flex;
-  flex-wrap: wrap;
+.toc-groups {
+  display: grid;
   gap: 0.75rem;
-  justify-content: center;
+  justify-items: center;
+  text-align: center;
 }
 
-.button-group button,
+.toc-groups p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.toc-groups strong {
+  color: var(--text);
+}
+
+.toc-groups a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.toc-groups a:hover,
+.toc-groups a:focus {
+  text-decoration: underline;
+}
+
 .scroll-top {
   border: none;
   background: var(--accent);
@@ -410,12 +428,6 @@ a:focus {
   cursor: pointer;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   box-shadow: 0 8px 16px rgba(29, 78, 216, 0.18);
-}
-
-.button-group button:hover,
-.button-group button:focus {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 24px rgba(29, 78, 216, 0.22);
 }
 
 .card-grid {
@@ -568,9 +580,6 @@ a:focus {
     justify-content: flex-start;
   }
 
-  .button-group {
-    justify-content: flex-start;
-  }
 
   .section {
     padding: 3.5rem 0;
