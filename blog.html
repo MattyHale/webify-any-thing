@@ -4,21 +4,15 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>EO Data Infrastructure Insights | EODI Blog</title>
-    <meta
-      name="description"
-      content="Analysis and commentary on Earth observation data infrastructure, automation, STAC, ISR workflows, and scalable EO systems."
-    />
+    <meta name="description" content="Monthly insights on EO data infrastructure, covering ISR workflows, STAC for AI, downstream pipelines, and operational governance." />
     <meta name="author" content="Earth Observation Data Infrastructure Working Group" />
-    <link rel="canonical" href="https://eodatainfrastructure.com/blog" />
+    <link rel="canonical" href="https://eodatainfrastructure.com/blog.html" />
     <meta property="og:title" content="EO Data Infrastructure Insights | EODI Blog" />
-    <meta
-      property="og:description"
-      content="Analysis and commentary on Earth observation data infrastructure, automation, STAC, ISR workflows, and scalable EO systems."
-    />
-    <meta property="og:type" content="article" />
-    <meta property="og:url" content="https://eodatainfrastructure.com/blog" />
+    <meta property="og:description" content="Monthly insights on EO data infrastructure, covering ISR workflows, STAC for AI, downstream pipelines, and operational governance." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://eodatainfrastructure.com/blog.html" />
     <meta property="og:site_name" content="Earth Observation Data Infrastructure" />
-    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="EO Data Infrastructure Insights | EODI Blog" />
     <meta
       name="twitter:description"
@@ -40,6 +34,40 @@
             "position": 2,
             "name": "Blog",
             "item": "https://eodatainfrastructure.com/blog.html"
+        "@type": "Blog",
+        "name": "EO Data Infrastructure Blog",
+        "url": "https://eodatainfrastructure.com/blog.html",
+        "description": "Latest posts on Earth observation data infrastructure, automation, metadata standards, STAC, and scalable pipelines.",
+        "blogPost": [
+          {
+            "@type": "BlogPosting",
+            "headline": "EO Data Infrastructure for ISR Workflows",
+            "url": "https://eodatainfrastructure.com/blog/eo-data-infrastructure-for-isr.html",
+            "datePublished": "2026-03-01"
+          },
+          {
+            "@type": "BlogPosting",
+            "headline": "STAC-Compliant EO Data for AI Models",
+            "url": "https://eodatainfrastructure.com/blog/stac-compliant-eo-data-for-ai-models.html",
+            "datePublished": "2026-02-01"
+          },
+          {
+            "@type": "BlogPosting",
+            "headline": "EO Data Pipelines for Downstream Engagement",
+            "url": "https://eodatainfrastructure.com/blog/eo-data-pipelines-for-downstream-engagement.html",
+            "datePublished": "2026-01-01"
+          },
+          {
+            "@type": "BlogPosting",
+            "headline": "The Uncomfortable Truth About the Large Imagery Supplier",
+            "url": "https://eodatainfrastructure.com/blog/the-uncomfortable-truth-about-the-large-imagery-supplier.html",
+            "datePublished": "2025-12-01"
+          },
+          {
+            "@type": "BlogPosting",
+            "headline": "The Missing Layer in Earth Observation",
+            "url": "https://eodatainfrastructure.com/blog/the-missing-layer-in-earth-observation.html",
+            "datePublished": "2025-11-01"
           }
         ]
       }
@@ -69,703 +97,46 @@
       <section class="hero" aria-labelledby="blog-hero-title">
         <div class="container">
           <div class="hero-icon" aria-hidden="true">🛰️</div>
-          <h1 id="blog-hero-title">EODI Blog</h1>
-          <p>
-            Monthly field notes on how Earth Observation Data Infrastructure is reshaping tasking, delivery, and decision cycles across critical missions.
-          </p>
+          <h1 id="blog-hero-title">EODI Blog Index</h1>
+          <p>Monthly field notes on how infrastructure decisions shape the operational and commercial outcomes of Earth observation programs.</p>
         </div>
       </section>
 
-      <section class="section" aria-label="Recent blog updates">
+      <section class="section" aria-label="Blog post index">
         <div class="container narrow blog-list">
-          <article class="post-card" id="mar-2026-update">
-            <header class="post-header">
-              <p class="post-date">Mar 2026</p>
-              <h2><a href="blog/eo-data-infrastructure-for-isr.html">EO Data Infrastructure for ISR Workflows</a></h2>
-            </header>
-            <p>ISR teams are not short on sensors.</p>
-            <p>They are short on infrastructure.</p>
-            <p>
-              That is the part most people still avoid naming properly. The market is full of satellites, drones, archive libraries, tasking interfaces,
-              analytics layers, and downstream tools. On paper, the stack looks mature. In practice, it still breaks in the same place: the handoff between
-              requirement and use.
-            </p>
-            <p>
-              This month we look at a simple question: if ISR already has access to more collection than ever before, why do so many workflows still feel
-              slow, fragmented, and operationally brittle?
-            </p>
-            <hr />
-            <h3>The problem is not sensing. It is the flow between sensing and use</h3>
-            <p>
-              A lot of ISR discussion still centres on the visible layer: better resolution, better revisit, better persistence, better coverage.
-            </p>
-            <p>Those things matter. They are not the real constraint in many environments.</p>
-            <p>The real constraint sits in the workflow beneath them:</p>
-            <ul>
-              <li>how an area of interest is defined</li>
-              <li>how collection is requested or retrieved</li>
-              <li>how multiple sources are coordinated</li>
-              <li>how data is normalised</li>
-              <li>how outputs are delivered into systems people already use</li>
-            </ul>
-            <p>That is where ISR loses time.</p>
-            <p>
-              A request is raised in one system. Collection is managed in another. Data lands somewhere else. Formats vary by provider. Metadata is
-              inconsistent. Outputs need reshaping before they can support analysis. Then the same loop starts again for the next AOI.
-            </p>
-            <p>That is not a scalable ISR workflow. It is a chain of workarounds pretending to be one.</p>
-            <h3>ISR breaks in the gaps</h3>
-            <p>The question is not only whether something can be collected.</p>
-            <p>The question is whether it can be:</p>
-            <ul>
-              <li>accessed quickly</li>
-              <li>routed cleanly</li>
-              <li>prepared consistently</li>
-              <li>found again later</li>
-              <li>reused across teams</li>
-              <li>monitored over time without rebuilding the workflow from scratch</li>
-            </ul>
-            <p>This is where most of the hidden cost sits.</p>
-            <p>
-              In ISR, access latency can be just as damaging as collection latency. The data may already exist. A sensor may already have captured it. The
-              platform may technically support the mission. None of that matters if the path from availability to operational use is still blocked by manual
-              steps, disconnected systems, or inconsistent outputs.
-            </p>
-            <p>That is infrastructure debt.</p>
-            <h3>Low tempo hides bad infrastructure. Operational tempo exposes it</h3>
-            <p>A slow environment can tolerate poor workflow design.</p>
-            <p>
-              A few emails. A few manual checks. A specialist who knows which portal to use. A few format conversions before anything becomes usable.
-            </p>
-            <p>That model survives right up until tempo increases.</p>
-            <p>Once requirements stack up, the weaknesses become obvious:</p>
-            <ul>
-              <li>request pathways get congested</li>
-              <li>analysts spend time managing process instead of assessing sites</li>
-              <li>monitoring becomes difficult to sustain</li>
-              <li>data handling turns into repeated manual labour</li>
-              <li>the same site gets treated like a new workflow every time it comes up</li>
-            </ul>
-            <p>That is where ISR stops being limited by collection and starts being limited by infrastructure.</p>
-            <h3>ISR needs a cleaner front door</h3>
-            <p>One of the most common failure points is still the first one: access.</p>
-            <p>
-              A user knows the location. They know the requirement. They know the site they need to assess. What they often do not have is a clean,
-              consistent way to define an AOI, see what is available, and trigger the right collection path without jumping between provider-specific systems.
-            </p>
-            <p>That sounds minor. It is not.</p>
-            <p>When the front end is fragmented, the rest of the workflow inherits that friction. Every request becomes slower than it needs to be.</p>
-            <p>
-              A modern ISR stack needs a cleaner front door. A way to define the requirement once and move into the workflow without unnecessary
-              interface-hopping, inbox traffic, or provider-by-provider handling.
-            </p>
-            <h3>Access alone is not enough. ISR also needs orchestration</h3>
-            <p>Even where access exists, the next problem appears immediately: what happens after the request.</p>
-            <p>A source is selected. Collection is captured or retrieved. Then human effort takes over.</p>
-            <p>
-              Someone moves the data. Someone checks it. Someone converts it. Someone sends it on. Someone repeats the process the next time the same AOI
-              reappears.
-            </p>
-            <p>That is not scale. That is workflow debt.</p>
-            <p>What ISR actually needs is orchestration beneath the request:</p>
-            <ul>
-              <li>collection paths that do not rely on ad hoc coordination</li>
-              <li>handoffs that are repeatable</li>
-              <li>processing steps that can run without manual babysitting</li>
-              <li>downstream delivery that is predictable</li>
-            </ul>
-            <p>The value is not in adding another tool. It is in reducing the number of times people have to manually bridge the gaps between tools.</p>
-            <h3>Data that arrives in the wrong state is still a delay</h3>
-            <p>Fast collection is not the same as fast use.</p>
-            <p>
-              If imagery arrives in inconsistent formats, if metadata is unreliable, if outputs still need cleanup before they can be exploited, then the
-              workflow is still slow. The delay has just moved downstream.
-            </p>
-            <p>This is one of the least glamorous problems in ISR, and one of the most expensive.</p>
-            <p>
-              Every time a team has to reshape data before it becomes usable, the workflow becomes harder to repeat. Every new source adds another translation
-              burden. Every provider-specific format increases the handling cost.
-            </p>
-            <p>
-              That is why standardisation matters so much. Not as a technical preference, but as a practical requirement. The goal is to make the output
-              reusable, interoperable, and easier to absorb into existing GIS, command, and analysis environments.
-            </p>
-            <p>If the data cannot move cleanly, the ISR stack is still failing.</p>
-            <h3>Multi-source ISR only works if the infrastructure underneath it is consistent</h3>
-            <p>Modern ISR is rarely single-source.</p>
-            <p>
-              A real workflow may involve commercial satellite tasking, archive imagery, UAV collection, thermal inputs, hyperspectral layers, maritime feeds,
-              or other sensor combinations depending on the mission. That is normal.
-            </p>
-            <p>The problem is not the number of sources. The problem is the lack of a common layer underneath them.</p>
-            <p>Without consistent infrastructure:</p>
-            <ul>
-              <li>each new source creates a new interface</li>
-              <li>each provider introduces a new process</li>
-              <li>each output increases the standardisation burden</li>
-              <li>each AOI risks becoming a custom workflow</li>
-            </ul>
-            <p>That is not capability growth. That is complexity accumulation.</p>
-            <p>
-              The right model is not to force one source to do everything. It is to build the underlying infrastructure so multiple relevant sources can plug
-              into the same repeatable ISR workflow.
-            </p>
-            <h3>Persistent monitoring is where weak workflows fall apart</h3>
-            <p>One-off collection can hide a lot of inefficiency.</p>
-            <p>Persistent monitoring cannot.</p>
-            <p>
-              The moment a team needs to revisit a priority site, compare changes over time, maintain awareness across multiple locations, or keep a standing
-              watch on a shifting condition, the weakness of manual workflows becomes obvious.
-            </p>
-            <p>Without proper infrastructure:</p>
-            <ul>
-              <li>useful data becomes hard to find again</li>
-              <li>teams duplicate effort</li>
-              <li>reordering becomes common</li>
-              <li>continuity across time degrades</li>
-              <li>site history gets lost in disconnected systems</li>
-            </ul>
-            <p>Persistent monitoring only works when the data is not just delivered, but structured, indexed, and reusable.</p>
-            <p>That is an infrastructure question, not a sensor question.</p>
-            <h3>Open outputs matter because ISR does not end at collection</h3>
-            <p>The value of ISR is not the image itself. It is what happens after the image arrives.</p>
-            <p>
-              If the output cannot move into downstream systems cleanly, if it cannot be reused by the next team, if it is trapped in formats that create more
-              handling work, then the workflow remains fragile.
-            </p>
-            <p>This is why open, reusable outputs matter so much in ISR.</p>
-            <p>
-              Not because interoperability is fashionable. Because proprietary friction slows down operational use. It adds avoidable work at exactly the point
-              where speed and repeatability matter most.
-            </p>
-            <p>
-              A stronger ISR stack is one where outputs are easier to route, easier to reuse, and easier to integrate into the systems already carrying the
-              operational load.
-            </p>
-            <hr />
-            <h3>Why this matters for EODI</h3>
-            <p>
-              Earth Observation Data Infrastructure is relevant in ISR because ISR is no longer constrained by sensing alone. It is constrained by the invisible
-              infrastructure between requirement, collection, preparation, dissemination, and use.
-            </p>
-            <p>That is where speed is won or lost.</p>
-            <p>
-              A strong EODI approach gives ISR teams a cleaner front door into collection, better orchestration behind the request, more consistent data
-              handling after capture, and a stronger foundation for persistent monitoring over time. It reduces reliance on fragmented interfaces, repeated
-              manual work, and provider-specific handling that slows down operational response.
-            </p>
-            <p>The next step in ISR is not just better sensors.</p>
-            <p>It is better infrastructure underneath the sensors.</p>
-            <p>That is the role of EODI.</p>
-            <div
-              class="share-actions"
-              data-article-id="mar-2026-update"
-              data-article-title="March: Why EODI Is Relevant in ISR"
-            >
-              <button class="share-link copy-link" type="button" aria-label="Copy link to the Mar 2026 update">
-                📋 Copy link
-              </button>
-              <a
-                class="share-link linkedin-share"
-                href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Feodatainfrastructure.com%2Fblog%23mar-2026-update"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Share the Mar 2026 update on LinkedIn"
-              >
-                🔗 Share on LinkedIn
-              </a>
-              <span class="share-feedback" aria-live="polite"></span>
-            </div>
+          <article class="post-card">
+            <p class="post-date">Mar 2026</p>
+            <h2><a href="blog/eo-data-infrastructure-for-isr.html">EO Data Infrastructure for ISR Workflows</a></h2>
+            <p>ISR teams are not only constrained by sensing quality; they are constrained by how quickly data can be orchestrated, standardised, and reused. This post examines where workflows typically fail between collection and decision. It outlines practical infrastructure priorities for repeatable multi-source ISR operations.</p>
+            <p><a href="blog/eo-data-infrastructure-for-isr.html">Read full post</a></p>
           </article>
 
-
-          <article class="post-card" id="feb-2026-update">
-            <header class="post-header">
-              <p class="post-date">Feb 2026</p>
-              <h2><a href="blog/stac-compliant-eo-data-for-ai-models.html">STAC-Compliant EO Data for AI Models</a></h2>
-            </header>
-            <p>Environmental monitoring does not have a model problem first.</p>
-            <p>It has a data distribution problem.</p>
-            <p>
-              There is no shortage of imagery, detections, sensors, or analytics tools for weed detection, fire detection, methane monitoring, and remediation.
-              The real constraint is whether that data can be distributed in a form AI systems can use without custom fixes, one-off parsing, and manual cleanup
-              every time.
-            </p>
-            <p>
-              This month we look at a simple question: if the data already exists, why do so many environmental AI workflows still feel slow, fragile, and
-              expensive to scale?
-            </p>
-            <hr />
-            <h3>1. Environmental AI usually fails upstream of the model</h3>
-            <p>Most teams focus on the model.</p>
-            <p>Which model performs better. Which architecture detects faster. Which signal is strongest.</p>
-            <p>That matters. It is not the first bottleneck.</p>
-            <p>
-              The first bottleneck is whether the data entering the model is structured consistently enough to be used at scale. In many workflows, it is not.
-              Files arrive from different sources, metadata varies, asset references are inconsistent, and ingestion logic becomes a patchwork of exceptions.
-            </p>
-            <p>That is not an AI problem. That is a data infrastructure problem.</p>
-            <p>If every new dataset needs new handling, the pipeline is already broken before inference begins.</p>
-            <h3>2. STAC turns geospatial data into something machines can use reliably</h3>
-            <p>
-              STAC matters because it makes geospatial data easier to search, filter, retrieve, compare, and pass into repeatable pipelines.
-            </p>
-            <p>Not elegant in theory. Useful in practice.</p>
-            <p>When data is distributed in a STAC-compliant structure, teams can:</p>
-            <ul>
-              <li>query by location and time</li>
-              <li>standardise access patterns</li>
-              <li>reduce provider-specific parsing</li>
-              <li>maintain cleaner model inputs</li>
-              <li>compare observations across monitoring cycles</li>
-            </ul>
-            <p>That is what makes environmental AI more practical to operate.</p>
-            <p>
-              The issue is not simply getting data. It is getting data into a state where machines can work with it without constant human intervention.
-            </p>
-            <h3>3. Collection alone is not enough. Distribution is where the value is won or lost</h3>
-            <p>A lot of workflows still stop at collection.</p>
-            <p>
-              Data is captured. Maybe processed. Then delivered as files, folders, or exports that leave the next team to figure out the rest.
-            </p>
-            <p>That is where the stack breaks.</p>
-            <p>
-              The real requirement is not just to collect environmental data. It is to distribute it in a state that is already usable for downstream systems,
-              including AI models.
-            </p>
-            <p>That means:</p>
-            <ul>
-              <li>consistent metadata</li>
-              <li>predictable asset references</li>
-              <li>reusable catalogue structures</li>
-              <li>clean access paths</li>
-              <li>outputs that can be found and reused over time</li>
-            </ul>
-            <p>Without that, every model pipeline becomes more manual than it needs to be.</p>
-            <h3>4. Weed, fire, methane, and remediation all hit the same bottleneck</h3>
-            <p>The use cases are different. The infrastructure problem is the same.</p>
-            <p>
-              Weed detection depends on repeated observation across wide areas. Fire detection depends on rapid triggering and clean follow-up. Methane
-              monitoring depends on detection, verification, and remediation tracking.
-            </p>
-            <p>Different missions. Same failure point.</p>
-            <p>Each one needs:</p>
-            <ul>
-              <li>repeatable ingestion</li>
-              <li>clean temporal comparison</li>
-              <li>structured access</li>
-              <li>reliable re-use across multiple cycles</li>
-            </ul>
-            <p>
-              If the data is not distributed properly, every use case ends up carrying unnecessary manual effort. The model may work. The workflow around it
-              does not.
-            </p>
-            <h3>5. Continuous monitoring exposes weak data distribution fast</h3>
-            <p>One-off analysis can hide a lot of poor infrastructure.</p>
-            <p>Continuous monitoring cannot.</p>
-            <p>
-              The moment a team needs to revisit a site, compare changes, trigger another model run, and maintain a usable record over time, weak data
-              distribution becomes obvious.
-            </p>
-            <p>Files get duplicated. Ingestion logic gets rewritten. Past observations become hard to find. The same work gets repeated.</p>
-            <p>
-              This is especially clear in methane monitoring and remediation. The first detection is only the start. The real operational value comes from
-              verifying the issue, monitoring change, confirming remediation, and maintaining a clear record of what changed and when.
-            </p>
-            <p>That only works if the data is structured for repeat access, not just one-time delivery.</p>
-            <h3>6. Good environmental AI depends on less manual glue</h3>
-            <p>The hidden cost in most monitoring systems is not the imagery.</p>
-            <p>It is the manual glue holding the workflow together.</p>
-            <p>
-              Someone fixes metadata. Someone renames assets. Someone adjusts the ingestion job. Someone patches the parser when a source changes format.
-            </p>
-            <p>That is not scale. That is accumulated workflow debt.</p>
-            <p>
-              The stronger approach is to normalise data on the way in and distribute it in a standard structure on the way out. That reduces the amount of
-              human effort required to keep the pipeline running and makes the model layer far easier to maintain.
-            </p>
-            <hr />
-            <h3>Why this matters for EODI</h3>
-            <p>
-              Earth Observation Data Infrastructure matters here because environmental AI is not just a modelling challenge. It is a workflow, data, and access
-              challenge.
-            </p>
-            <p>
-              A strong EODI approach makes it easier to coordinate collection, normalise incoming data, distribute it in STAC-compliant structures, and keep it
-              accessible for repeat analysis over time. That reduces the manual handling, provider-specific logic, and brittle ingestion work that slows down
-              environmental monitoring programs.
-            </p>
-            <p>The next step in environmental AI is not just better models.</p>
-            <p>It is better infrastructure for distributing structured geospatial data into those models.</p>
-            <p>That is where STAC matters. And that is where EODI becomes useful.</p>
-            <div
-              class="share-actions"
-              data-article-id="feb-2026-update"
-              data-article-title="February: Why STAC-Compliant Data Distribution Matters for Environmental AI"
-            >
-              <button class="share-link copy-link" type="button" aria-label="Copy link to the Feb 2026 update">
-                📋 Copy link
-              </button>
-              <a
-                class="share-link linkedin-share"
-                href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Feodatainfrastructure.com%2Fblog%23feb-2026-update"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Share the Feb 2026 update on LinkedIn"
-              >
-                🔗 Share on LinkedIn
-              </a>
-              <span class="share-feedback" aria-live="polite"></span>
-            </div>
+          <article class="post-card">
+            <p class="post-date">Feb 2026</p>
+            <h2><a href="blog/stac-compliant-eo-data-for-ai-models.html">STAC-Compliant EO Data for AI Models</a></h2>
+            <p>EO AI pipelines often break because metadata and catalog structure are inconsistent across sources. This article explains how STAC provides a practical data contract for discovery, automation, and lifecycle governance. It also covers adoption patterns that improve reproducibility without full platform replacement.</p>
+            <p><a href="blog/stac-compliant-eo-data-for-ai-models.html">Read full post</a></p>
           </article>
 
-          <article class="post-card" id="jan-2026-update">
-            <header class="post-header">
-              <p class="post-date">Jan 2026</p>
-              <h2><a href="blog/eo-data-pipelines-for-downstream-engagement.html">EO Data Pipelines for Downstream Engagement</a></h2>
-            </header>
-            <p>
-              Most EO operators focus on supply: better sensors, more satellites, improved revisit, and broader spectral coverage. The constraint rarely lives
-              there. The constraint usually lives downstream, where customers discover products, understand licensing, request quotes, and ultimately transact.
-            </p>
-            <p>
-              This month we look at a simple question:
-              <strong>how do operators drive more engagement and conversion once their products are already online?</strong>
-            </p>
-            <hr />
-            <h3>EODI access: three paths into the same infrastructure</h3>
-            <p>
-              EODI is designed so that the same core infrastructure can be accessed in different ways depending on the user and the workflow.
-            </p>
-            <p>There are three primary access patterns:</p>
-            <ol>
-              <li>
-                <strong>Developer access</strong>
-                <p>
-                  API only, no UI. Used by engineering teams that embed EODI functions directly into their own platforms, backends, or customer applications.
-                </p>
-              </li>
-              <li>
-                <strong>Commercial access</strong>
-                <p>
-                  UI and API together. Used by commercial teams that need a storefront, catalogues, quoting, and fulfilment that can be exposed to external
-                  customers.
-                </p>
-              </li>
-              <li>
-                <strong>Internal access</strong>
-                <p>
-                  Internal tooling, operations consoles, and reporting views. Used by internal operations and support teams to monitor activity, troubleshoot
-                  issues, and manage accounts.
-                </p>
-              </li>
-            </ol>
-            <p>
-              All three access patterns sit on top of the same EODI primitives: catalogues, licensing, processing, storage, and fulfilment.
-            </p>
-            <p>
-              In this note we focus on <strong>commercial access</strong> and how operators can drive more engagement and revenue through that layer.
-            </p>
-            <hr />
-            <h3>1. Treat the website as a storefront</h3>
-            <p>
-              Many operators still treat their website as a brochure. Buyers should be able to see what exists, how it can be configured, how much it costs, and
-              how they can get it. If a motivated buyer cannot answer those questions quickly, engagement stalls.
-            </p>
-            <p>A commercial EODI front end should:</p>
-            <ul>
-              <li>Present products in a way that is searchable and filterable</li>
-              <li>Make formats, resolutions, and licence types clear</li>
-              <li>Make it obvious what can be bought now versus what requires custom scoping</li>
-            </ul>
-            <h3>2. Shorten the path from interest to purchase</h3>
-            <p>
-              Every PDF, tender window, and manual quote adds friction. Streamlined self serve paths convert better, especially for commercial users outside
-              institutional RFP cycles. The unit of competition is how fast a customer can go from product to fulfilment with minimal human intervention.
-            </p>
-            <p>For commercial access this usually means:</p>
-            <ul>
-              <li>Standardising price models where possible</li>
-              <li>Allowing users to configure AOIs and products directly in the UI</li>
-              <li>Letting the system generate quotes and licences automatically</li>
-              <li>Triggering fulfilment as soon as payment or agreement conditions are met</li>
-            </ul>
-            <h3>3. Make catalogue discovery easier</h3>
-            <p>
-              Search matters. If a buyer cannot find a relevant sensor, AOI, licence, or pricing model, they cannot transact. Catalogue visibility across direct
-              channels, ecosystem partners, and the open web drives more engagement than any marketing campaign.
-            </p>
-            <p>Practical moves:</p>
-            <ul>
-              <li>Treat search and filters as first class features, not an afterthought</li>
-              <li>Align catalogue structure to how customers think about their problem, not internal product names</li>
-              <li>Expose machine readable catalogues so partners can integrate easily</li>
-            </ul>
-            <h3>4. Fulfilment must be predictable</h3>
-            <p>
-              Uncertainty on delivery kills repeat usage. Clear SLAs, automated fulfilment, and reliable delivery windows build trust. Reliability is what
-              transforms one off buyers into sustained consumption.
-            </p>
-            <p>For commercial access, this typically looks like:</p>
-            <ul>
-              <li>Clearly defined fulfilment timelines in the UI and in contracts</li>
-              <li>Automated notifications when data is ready</li>
-              <li>Consistent delivery mechanisms across different products and sensors</li>
-            </ul>
-            <h3>5. Do not rely exclusively on government demand cycles</h3>
-            <p>
-              Government and defence are strategic customers, but they operate in windows. Infrastructure, insurance, compliance, and environmental buyers behave
-              more like continuous markets. Downstream tooling that supports both patterns produces more stable revenue.
-            </p>
-            <p>Commercial access should support:</p>
-            <ul>
-              <li>Account based terms for institutional buyers</li>
-              <li>Self serve flows for commercial users who do not want long procurement processes</li>
-              <li>The ability to add new verticals without rebuilding the entire stack</li>
-            </ul>
-            <h3>6. Instrument downstream with logs and analytics</h3>
-            <p>
-              One of the most effective moves is to <strong>build a data lake for customer logs</strong>. Capture searches, catalogue interactions, quotes,
-              purchases, downloads, and errors. Model these signals into funnel metrics and daily account views.
-            </p>
-            <p>With this in place, operators can answer practical questions:</p>
-            <ul>
-              <li>Which sensors convert</li>
-              <li>Which licences are preferred</li>
-              <li>Where money leaks from the funnel</li>
-              <li>How long it takes users to convert</li>
-              <li>Which market segments buy repeatedly</li>
-            </ul>
-            <p>Instrumentation turns speculation into commercial feedback loops.</p>
-            <p>At an EODI level, the same logging fabric supports:</p>
-            <ul>
-              <li>Developer access (API metrics and errors)</li>
-              <li>Commercial access (user journeys and funnels)</li>
-              <li>Internal access (operations and reliability metrics)</li>
-            </ul>
-            <p>The difference is in how the views are exposed, not in how the data is captured.</p>
-            <hr />
-            <h3>Why this matters for EODI</h3>
-            <p>
-              Earth Observation Data Infrastructure is not only about capture, processing, and normalisation. It is also about the commercial and operational
-              plumbing that enables products to reach users, be understood, be acquired, and be consumed.
-            </p>
-            <p>
-              Developer, commercial, and internal access are three different ways of stepping into the same infrastructure. Improving the commercial layer is
-              often cheaper and faster than adding more satellites, and it directly influences how much value the rest of the stack can generate.
-            </p>
-            <p>
-              Ignoring the downstream layer is expensive. Improving it is usually the most direct way to turn engagement into revenue.
-            </p>
-            <div
-              class="share-actions"
-              data-article-id="jan-2026-update"
-              data-article-title="January: Turning Downstream Engagement Into Revenue"
-            >
-              <button class="share-link copy-link" type="button" aria-label="Copy link to the Jan 2026 update">
-                📋 Copy link
-              </button>
-              <a
-                class="share-link linkedin-share"
-                href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Feodatainfrastructure.com%2Fblog%23jan-2026-update"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Share the Jan 2026 update on LinkedIn"
-              >
-                🔗 Share on LinkedIn
-              </a>
-              <span class="share-feedback" aria-live="polite"></span>
-            </div>
+          <article class="post-card">
+            <p class="post-date">Jan 2026</p>
+            <h2><a href="blog/eo-data-pipelines-for-downstream-engagement.html">EO Data Pipelines for Downstream Engagement</a></h2>
+            <p>Downstream engagement depends on more than product quality. Discovery, ordering, licensing, fulfilment, and post-delivery confidence must work as one observable pipeline. This post shows how infrastructure maturity turns fragmented engagement into repeatable revenue.</p>
+            <p><a href="blog/eo-data-pipelines-for-downstream-engagement.html">Read full post</a></p>
           </article>
 
-          <article class="post-card" id="dec-2025-update">
-            <header class="post-header">
-              <p class="post-date">Dec 2025</p>
-              <h2>The uncomfortable truth about the large imagery supplier</h2>
-            </header>
-            <p>
-              Everyone in Earth Observation knows them. Global footprint. Long heritage. Impressive satellites. Massive demand. On paper, they should be a
-              benchmark for a modern imagery program. The reality is different.
-            </p>
-            <p>
-              Despite the scale of their space assets, the customer experience is still running on manual processes. Orders move through inboxes. Delivery timing
-              depends on human availability. Workflows that should be triggered by APIs are instead handled through coordination emails. The friction is
-              unnecessary and every downstream organisation ends up paying for it in time, money, and operational risk.
-            </p>
-            <p>The problem isn’t the satellites. It’s the absence of infrastructure.</p>
-            <h3>The supplier becomes the bottleneck</h3>
-            <p>
-              A request can be captured in orbit within minutes, yet analysts and field teams may wait days or weeks for usable data. The blocker isn’t physics.
-              It’s the delivery model. This slowdown doesn’t just delay insights. It undermines operational trust.
-            </p>
-            <ul>
-              <li>Analysts idle while data is “on the way”</li>
-              <li>Field operations halt or reroute</li>
-              <li>Decision-makers lose confidence</li>
-              <li>Program budgets get redirected to manual workarounds</li>
-            </ul>
-            <p>It’s not satellite tasking complexity. It’s infrastructure debt.</p>
-            <h3>Other industries solved this a long time ago</h3>
-            <p>
-              Banking wouldn’t tolerate manual data exchanges. Aviation wouldn’t accept PDF-based telemetry. Healthcare wouldn’t run hospitals through
-              spreadsheet attachments. Yet the EO sector excuses outdated delivery models simply because legacy suppliers have normalised them.
-            </p>
-            <h3>Enterprises and defence now need to own their EODI strategy</h3>
-            <p>
-              Relying on imagery suppliers to drive the data infrastructure agenda has proven ineffective. Their business incentives optimise for licensing
-              scenes, not for improving customer workflows.
-            </p>
-            <p>
-              If a defence program, mining operator, or government agency needs operational reliability, they cannot allow an imagery provider to dictate the
-              speed, accessibility, or usability of the data that drives mission outcomes.
-            </p>
-            <p>
-              A true Earth Observation Data Infrastructure strategy must be owned by the customer, not outsourced to a supplier whose incentives are
-              misaligned.
-            </p>
-            <h3>The market is shifting</h3>
-            <p>
-              The winners in EO will not be the companies with the most satellites. They will be the ones who deliver usable data directly into operational
-              systems: fast, consistently, and securely.
-            </p>
-            <p>
-              Organisations that take ownership of their EODI strategy will move faster, integrate more sources, and avoid being slowed down by legacy supplier
-              workflows.
-            </p>
-            <p>The satellites are not the problem. The lack of infrastructure is.</p>
-            <p>The organisations that take control of their infrastructure are the ones who will unlock the real value of EO.</p>
-            <div
-              class="share-actions"
-              data-article-id="dec-2025-update"
-              data-article-title="The uncomfortable truth about the large imagery supplier"
-            >
-              <button class="share-link copy-link" type="button" aria-label="Copy link to the Dec 2025 update">
-                📋 Copy link
-              </button>
-              <a
-                class="share-link linkedin-share"
-                href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Feodatainfrastructure.com%2Fblog%23dec-2025-update"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Share the Dec 2025 update on LinkedIn"
-              >
-                🔗 Share on LinkedIn
-              </a>
-              <span class="share-feedback" aria-live="polite"></span>
-            </div>
+          <article class="post-card">
+            <p class="post-date">Dec 2025</p>
+            <h2><a href="blog/the-uncomfortable-truth-about-the-large-imagery-supplier.html">The Uncomfortable Truth About the Large Imagery Supplier</a></h2>
+            <p>Large imagery suppliers may have world-class assets, but many customers still face manual fulfilment and inconsistent delivery operations. This post explores the hidden downstream risk and argues for customer-owned data infrastructure. It outlines how organisations can integrate suppliers without inheriting brittle processes.</p>
+            <p><a href="blog/the-uncomfortable-truth-about-the-large-imagery-supplier.html">Read full post</a></p>
           </article>
 
-          <article class="post-card" id="nov-2025-update">
-            <header class="post-header">
-              <p class="post-date">Nov 2025</p>
-              <h2>The Missing Layer in Earth Observation</h2>
-            </header>
-            <p>
-              Every modern data system assumes one thing: infrastructure. Whether it’s aviation safety, border security, wildfire response, or commodity
-              logistics, the data flows through structured systems with built-in automation, access control, and observability. Earth Observation is the outlier.
-            </p>
-            <p>
-              Even with more satellites in orbit than ever before, EO programs still rely on PDFs, ad-hoc portals, and email chains to move data. Delays appear
-              at every stage, not because of satellites, but because there is no infrastructure layer connecting upstream sources to downstream decisions.
-            </p>
-            <p>
-              Without that layer, EO programs stall. Imagery sits idle. Operators burn hours scheduling. Analysts spend time converting formats instead of
-              interpreting events. Sensors in orbit don’t translate into visibility on the ground.
-            </p>
-            <h3>Infrastructure is the fix</h3>
-            <p>
-              An EO program that runs on infrastructure doesn’t treat imagery as a “file to deliver.” It treats it as data: ordered, standardised, governed,
-              routed, and delivered the same way every other mission-critical dataset already is.
-            </p>
-            <p>This shift is now unavoidable. The pressure is appearing first in the sectors where reliability matters most.</p>
-            <h4>Operational risk: National security, maritime domain awareness</h4>
-            <p>
-              These organisations are not short on imagery. They are short on control. Tasking is still routed manually. Scheduling decisions are decoupled from
-              field requirements. Fulfilment lives in disconnected systems with no audit trail and no time guarantees.
-            </p>
-            <p>Under EODI:</p>
-            <ul>
-              <li>Tasking requests are API-triggered, not emailed</li>
-              <li>Constellations (sovereign, allied, commercial) are coordinated in one system</li>
-              <li>Capture conditions are modelled automatically</li>
-              <li>Deliveries are traceable, format-aligned, and ISR-ready</li>
-            </ul>
-            <p>
-              The result is not just faster imagery. It’s predictable latency and reduced uncertainty in time-critical operations.
-            </p>
-            <h4>Environmental monitoring: Tailings, methane, wildfire, weed detection</h4>
-            <p>
-              Monitoring programs often have sensors, schedules, and compliance requirements, but no reactive loop. A dam sensor triggers an alert, emails go out,
-              and then someone manually checks satellite availability. Imagery might arrive long after the event.
-            </p>
-            <p>Under EODI:</p>
-            <ul>
-              <li>Threshold breaches trigger satellite and drone tasking automatically</li>
-              <li>Multi-sensor assets are scheduled together (optical, SAR, thermal)</li>
-              <li>Raw imagery is normalised and converted on ingest</li>
-              <li>Results route into dashboards, SCADA overlays, and audit systems</li>
-            </ul>
-            <p>This structure reduces blind spots and ensures every incident is tied to clear visual evidence.</p>
-            <h4>EO &amp; space data: Satellite operators, imagery aggregators, space agencies</h4>
-            <p>
-              For most satellite operators, fulfilment still scales by headcount. Orders come in via forms or emails. Tasking is managed in spreadsheets. Archive
-              access requires manual approval. It’s effective for small volumes, but not for growth.
-            </p>
-            <p>With EODI:</p>
-            <ul>
-              <li>Customers self-serve tasking and archive access</li>
-              <li>Feasibility logic runs automatically via digital twin simulation</li>
-              <li>Fulfilment is routed and tracked end-to-end</li>
-              <li>Delivery is searchable, standardised, and usage-governed</li>
-            </ul>
-            <p>A manual order desk becomes a scalable data platform.</p>
-            <h3>EODI adoption: The first 180 days</h3>
-            <div class="milestone">
-              <h5>Day 1–30</h5>
-              <ul>
-                <li>Connect one satellite provider via API</li>
-                <li>Define access policies</li>
-                <li>Create a traceable order-to-delivery pipeline</li>
-              </ul>
-            </div>
-            <div class="milestone">
-              <h5>Day 31–90</h5>
-              <ul>
-                <li>Automate ingestion and conversion to standard formats</li>
-                <li>Integrate delivery into dashboards and platforms</li>
-                <li>Link tasking to upstream triggers</li>
-              </ul>
-            </div>
-            <div class="milestone">
-              <h5>Day 91–180</h5>
-              <ul>
-                <li>Expand sensors, users, and regions</li>
-                <li>Enforce governance and audit control</li>
-                <li>Decommission manual fulfilment workflows</li>
-              </ul>
-            </div>
-            <p>
-              After six months, EO data moves the way it should: securely, automatically, and predictably, through infrastructure, not inboxes and/or phones.
-            </p>
-            <div
-              class="share-actions"
-              data-article-id="nov-2025-update"
-              data-article-title="The Missing Layer in Earth Observation"
-            >
-              <button class="share-link copy-link" type="button" aria-label="Copy link to the Nov 2025 update">
-                📋 Copy link
-              </button>
-              <a
-                class="share-link linkedin-share"
-                href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Feodatainfrastructure.com%2Fblog%23nov-2025-update"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Share the Nov 2025 update on LinkedIn"
-              >
-                🔗 Share on LinkedIn
-              </a>
-              <span class="share-feedback" aria-live="polite"></span>
-            </div>
+          <article class="post-card">
+            <p class="post-date">Nov 2025</p>
+            <h2><a href="blog/the-missing-layer-in-earth-observation.html">The Missing Layer in Earth Observation</a></h2>
+            <p>EO capabilities often stall between collection and use because the infrastructure layer is incomplete. The article covers automation, governance, observability, and standardised delivery as the foundations for dependable operations. It also includes a practical 180-day implementation approach.</p>
+            <p><a href="blog/the-missing-layer-in-earth-observation.html">Read full post</a></p>
           </article>
         </div>
       </section>
