@@ -98,8 +98,8 @@ function placePageNavigator(main, nav, isMobile) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  if (document.body?.dataset?.disableToc === "true") return;
-  if (location.pathname.endsWith("/blog.html")) return;
+  const disableToc = document.body?.dataset?.disableToc === "true";
+  const isBlogIndex = location.pathname.endsWith("/blog.html");
 
   const scrollButtons = document.querySelectorAll('[data-scroll-target]');
   const scrollTopButton = document.querySelector('.scroll-top');
@@ -183,6 +183,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   handleToggle();
   window.addEventListener('scroll', handleToggle, { passive: true });
+
+  if (disableToc || isBlogIndex) return;
 
   if (observedSections.length) {
     const observer = new IntersectionObserver(
