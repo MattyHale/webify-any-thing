@@ -9,9 +9,25 @@ function scrollToSection(id) {
 
 document.addEventListener('DOMContentLoaded', () => {
   const scrollButtons = document.querySelectorAll('[data-scroll-target]');
-  const cards = document.querySelectorAll('.card[data-scroll-target]');
   const scrollTopButton = document.querySelector('.scroll-top');
   const shareSections = document.querySelectorAll('.share-actions');
+  const navLinks = Array.from(document.querySelectorAll('.site-nav a[href^="#"]'));
+  const observedSections = navLinks
+    .map((link) => document.querySelector(link.getAttribute('href')))
+    .filter(Boolean);
+
+  const setActiveNav = (id) => {
+    navLinks.forEach((link) => {
+      const isActive = link.getAttribute('href') === `#${id}`;
+      link.classList.toggle('active', isActive);
+      if (isActive) {
+        link.setAttribute('aria-current', 'page');
+      } else {
+        link.removeAttribute('aria-current');
+      }
+    });
+  };
+
 
   const buildArticleUrl = (id) => {
     const url = new URL(window.location.href);
@@ -50,21 +66,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  cards.forEach((card) => {
-    card.addEventListener('click', () => {
-      const target = card.getAttribute('data-scroll-target');
-      if (target) scrollToSection(target);
-    });
-    card.setAttribute('tabindex', '0');
-    card.addEventListener('keydown', (event) => {
-      if (event.key === 'Enter' || event.key === ' ') {
-        event.preventDefault();
-        const target = card.getAttribute('data-scroll-target');
-        if (target) scrollToSection(target);
-      }
-    });
-  });
-
   if (scrollTopButton) {
     scrollTopButton.addEventListener('click', () => {
       window.scrollTo({ top: 0, behavior: prefersReducedMotion ? 'auto' : 'smooth' });
@@ -90,4 +91,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
   handleToggle();
   window.addEventListener('scroll', handleToggle, { passive: true });
+
+  if (observedSections.length) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+        if (visible?.target?.id) {
+          setActiveNav(visible.target.id);
+        }
+      },
+      {
+        rootMargin: '-35% 0px -55% 0px',
+        threshold: [0.1, 0.4, 0.7]
+      }
+    );
+
+    observedSections.forEach((section) => observer.observe(section));
+  }
 });

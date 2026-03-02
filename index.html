@@ -104,7 +104,7 @@
       </section>
 
 
-      <section class="section" aria-labelledby="latest-posts-title">
+      <section class="section section-muted" aria-labelledby="latest-posts-title">
         <div class="container narrow">
           <h2 id="latest-posts-title">Latest posts</h2>
           <ul>
@@ -116,32 +116,46 @@
         </div>
       </section>
 
-      <section class="section section-muted" aria-labelledby="contents-title">
+      <section class="section" aria-labelledby="contents-title">
         <div class="container narrow">
           <p class="doc-preface">
-            Start with foundational sections such as Infrastructure and Consistency, then proceed to operational topics like Automation
-            and Reliability, and use Governance and Security as guiding principles throughout.
+            This is a reference blueprint for designing and operating EO data infrastructure. It does not prescribe specific
+            implementations but provides foundational principles.
           </p>
-          <h3 id="contents-title">Contents</h3>
-          <div class="toc-groups" aria-label="Contents sections">
-      <section class="section section-muted" aria-labelledby="quick-navigation">
-        <div class="container narrow">
-          <p class="preface">
-            This document is intended to be read non-linearly. Start with Infrastructure and Consistency to understand the foundation,
-            then move to Automation and Reliability for operational concerns. Governance and Security apply across all sections.
-          </p>
-          <div class="contents" aria-label="Document contents">
-            <h3 id="quick-navigation">Contents</h3>
-            <p><strong>Foundations</strong><br />
-              <a href="#infrastructure">Infrastructure</a> · <a href="#security">Security</a> · <a href="#governance">Governance</a>
-            </p>
-            <p><strong>Operations</strong><br />
-              <a href="#automation">Automation</a> · <a href="#notifications">Notifications</a> · <a href="#reliability">Reliability</a>
-            </p>
-            <p><strong>Scale</strong><br />
-              <a href="#consistency">Consistency</a> · <a href="#scalability">Scalability</a>
-            </p>
-          </div>
+          <section class="toc" aria-label="Document contents">
+            <h3 id="contents-title">Contents</h3>
+
+            <div class="toc-group">
+              <div class="toc-label">Foundations</div>
+              <div class="toc-links">
+                <a href="#infrastructure">Infrastructure</a>
+                <span class="dot">·</span>
+                <a href="#security">Security</a>
+                <span class="dot">·</span>
+                <a href="#governance">Governance</a>
+              </div>
+            </div>
+
+            <div class="toc-group">
+              <div class="toc-label">Operations</div>
+              <div class="toc-links">
+                <a href="#automation">Automation</a>
+                <span class="dot">·</span>
+                <a href="#notifications">Notifications</a>
+                <span class="dot">·</span>
+                <a href="#reliability">Reliability</a>
+              </div>
+            </div>
+
+            <div class="toc-group">
+              <div class="toc-label">Scale</div>
+              <div class="toc-links">
+                <a href="#consistency">Consistency</a>
+                <span class="dot">·</span>
+                <a href="#scalability">Scalability</a>
+              </div>
+            </div>
+          </section>
         </div>
       </section>
 
@@ -178,12 +192,6 @@
             infrastructures that are modular, scalable, resilient, and user-centric, enabling program operators to focus on extracting
             insights from data – not struggling with the underlying infrastructure – in a cost-effective and transparent manner.
           </p>
-          <div class="inline-callout">
-            <div>
-              <strong>Read the full blog:</strong> The Missing Layer in Earth Observation.
-            </div>
-            <a href="blog.html">Open blog</a>
-          </div>
         </div>
       </section>
 
@@ -193,47 +201,39 @@
             <h2 id="domains-title">Eight Core Domains</h2>
             <p>Essential capabilities that any credible EO data platform must provide.</p>
           </div>
-          <div class="card-grid">
-            <article class="card" data-scroll-target="infrastructure">
-              <div class="card-icon" aria-hidden="true">⚙️</div>
-              <h3>Infrastructure</h3>
-              <p>Core technical architecture underpinning the ingestion, management, and dissemination of EO data.</p>
-            </article>
-            <article class="card" data-scroll-target="security">
-              <div class="card-icon" aria-hidden="true">🛡️</div>
-              <h3>Security</h3>
-              <p>Protection of sensitive data and systems through comprehensive security measures.</p>
-            </article>
-            <article class="card" data-scroll-target="automation">
-              <div class="card-icon" aria-hidden="true">🤖</div>
-              <h3>Automation</h3>
-              <p>Streamlined processes that reduce manual intervention and increase efficiency.</p>
-            </article>
-            <article class="card" data-scroll-target="consistency">
-              <div class="card-icon" aria-hidden="true">✅</div>
-              <h3>Consistency</h3>
-              <p>Standardized approaches ensuring reliable and predictable operations.</p>
-            </article>
-            <article class="card" data-scroll-target="governance">
-              <div class="card-icon" aria-hidden="true">⚖️</div>
-              <h3>Governance &amp; Compliance</h3>
-              <p>Framework for managing operations within regulatory and policy requirements.</p>
-            </article>
-            <article class="card" data-scroll-target="reliability">
-              <div class="card-icon" aria-hidden="true">🌿</div>
-              <h3>Reliability &amp; Resilience</h3>
-              <p>Systems designed to maintain operations under various conditions and recover from failures.</p>
-            </article>
-            <article class="card" data-scroll-target="scalability">
-              <div class="card-icon" aria-hidden="true">📈</div>
-              <h3>Scalability &amp; Performance</h3>
-              <p>Ability to handle growing data volumes and user demands efficiently.</p>
-            </article>
-            <article class="card" data-scroll-target="notifications">
-              <div class="card-icon" aria-hidden="true">🔔</div>
-              <h3>Notifications &amp; Event Triggers</h3>
-              <p>Real-time communication and automated responses to system events.</p>
-            </article>
+          <div class="domain-grid">
+            <a class="domain-card" href="#infrastructure">
+              <div class="domain-title">Infrastructure</div>
+              <div class="domain-desc">Core technical architecture underpinning ingestion, management, and delivery.</div>
+            </a>
+            <a class="domain-card" href="#security">
+              <div class="domain-title">Security</div>
+              <div class="domain-desc">Protection of sensitive data and systems through comprehensive security measures.</div>
+            </a>
+            <a class="domain-card" href="#automation">
+              <div class="domain-title">Automation</div>
+              <div class="domain-desc">Streamlined processes that reduce manual intervention and increase efficiency.</div>
+            </a>
+            <a class="domain-card" href="#consistency">
+              <div class="domain-title">Consistency</div>
+              <div class="domain-desc">Standardized approaches ensuring reliable and predictable operations.</div>
+            </a>
+            <a class="domain-card" href="#governance">
+              <div class="domain-title">Governance &amp; Compliance</div>
+              <div class="domain-desc">Framework for managing operations within regulatory and policy requirements.</div>
+            </a>
+            <a class="domain-card" href="#reliability">
+              <div class="domain-title">Reliability &amp; Resilience</div>
+              <div class="domain-desc">Systems designed to maintain operations and recover from failures.</div>
+            </a>
+            <a class="domain-card" href="#scalability">
+              <div class="domain-title">Scalability &amp; Performance</div>
+              <div class="domain-desc">Ability to handle growing data volumes and user demand efficiently.</div>
+            </a>
+            <a class="domain-card" href="#notifications">
+              <div class="domain-title">Notifications &amp; Event Triggers</div>
+              <div class="domain-desc">Real-time communication and automated responses to system events.</div>
+            </a>
           </div>
         </div>
       </section>
@@ -258,13 +258,6 @@
             interfaces and robust programmatic APIs, allowing users to self-service their needs (e.g. discover, order, and retrieve
             imagery) with minimal manual involvement. In essence, the EODI infrastructure is the backbone that ensures all other
             aspects (security, automation, etc.) function in concert.
-          </p>
-          <p>
-            Earth Observation Data Infrastructure is the core system that ingests, manages, and delivers EO data as one coherent
-            platform. It must integrate distributed sensors, archives, and providers under a single architecture so users experience
-            one system rather than many. The scope covers the end-to-end flow from tasking and acquisition through processing,
-            cataloging, and delivery, with both a clear web UI and complete APIs so users can search, order, and retrieve without
-            manual handoffs.
           </p>
           <p>
             A unified platform removes silos and queue friction. Requests should trigger automated fulfilment that schedules
@@ -321,11 +314,6 @@
             intrusion detection in place to catch and respond to security incidents. Compliance with relevant security standards
             and best practices (such as the principles of zero-trust architecture and least-privilege access) should be built in
             from the start.
-          </p>
-          <p>
-            Security must be designed in from identity to network to data. Enforce strong authentication, fine-grained authorization,
-            tenant isolation, and encryption in transit and at rest while operating with continuous monitoring, intrusion detection,
-            auditable logs, SSO, and MFA so every role adheres to least-privilege boundaries.
           </p>
           <h3>Why It's Important</h3>
           <p>
