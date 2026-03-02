@@ -381,6 +381,15 @@ a:focus {
   color: inherit;
 }
 
+.doc-preface {
+  margin: 0 0 1rem;
+  color: var(--text-muted);
+}
+
+.toc-groups {
+  display: grid;
+  gap: 0.75rem;
+  text-align: left;
 .preface {
   margin: 0 0 1rem;
   color: var(--text-muted);
