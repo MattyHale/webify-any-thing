@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Notifications and Event Triggers | Earth Observation Data Infrastructure</title>
+    <meta name="description" content="Notifications and event triggers domain for the EODI standard." />
+    <link rel="canonical" href="https://eodatainfrastructure.com/domains/notifications.html" />
+    <link rel="stylesheet" href="../styles.css" />
+    <script src="../script.js" defer></script>
+    <meta name="theme-color" content="#ffffff" />
+    <link rel="icon" href="data:," />
+  </head>
+  <body id="top">
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <header class="site-header">
+      <div class="container">
+        <div class="brand">
+          <span class="icon" aria-hidden="true">🛰️</span>
+          <span class="brand-name">Earth Observation Data Infrastructure</span>
+        </div>
+        <nav class="site-nav" aria-label="Primary navigation">
+          <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../blog.html">Blog</a></li>
+            <li><a href="#domain-content">Domain</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="container narrow">
+          <h1 id="hero-title">Notifications and Event Triggers</h1>
+          <p class="orientation-copy">Notifications connect system state changes to action.</p>
+        </div>
+      </section>
+
+      <section class="section" id="domain-content" aria-labelledby="domain-content-title">
+        <div class="container narrow prose">
+          <h2 id="domain-content-title">What is Expected</h2>
+          <p>The platform must notify users and systems when important events occur, such as data availability or job completion. Support email, in-app alerts, SMS, and machine-readable callbacks like webhooks.</p>
+          <h2>Why It’s Important</h2><p>Timely alerts enable faster response and automation. They close the loop from capture to action without polling.</p>
+          <h2>Key Notification Principles</h2>
+          <h3>Real-Time Alerts</h3><p>Emit notifications quickly with sufficient context for action.</p>
+          <h3>User-Defined Subscriptions</h3><p>Allow users to define filters, channels, and cadence.</p>
+          <h3>Integration with External Systems</h3><p>Provide reliable webhooks and messaging options for downstream automation.</p>
+          <h3>Reliable Delivery</h3><p>Implement retries, delivery logs, batching, and rate limits.</p>
+          <h3>Operational Communications</h3><p>Maintain a visible status channel for maintenance and incidents.</p>
+          <p><a href="../index.html#domains">Back to all domains</a></p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-content">
+          <p><strong>EODI Standard</strong> documents the operational baseline for modern Earth observation platforms.</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

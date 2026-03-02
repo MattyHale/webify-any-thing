@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Automation | Earth Observation Data Infrastructure</title>
+    <meta name="description" content="Automation domain for the EODI standard." />
+    <link rel="canonical" href="https://eodatainfrastructure.com/domains/automation.html" />
+    <link rel="stylesheet" href="../styles.css" />
+    <script src="../script.js" defer></script>
+    <meta name="theme-color" content="#ffffff" />
+    <link rel="icon" href="data:," />
+  </head>
+  <body id="top">
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <header class="site-header">
+      <div class="container">
+        <div class="brand">
+          <span class="icon" aria-hidden="true">🛰️</span>
+          <span class="brand-name">Earth Observation Data Infrastructure</span>
+        </div>
+        <nav class="site-nav" aria-label="Primary navigation">
+          <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../blog.html">Blog</a></li>
+            <li><a href="#domain-content">Domain</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="container narrow">
+          <h1 id="hero-title">Automation</h1>
+          <p class="orientation-copy">Automation turns EO workflows from manual coordination into dependable operations.</p>
+        </div>
+      </section>
+
+      <section class="section" id="domain-content" aria-labelledby="domain-content-title">
+        <div class="container narrow prose">
+          <h2 id="domain-content-title">What is Expected</h2>
+          <p>Automation should handle repetitive and complex workflows without manual intervention. The platform is expected to automate ingestion, indexing, processing, and delivery once a trigger or request is received. All major functions must be accessible via APIs so users and third-party systems can integrate them into their own pipelines.</p>
+          <p>The platform should follow an event-driven design so new data automatically triggers downstream processing, state updates, and notifications.</p>
+          <h2>Why It’s Important</h2><p>Automation improves speed, scalability, and consistency. Manual workflows do not scale and introduce errors. Automated pipelines ensure repeatability and allow the platform to respond faster than human operators.</p>
+          <h2>Key Automation Principles</h2>
+          <h3>API-First Design</h3><p>Every capability available in the UI must also be available via APIs. The UI should consume the same APIs exposed to users.</p>
+          <h3>Workflow Orchestration</h3><p>Use orchestration to chain steps, manage retries, handle branching, and persist state in observable, re-runnable workflows.</p>
+          <h3>Event-Driven Operations</h3><p>Publish and react to events for data arrival, job state changes, and delivery to eliminate polling and reduce latency.</p>
+          <h3>Remove Manual Touchpoints</h3><p>Replace human checks with programmatic checks so operators handle exceptions, not the happy path.</p>
+          <h3>User Automation</h3><p>Provide CLIs, SDKs, and examples so customers can integrate the platform into their own automation stacks.</p>
+          <p><a href="../index.html#domains">Back to all domains</a></p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-content">
+          <p><strong>EODI Standard</strong> documents the operational baseline for modern Earth observation platforms.</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
