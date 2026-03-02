@@ -4,69 +4,10 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Earth Observation Data Infrastructure Standard | EODI</title>
-    <meta
-      name="description"
-      content="A practical standard for building scalable Earth observation data infrastructure, covering access, automation, governance, and interoperability."
-    />
-    <meta
-      name="keywords"
-      content="Earth Observation Data Infrastructure, EODI standard, satellite data platform, geospatial automation, EO data governance"
-    />
-    <meta
-      name="author"
-      content="Earth Observation Data Infrastructure Working Group"
-    />
+    <meta name="description" content="A practical standard for building scalable Earth observation data infrastructure, covering access, automation, governance, and interoperability." />
     <link rel="canonical" href="https://eodatainfrastructure.com/" />
-    <meta property="og:title" content="Earth Observation Data Infrastructure Standard | EODI" />
-    <meta
-      property="og:description"
-      content="A practical standard for building scalable Earth observation data infrastructure, covering access, automation, governance, and interoperability."
-    />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://eodatainfrastructure.com/" />
-    <meta property="og:site_name" content="Earth Observation Data Infrastructure" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Earth Observation Data Infrastructure Standard | EODI" />
-    <meta
-      name="twitter:description"
-      content="A practical standard for building scalable Earth observation data infrastructure, covering access, automation, governance, and interoperability."
-    />
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": "https://eodatainfrastructure.com/"
-          }
-        ]
-      }
-    </script>
     <link rel="stylesheet" href="styles.css" />
     <script src="script.js" defer></script>
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "TechArticle",
-        "headline": "Earth Observation Data Infrastructure (EODI) Standard",
-        "description": "Comprehensive overview of the EODI standard across infrastructure, security, automation, governance, reliability, scalability, and notifications.",
-        "about": [
-          "Earth observation",
-          "Data infrastructure",
-          "Automation",
-          "Governance"
-        ],
-        "publisher": {
-          "@type": "Organization",
-          "name": "Earth Observation Data Infrastructure"
-        },
-        "inLanguage": "en",
-        "mainEntityOfPage": "https://eodatainfrastructure.com/"
-      }
-    </script>
     <meta name="theme-color" content="#ffffff" />
     <link rel="icon" href="data:," />
   </head>
@@ -89,94 +30,12 @@
     </header>
 
     <main id="main-content">
-      <section class="hero" aria-labelledby="hero-title">
+      <section class="hero" id="introduction" aria-labelledby="hero-title">
         <div class="container">
           <div class="hero-icon" aria-hidden="true">🛰️</div>
           <h1 id="hero-title">Earth Observation Data Infrastructure (EODI) Standard</h1>
           <p class="orientation-copy">A practical reference for designing, operating, and scaling Earth observation data infrastructure.</p>
-          <p class="authority-copy">Maintained as a living reference by practitioners working across Earth observation data infrastructure, automation, and downstream operations.</p>
-        </div>
-      </section>
-
-
-      <section class="section section-muted" aria-labelledby="latest-posts-title">
-        <div class="container narrow">
-          <h2 id="latest-posts-title">Latest posts</h2>
-          <ul>
-            <li><a href="blog/eo-data-infrastructure-for-isr.html">EO Data Infrastructure for ISR Workflows (Mar 2026)</a></li>
-            <li><a href="blog/stac-compliant-eo-data-for-ai-models.html">STAC-Compliant EO Data for AI Models (Feb 2026)</a></li>
-            <li><a href="blog/eo-data-pipelines-for-downstream-engagement.html">EO Data Pipelines for Downstream Engagement (Jan 2026)</a></li>
-          </ul>
-          <p><a href="blog.html">View all posts</a></p>
-        </div>
-      </section>
-
-      <section class="section" aria-labelledby="contents-title">
-        <div class="container narrow">
-          <p class="doc-preface">
-            This document is intended to be read non-linearly. Teams typically return to specific sections as systems evolve, new
-            sensors are introduced, or operational constraints change.
-          </p>
-          <section class="toc-card" aria-label="Contents">
-            <h3 id="contents-title">Contents</h3>
-
-            <div class="toc-grid">
-              <div class="toc-group">
-                <div class="toc-label">Foundations</div>
-                <div class="toc-links">
-                  <a href="#infrastructure">Infrastructure</a> ·
-                  <a href="#security">Security</a> ·
-                  <a href="#governance">Governance</a>
-                </div>
-              </div>
-
-              <div class="toc-group">
-                <div class="toc-label">Operations</div>
-                <div class="toc-links">
-                  <a href="#automation">Automation</a> ·
-                  <a href="#notifications">Notifications</a> ·
-                  <a href="#reliability">Reliability</a>
-                </div>
-              </div>
-
-              <div class="toc-group">
-                <div class="toc-label">Scale</div>
-                <div class="toc-links">
-                  <a href="#consistency">Consistency</a> ·
-                  <a href="#scalability">Scalability</a>
-                </div>
-              </div>
-            </div>
-          </section>
-        </div>
-      </section>
-
-      <section class="section" id="introduction" aria-labelledby="introduction-title">
-        <div class="container narrow prose">
-          <h2 id="introduction-title">Introduction</h2>
-          <div class="callout">
-            <div class="callout-title">Definition</div>
-            <p>
-              Earth Observation Data Infrastructure is the layer between collection and use that standardises discovery, access, orchestration, and delivery across sensors and vendors.
-            </p>
-          </div>
-          <p class="lead">This standard defines baseline requirements across eight domains:</p>
-          <ul class="bullets">
-            <li><strong>Infrastructure</strong> — architecture for ingestion, storage, and delivery.</li>
-            <li><strong>Security</strong> — access control, isolation, auditability.</li>
-            <li><strong>Automation</strong> — orchestration from tasking to delivery.</li>
-            <li><strong>Consistency</strong> — standardised metadata and outputs (e.g., STAC).</li>
-            <li><strong>Governance</strong> — policy, compliance, operational guardrails.</li>
-            <li><strong>Reliability</strong> — monitoring, resilience, failure handling.</li>
-            <li><strong>Scalability</strong> — performance under growth and variable demand.</li>
-            <li><strong>Notifications</strong> — events, triggers, downstream integration.</li>
-          </ul>
-          <p>
-            The standard focuses on repeatable, provider-agnostic practices so EO teams can scale operations without lock-in, manual bottlenecks, or inconsistent delivery behavior.
-          </p>
-          <p class="related">
-            Related reading: <a href="/blog/the-missing-layer-in-earth-observation.html">The Missing Layer in Earth Observation</a>
-          </p>
+          <p class="authority-copy">Use the domain pages below as the canonical long-form guidance.</p>
         </div>
       </section>
 
@@ -184,238 +43,18 @@
         <div class="container">
           <div class="section-header">
             <h2 id="domains-title">Eight Core Domains</h2>
-            <p>Essential capabilities that any credible EO data platform must provide.</p>
+            <p>The homepage is an index. Open each domain for canonical content.</p>
           </div>
           <section class="domain-grid" aria-label="Eight core domains">
-            <a class="domain-card" href="#infrastructure"><div class="domain-title">Infrastructure</div><div class="domain-desc">Ingestion, storage, delivery architecture.</div></a>
-            <a class="domain-card" href="#security"><div class="domain-title">Security</div><div class="domain-desc">Control, isolation, auditability.</div></a>
-            <a class="domain-card" href="#automation"><div class="domain-title">Automation</div><div class="domain-desc">Orchestration from tasking to delivery.</div></a>
-            <a class="domain-card" href="#consistency"><div class="domain-title">Consistency</div><div class="domain-desc">Standardised metadata and output contracts.</div></a>
-            <a class="domain-card" href="#governance"><div class="domain-title">Governance</div><div class="domain-desc">Policy, compliance, and operational guardrails.</div></a>
-            <a class="domain-card" href="#reliability"><div class="domain-title">Reliability</div><div class="domain-desc">Monitoring, resilience, and failure handling.</div></a>
-            <a class="domain-card" href="#scalability"><div class="domain-title">Scalability</div><div class="domain-desc">Performance under growth and variable demand.</div></a>
-            <a class="domain-card" href="#notifications"><div class="domain-title">Notifications</div><div class="domain-desc">Events, triggers, and downstream integration.</div></a>
+            <a class="domain-card" href="domains/infrastructure.html"><div class="domain-title">Infrastructure</div><div class="domain-desc">Ingestion, storage, delivery architecture.</div></a>
+            <a class="domain-card" href="domains/security.html"><div class="domain-title">Security</div><div class="domain-desc">Control, isolation, auditability.</div></a>
+            <a class="domain-card" href="domains/automation.html"><div class="domain-title">Automation</div><div class="domain-desc">Orchestration from tasking to delivery.</div></a>
+            <a class="domain-card" href="domains/consistency.html"><div class="domain-title">Consistency</div><div class="domain-desc">Standardised metadata and output contracts.</div></a>
+            <a class="domain-card" href="domains/governance.html"><div class="domain-title">Governance</div><div class="domain-desc">Policy, compliance, and operational guardrails.</div></a>
+            <a class="domain-card" href="domains/reliability.html"><div class="domain-title">Reliability</div><div class="domain-desc">Monitoring, resilience, and failure handling.</div></a>
+            <a class="domain-card" href="domains/scalability.html"><div class="domain-title">Scalability</div><div class="domain-desc">Performance under growth and variable demand.</div></a>
+            <a class="domain-card" href="domains/notifications.html"><div class="domain-title">Notifications</div><div class="domain-desc">Events, triggers, and downstream integration.</div></a>
           </section>
-        </div>
-      </section>
-
-      <section class="section" id="infrastructure" aria-labelledby="infrastructure-title">
-        <div class="container narrow prose">
-          <header class="section-heading">
-            <h2 id="infrastructure-title">1. Infrastructure</h2>
-            <p class="section-primer">The foundational layer that determines whether everything else is possible or painful.</p>
-          </header>
-          <h3>What is Expected</h3>
-          <p>
-            The EODI's infrastructure is the core technical architecture underpinning ingestion, management, and dissemination of EO data. It should integrate distributed components,
-            partner inputs, and multi-constellation data sources into one cohesive platform so users experience a single operating environment rather than disconnected systems.
-          </p>
-          <p>
-            A unified platform should remove silos and queue friction by triggering automated fulfilment end-to-end: scheduling collections, ingesting results, standardizing outputs, and
-            delivering data reliably with low latency.
-          </p>
-          <h3>Key Infrastructure Principles</h3>
-          <ul class="bullets">
-            <li>Unified data integration through a common catalog and metadata layer that hides source-specific quirks.</li>
-            <li>Self-service UI and stable APIs for ordering, tracking, and retrieval without tickets or email loops.</li>
-            <li>Automated, auditable fulfilment across tasking, acquisition monitoring, ingestion, preprocessing, and delivery.</li>
-            <li>Modular cloud-native services for catalog, ordering, processing, delivery, and identity, with independent scaling and no-downtime updates.</li>
-          </ul>
-        </div>
-      </section>
-
-      <section class="section section-alt" id="security" aria-labelledby="security-title">
-        <div class="container narrow prose">
-          <header class="section-heading">
-            <h2 id="security-title">2. Security</h2>
-            <p class="section-primer">Security defines whether the platform can be trusted to operate in real missions.</p>
-          </header>
-          <h3>What is Expected</h3>
-          <p>
-            Security must be designed into every layer of the platform: strong identity controls, fine-grained authorization, encryption in transit and at rest, tenant isolation,
-            continuous monitoring, and incident response readiness. One customer must never be able to view or affect another customer's assets.
-          </p>
-          <h3>Why It's Important</h3>
-          <p>
-            EO workloads are often sensitive or regulated. Breaches, data leaks, or silent tampering can cause operational, legal, and strategic damage. Security maturity is therefore a
-            prerequisite for trust and deep mission integration.
-          </p>
-          <h3>Key Security Principles</h3>
-          <ul class="bullets">
-            <li>Strong authentication and least-privilege access control with MFA, SSO, scoped tokens, and centralized identity management.</li>
-            <li>Encryption and data protection everywhere, backed by managed keys, vault/HSM controls, and key rotation.</li>
-            <li>Continuous monitoring and tested incident response with anomaly alerting, containment workflows, and audit logs.</li>
-            <li>Compliance and data governance controls for residency, licensing, and regional requirements enforced in code.</li>
-          </ul>
-        </div>
-      </section>
-
-      <section class="section" id="automation" aria-labelledby="automation-title">
-        <div class="container narrow prose">
-          <header class="section-heading">
-            <h2 id="automation-title">3. Automation</h2>
-            <p class="section-primer">Automation is what turns a catalog into an operating system for EO programs.</p>
-          </header>
-          <h3>What is Expected</h3>
-          <p>
-            Automation should run routine EO workflows from acquisition through delivery. Once triggered, ingestion, indexing, product generation, and fulfilment should execute through
-            deterministic pipelines with minimal manual touchpoints.
-          </p>
-          <h3>Why It's Important</h3>
-          <p>
-            Automation increases speed, consistency, and scalability while reducing human error. It enables users to integrate the platform into their own systems without brittle manual
-            processes.
-          </p>
-          <h3>Key Automation Principles</h3>
-          <ul class="bullets">
-            <li>API-first design so everything possible in the UI is also scriptable with versioned, documented interfaces.</li>
-            <li>Workflow orchestration for retries, branching, state persistence, and observable, re-runnable execution.</li>
-            <li>Event-driven operations that react to data arrival, job updates, and delivery completion without polling.</li>
-            <li>Progressive removal of manual touchpoints so operators focus on exceptions and policy decisions.</li>
-            <li>User automation support via examples, SDKs, and CLIs for downstream ETL and notification integration.</li>
-          </ul>
-        </div>
-      </section>
-
-      <section class="section section-alt" id="consistency" aria-labelledby="consistency-title">
-        <div class="container narrow prose">
-          <header class="section-heading">
-            <h2 id="consistency-title">4. Consistency</h2>
-            <p class="section-primer">Consistency makes data reusable across teams, tools, and missions.</p>
-          </header>
-          <h3>What is Expected</h3>
-          <p>
-            Consistency means data and platform behavior remain predictable regardless of source. Metadata, packaging, coordinate handling, and API response shapes should be normalized so
-            users do not have to implement source-specific logic.
-          </p>
-          <h3>Why It's Important</h3>
-          <p>
-            Consistency reduces integration overhead and operational errors, enabling teams to build pipelines once and reuse them across providers, missions, and time windows.
-          </p>
-          <h3>Key Consistency Principles</h3>
-          <ul class="bullets">
-            <li>Standardized formats and metadata using established standards such as STAC and cloud-optimized file formats.</li>
-            <li>Normalization pipelines for reprojection, format conversion, metadata translation, and quality preprocessing.</li>
-            <li>Uniform access behavior across collections, with stable search patterns, item shapes, links, and auth flows.</li>
-            <li>Quality and versioning controls with explicit lineage and transparent reprocessing updates.</li>
-            <li>Consistent documentation for fields, formats, errors, and examples aligned to live interfaces.</li>
-          </ul>
-        </div>
-      </section>
-
-      <section class="section" id="governance" aria-labelledby="governance-title">
-        <div class="container narrow prose">
-          <header class="section-heading">
-            <h2 id="governance-title">5. Governance &amp; Compliance</h2>
-            <p class="section-primer">Governance keeps operational speed aligned with policy, legal, and mission boundaries.</p>
-          </header>
-          <h3>What is Expected</h3>
-          <p>
-            Governance and compliance should define and enforce who can access what, under which conditions, and for how long. These controls must be implemented directly in workflows,
-            not left to informal policy documents.
-          </p>
-          <h3>Why It's Important</h3>
-          <p>
-            Agencies and enterprises often require demonstrable control and auditability before adoption. Strong governance reduces legal risk and ensures accountability during incidents or
-            disputes.
-          </p>
-          <h3>Key Governance &amp; Compliance Principles</h3>
-          <ul class="bullets">
-            <li>Access governance with roles, groups, project scoping, approval flows, and revocable sharing.</li>
-            <li>License management and usage enforcement for geographic, temporal, redistribution, and expiration constraints.</li>
-            <li>Auditing and accountability through immutable logs, alerting, and compliance reporting views.</li>
-            <li>Automated lifecycle and retention controls for archival, deletion, backup validation, and integrity checks.</li>
-            <li>Legal and regulatory alignment for residency, export controls, and sector-specific policy enforcement.</li>
-          </ul>
-        </div>
-      </section>
-
-      <section class="section section-alt" id="reliability" aria-labelledby="reliability-title">
-        <div class="container narrow prose">
-          <header class="section-heading">
-            <h2 id="reliability-title">6. Reliability &amp; Resilience</h2>
-            <p class="section-primer">Reliability determines whether the platform remains usable when conditions are least forgiving.</p>
-          </header>
-          <h3>What is Expected</h3>
-          <p>
-            Reliability and resilience require high uptime, graceful degradation, and rapid recovery from failures. The platform should avoid single points of failure, replicate critical
-            data and services, and continuously monitor health to detect issues early.
-          </p>
-          <h3>Why It's Important</h3>
-          <p>
-            EO users often depend on time-sensitive outputs. Outages or data loss during critical windows can disrupt missions and erode confidence, while resilient operations sustain trust.
-          </p>
-          <h3>Key Reliability &amp; Resilience Principles</h3>
-          <ul class="bullets">
-            <li>High-availability architecture with redundancy across critical layers and zero-downtime deployment practices.</li>
-            <li>Data redundancy and backup verification tied to documented RPO and RTO objectives.</li>
-            <li>Resilient processing and delivery with retries, checkpoints, alternate routes, and elastic surge handling.</li>
-            <li>Comprehensive monitoring and alerting for latency, errors, saturation, and user-facing SLOs.</li>
-            <li>Regular resilience testing through failover drills and load exercises that close identified gaps.</li>
-          </ul>
-        </div>
-      </section>
-
-      <section class="section" id="scalability" aria-labelledby="scalability-title">
-        <div class="container narrow prose">
-          <header class="section-heading">
-            <h2 id="scalability-title">7. Scalability &amp; Performance</h2>
-            <p class="section-primer">Scalability ensures growth in users, sensors, and volume does not degrade mission outcomes.</p>
-          </header>
-          <h3>What is Expected</h3>
-          <p>
-            Scalability and performance should hold steady as data volumes, user concurrency, and compute-heavy analytics grow. Architectures must use elastic infrastructure,
-            geospatial-temporal indexing, caching, and distributed execution to keep queries and delivery fast at scale.
-          </p>
-          <h3>Why It's Important</h3>
-          <p>
-            Programs expand over time, and if performance collapses under load, adoption stalls. Predictable throughput and latency keep analysis timely and operational costs manageable.
-          </p>
-          <h3>Key Scalability &amp; Performance Principles</h3>
-          <ul class="bullets">
-            <li>Elastic resource scaling for services, workers, queues, storage, and network paths.</li>
-            <li>Optimized indexing and retrieval using spatial-temporal indexes, tiling, caching, and cloud-optimized formats.</li>
-            <li>Parallel and distributed processing that partitions workloads across clusters for faster large-job completion.</li>
-            <li>Continuous performance tuning through benchmarking, profiling, and release-cycle optimization.</li>
-            <li>Geographic distribution of services and caches to lower latency and balance regional demand.</li>
-          </ul>
-        </div>
-      </section>
-
-      <section class="section section-alt" id="notifications" aria-labelledby="notifications-title">
-        <div class="container narrow prose">
-          <header class="section-heading">
-            <h2 id="notifications-title">8. Notifications &amp; Event Triggers</h2>
-            <p class="section-primer">Notifications connect infrastructure state changes to timely human and system action.</p>
-          </header>
-          <h3>What is Expected</h3>
-          <p>
-            Notifications and event triggers should proactively inform users and systems when meaningful state changes occur. The platform should support channels such as email, in-app,
-            SMS, webhooks, and queue-based delivery with user-defined filters and cadence controls.
-          </p>
-          <h3>Why It's Important</h3>
-          <p>
-            Timely alerts connect data availability to immediate action, enabling both humans and downstream systems to respond without polling delays.
-          </p>
-          <h3>Key Notifications &amp; Event Triggers Principles</h3>
-          <ul class="bullets">
-            <li>Real-time data alerts for ingestion, job completion, and order delivery with actionable context.</li>
-            <li>User-defined subscriptions and filters by saved search, geography, time, threshold, and job state.</li>
-            <li>Integration hooks through reliable webhooks, queues, and messaging protocols for downstream automation.</li>
-            <li>Reliable delivery via retries, dead-letter queues, delivery logs, and anti-flood controls.</li>
-            <li>Operational communications through a clear status channel for incidents and maintenance notices.</li>
-          </ul>
-        </div>
-      </section>
-
-      <section class="section section-muted" aria-labelledby="using-this-reference">
-        <div class="container narrow">
-          <h2 id="using-this-reference">Using this reference</h2>
-          <p>
-            It is designed to support architecture decisions, operational reviews, and infrastructure planning rather than prescribe a single implementation.
-          </p>
-          <p><a href="/blog.html">Read related long-form notes on the blog</a>.</p>
-          <p><a href="#top">Back to top</a></p>
         </div>
       </section>
     </main>
@@ -424,10 +63,6 @@
       <div class="container">
         <div class="footer-content">
           <p><strong>EODI Standard</strong> documents the operational baseline for modern Earth observation platforms.</p>
-          <p>
-            Explore best practices that keep satellite data programs reliable, secure, and scalable for mission-critical use cases
-            across government, environmental stewardship, and commercial sectors.
-          </p>
         </div>
         <nav aria-label="Footer navigation">
           <ul>
@@ -438,6 +73,5 @@
         </nav>
       </div>
     </footer>
-
   </body>
 </html>

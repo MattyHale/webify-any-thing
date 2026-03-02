@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Consistency | Earth Observation Data Infrastructure</title>
+    <meta name="description" content="Consistency domain for the EODI standard." />
+    <link rel="canonical" href="https://eodatainfrastructure.com/domains/consistency.html" />
+    <link rel="stylesheet" href="../styles.css" />
+    <script src="../script.js" defer></script>
+    <meta name="theme-color" content="#ffffff" />
+    <link rel="icon" href="data:," />
+  </head>
+  <body id="top">
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <header class="site-header">
+      <div class="container">
+        <div class="brand">
+          <span class="icon" aria-hidden="true">🛰️</span>
+          <span class="brand-name">Earth Observation Data Infrastructure</span>
+        </div>
+        <nav class="site-nav" aria-label="Primary navigation">
+          <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../blog.html">Blog</a></li>
+            <li><a href="#domain-content">Domain</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="container narrow">
+          <h1 id="hero-title">Consistency</h1>
+          <p class="orientation-copy">Consistency ensures every output can be relied on without reinterpretation.</p>
+        </div>
+      </section>
+
+      <section class="section" id="domain-content" aria-labelledby="domain-content-title">
+        <div class="container narrow prose">
+          <h2 id="domain-content-title">What is Expected</h2>
+          <p>Consistency means data and interfaces behave predictably across the platform regardless of source. Metadata fields, file formats, coordinate systems, and APIs should be standardized so users do not need to handle special cases.</p>
+          <p>Normalization pipelines should automatically convert incoming data into preferred formats and reference systems. External interfaces must remain stable so differences between providers are abstracted away.</p>
+          <h2>Why It’s Important</h2><p>Consistency reduces user effort, lowers error rates, and enables multi-sensor fusion. Analysts can build pipelines once and reuse them across providers.</p>
+          <h2>Key Consistency Principles</h2>
+          <h3>Standardized Formats and Metadata</h3><p>Adopt well-established standards such as Cloud-Optimized GeoTIFF and STAC so data is interoperable and FAIR.</p>
+          <h3>Normalization Pipelines</h3><p>Harmonize reprojection, format conversion, metadata translation, and quality preprocessing during ingestion.</p>
+          <h3>Uniform Access Behaviour</h3><p>Keep search patterns, item structures, links, and authentication consistent across datasets.</p>
+          <h3>Quality and Versioning</h3><p>Enforce quality checks and publish explicit versions with transparent lineage.</p>
+          <h3>Consistent Documentation</h3><p>Keep documentation aligned with live interfaces and data structures.</p>
+          <p><a href="../index.html#domains">Back to all domains</a></p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-content">
+          <p><strong>EODI Standard</strong> documents the operational baseline for modern Earth observation platforms.</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

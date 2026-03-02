@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Infrastructure | Earth Observation Data Infrastructure</title>
+    <meta name="description" content="Infrastructure domain for the EODI standard." />
+    <link rel="canonical" href="https://eodatainfrastructure.com/domains/infrastructure.html" />
+    <link rel="stylesheet" href="../styles.css" />
+    <script src="../script.js" defer></script>
+    <meta name="theme-color" content="#ffffff" />
+    <link rel="icon" href="data:," />
+  </head>
+  <body id="top">
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <header class="site-header">
+      <div class="container">
+        <div class="brand">
+          <span class="icon" aria-hidden="true">🛰️</span>
+          <span class="brand-name">Earth Observation Data Infrastructure</span>
+        </div>
+        <nav class="site-nav" aria-label="Primary navigation">
+          <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../blog.html">Blog</a></li>
+            <li><a href="#domain-content">Domain</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="container narrow">
+          <h1 id="hero-title">Infrastructure</h1>
+          <p class="orientation-copy">The foundational layer that determines whether everything else is possible or painful.</p>
+        </div>
+      </section>
+
+      <section class="section" id="domain-content" aria-labelledby="domain-content-title">
+        <div class="container narrow prose">
+          <h2 id="domain-content-title">What is Expected</h2>
+          <p>The EODI’s infrastructure is the core technical architecture underpinning the ingestion, management, and dissemination of Earth Observation data. It must seamlessly integrate many distributed components, data sources, and partner inputs into a unified whole that behaves as a single high-functioning platform.</p>
+          <p>In practice, this means supporting multi-constellation operations. Data from numerous satellite missions and providers are orchestrated under one system so that users experience one cohesive environment.</p>
+          <p>A unified platform removes silos and queue friction. Requests should trigger automated fulfilment that schedules collections, ingests results, standardizes outputs, and delivers them reliably. This shrinks latency, reduces operational overhead, and builds trust that the same system will perform under load and during critical windows.</p>
+          
+          <h2>Key Infrastructure Principles</h2>
+          <h3>Unified Data Integration</h3><p>The EODI must bring together all relevant EO data sources including satellites, sensors, and archives under a common framework. Using a distributed system-of-systems architecture, the platform supports specialized processing for different data types while still presenting a unified interface. In practice, this means maintaining a centralized catalog or metadata repository that enables discovery across the entire holdings. Users should not need to know which satellite or archive a dataset came from. The infrastructure abstracts sources into one cohesive data lake. New suppliers or missions can be integrated without disrupting the overall system.</p>
+          <h3>Self-Service and APIs</h3><p>Every core function should be available via the user interface and stable APIs so users and external systems can place orders, track state, and retrieve results without tickets or emails.</p>
+          <h3>Automated Fulfilment</h3><p>Deterministic workflows should be triggered for tasking, acquisition monitoring, ingestion, preprocessing, and delivery, with recorded state transitions so every step is auditable.</p>
+          <h3>Modular and Cloud-Native</h3><p>Use independently deployable services for catalog, ordering, processing, delivery, and authentication. Components should scale in isolation and be updated without downtime.</p>
+          <p><a href="../index.html#domains">Back to all domains</a></p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-content">
+          <p><strong>EODI Standard</strong> documents the operational baseline for modern Earth observation platforms.</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
