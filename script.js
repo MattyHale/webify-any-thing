@@ -7,6 +7,74 @@ function scrollToSection(id) {
   section.scrollIntoView({ behavior, block: 'start' });
 }
 
+function slugify(text, fallback = 'section') {
+  const value = text
+    .toLowerCase()
+    .trim()
+    .replace(/[^a-z0-9\s-]/g, '')
+    .replace(/\s+/g, '-');
+
+  return value || fallback;
+}
+
+function ensureSectionAnchors(main) {
+  const withIds = Array.from(main.querySelectorAll('section[id], h2[id]'));
+  if (withIds.length >= 3) return withIds;
+
+  const headings = Array.from(main.querySelectorAll('h2'));
+  const seen = new Set(withIds.map((node) => node.id));
+
+  headings.forEach((heading, index) => {
+    if (heading.id) return;
+
+    let id = slugify(heading.textContent, `section-${index + 1}`);
+    let counter = 2;
+    while (seen.has(id) || document.getElementById(id)) {
+      id = `${id}-${counter}`;
+      counter += 1;
+    }
+
+    heading.id = id;
+    seen.add(id);
+  });
+
+  return Array.from(main.querySelectorAll('section[id], h2[id]'));
+}
+
+function buildPageNavigator(main, sections) {
+  if (sections.length < 3) return { links: [], nav: null };
+
+  const nav = document.createElement('nav');
+  nav.className = 'page-navigator';
+  nav.setAttribute('aria-label', 'On this page');
+
+  const title = document.createElement('h2');
+  title.textContent = 'On this page';
+  nav.appendChild(title);
+
+  const list = document.createElement('ul');
+
+  sections.forEach((section) => {
+    const listItem = document.createElement('li');
+    const link = document.createElement('a');
+    link.href = `#${section.id}`;
+    link.textContent =
+      section.dataset.navLabel ||
+      section.getAttribute('aria-label') ||
+      section.querySelector('h2, h3')?.textContent?.trim() ||
+      section.textContent?.trim().slice(0, 50) ||
+      section.id;
+
+    listItem.appendChild(link);
+    list.appendChild(listItem);
+  });
+
+  nav.appendChild(list);
+  main.prepend(nav);
+
+  return { links: Array.from(list.querySelectorAll('a')), nav };
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   const scrollButtons = document.querySelectorAll('[data-scroll-target]');
   const scrollTopButton = document.querySelector('.scroll-top');
@@ -27,7 +95,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   };
-
 
   const buildArticleUrl = (id) => {
     const url = new URL(window.location.href);
@@ -110,4 +177,79 @@ document.addEventListener('DOMContentLoaded', () => {
 
     observedSections.forEach((section) => observer.observe(section));
   }
+
+  const main = document.querySelector('main');
+  if (!main) return;
+
+  const sectionTargets = ensureSectionAnchors(main)
+    .filter((node) => node.id && !node.closest('.page-navigator'))
+    .slice(0, 14);
+
+  const { links: pageNavLinks } = buildPageNavigator(main, sectionTargets);
+  if (!pageNavLinks.length) return;
+
+  const setActivePageLink = (id) => {
+    pageNavLinks.forEach((link) => {
+      const active = link.getAttribute('href') === `#${id}`;
+      link.classList.toggle('active', active);
+      if (active) {
+        link.setAttribute('aria-current', 'true');
+      } else {
+        link.removeAttribute('aria-current');
+      }
+    });
+  };
+
+  const stepper = document.createElement('div');
+  stepper.className = 'section-stepper';
+  stepper.innerHTML = `
+    <button type="button" class="stepper-button stepper-up" aria-label="Go to previous section">↑ Prev</button>
+    <button type="button" class="stepper-button stepper-down" aria-label="Go to next section">Next ↓</button>
+  `;
+  document.body.appendChild(stepper);
+
+  const getCurrentIndex = () => {
+    const threshold = window.innerHeight * 0.32;
+    let index = 0;
+
+    sectionTargets.forEach((section, i) => {
+      const top = section.getBoundingClientRect().top;
+      if (top <= threshold) {
+        index = i;
+      }
+    });
+
+    return index;
+  };
+
+  const goToIndex = (index) => {
+    const safeIndex = Math.max(0, Math.min(sectionTargets.length - 1, index));
+    scrollToSection(sectionTargets[safeIndex].id);
+  };
+
+  stepper.querySelector('.stepper-up')?.addEventListener('click', () => {
+    goToIndex(getCurrentIndex() - 1);
+  });
+
+  stepper.querySelector('.stepper-down')?.addEventListener('click', () => {
+    goToIndex(getCurrentIndex() + 1);
+  });
+
+  const pageNavObserver = new IntersectionObserver(
+    (entries) => {
+      const visible = entries
+        .filter((entry) => entry.isIntersecting)
+        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+      if (visible?.target?.id) {
+        setActivePageLink(visible.target.id);
+      }
+    },
+    {
+      rootMargin: '-25% 0px -60% 0px',
+      threshold: [0.2, 0.5, 0.8]
+    }
+  );
+
+  sectionTargets.forEach((section) => pageNavObserver.observe(section));
 });
