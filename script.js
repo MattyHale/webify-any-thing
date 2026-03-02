@@ -87,6 +87,9 @@ function buildPageNavigator(main, sections) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+  if (document.body?.dataset?.disableToc === "true") return;
+  if (location.pathname.endsWith("/blog.html")) return;
+
   const scrollButtons = document.querySelectorAll('[data-scroll-target]');
   const scrollTopButton = document.querySelector('.scroll-top');
   const shareSections = document.querySelectorAll('.share-actions');
