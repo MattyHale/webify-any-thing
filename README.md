@@ -55,3 +55,26 @@ For automated browser previews (including Codex screenshots), always point to `/
 ## Deployment
 
 Because the site is now fully static, you can deploy it to any static hosting platform (S3, Netlify, GitHub Pages, etc.) by uploading the files in this repository.
+
+## Request change modal + Google Apps Script backend
+
+A sitewide **Request change** modal is now injected by `script.js` and styled by `styles.css`.
+
+### Frontend configuration
+
+1. In `script.js`, set:
+   - `APPS_SCRIPT_URL` to your deployed Apps Script Web App URL.
+2. In the injected modal markup in `script.js`, set:
+   - `data-sitekey="REPLACE_WITH_TURNSTILE_SITE_KEY"` to your Cloudflare Turnstile site key.
+
+### Apps Script setup
+
+1. Create a Google Sheet and (optionally) pre-create a `Submissions` tab.
+2. Copy `apps-script/Code.gs` into your Apps Script project bound to that Sheet.
+3. In **Project Settings → Script properties**, add:
+   - `TURNSTILE_SECRET=<your Turnstile secret>`
+4. Deploy as a Web App with:
+   - **Execute as:** Me
+   - **Who has access:** Anyone (or Anyone with the link)
+
+This flow keeps owner email details off the frontend while still enabling submissions and spam protection through server-side Turnstile verification.
