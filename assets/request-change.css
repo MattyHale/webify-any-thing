@@ -53,6 +53,23 @@
 }
 .eodi-help{ font-size: 12px; opacity: 0.7; margin-top: 6px; }
 
+.eodi-verify{
+  margin-top: 12px;
+  padding: 10px;
+  border: 1px solid rgba(0,0,0,0.12);
+  border-radius: 12px;
+  background: rgba(0,0,0,0.02);
+}
+.eodi-verify-hint{
+  margin: 8px 0 0;
+  font-size: 12px;
+  opacity: 0.75;
+}
+.eodi-error{
+  color: #b00020;
+  font-weight: 600;
+}
+
 .eodi-modal__actions{
   display:flex; gap: 10px; align-items:center;
   margin-top: 12px;
