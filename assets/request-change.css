@@ -77,3 +77,7 @@
   .eodi-modal__panel{ margin: 4vh 12px; }
   .eodi-modal__actions{ flex-direction: column; align-items: stretch; }
 }
+
+html[data-eodi-requestchange="loaded"] .eodi-request-btn {
+  outline: 2px solid rgba(0,0,0,0.25);
+}

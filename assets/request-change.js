@@ -1,4 +1,5 @@
 (() => {
+  console.log("[EODI] request-change.js loaded");
   const APPS_SCRIPT_URL = "REPLACE_WITH_APPS_SCRIPT_URL";
   const TURNSTILE_SITE_KEY = "REPLACE_WITH_TURNSTILE_SITE_KEY";
 
@@ -205,6 +206,7 @@
     mountPoint.id = "eodi-request-change-root";
     mountPoint.innerHTML = buildModalHTML();
     document.body.appendChild(mountPoint);
+    document.documentElement.setAttribute("data-eodi-requestchange", "loaded");
 
     attach(mountPoint);
   }
