@@ -97,7 +97,25 @@ function placePageNavigator(main, nav, isMobile) {
   main.prepend(nav);
 }
 
+function insertReviewDate() {
+  const firstHeading = document.querySelector('main h1, h1');
+  if (!firstHeading || firstHeading.nextElementSibling?.classList.contains('review-date')) return;
+
+  const reviewDate = document.createElement('p');
+  reviewDate.className = 'review-date';
+
+  const formattedDate = new Intl.DateTimeFormat('en-US', {
+    month: 'long',
+    year: 'numeric'
+  }).format(new Date());
+
+  reviewDate.textContent = `Reviewed and revised: ${formattedDate}`;
+  firstHeading.insertAdjacentElement('afterend', reviewDate);
+}
+
 document.addEventListener('DOMContentLoaded', () => {
+  insertReviewDate();
+
   const disableToc = document.body?.dataset?.disableToc === "true";
   const isBlogIndex = location.pathname.endsWith("/blog.html");
 
