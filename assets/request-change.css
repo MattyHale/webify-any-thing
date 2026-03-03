@@ -19,6 +19,9 @@
   position:relative;
   max-width: 720px;
   margin: 6vh auto;
+  max-height: 88vh;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
   background: #fff;
   border-radius: 16px;
   border: 1px solid rgba(0,0,0,0.12);

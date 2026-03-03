@@ -1,43 +1,6 @@
 (() => {
   console.log("[EODI] request-change.js loaded");
-  const APPS_SCRIPT_URL = "https://script.google.com/macros/s/XXXXX/exec";
-  const TURNSTILE_SITE_KEY = "1x00000000000000000000AA";
-
-  function isConfigured(value, type) {
-    if (typeof value !== "string") return false;
-    const trimmed = value.trim();
-    if (!trimmed) return false;
-    if (type === "appsScriptUrl") {
-      return !trimmed.includes("XXXXX");
-    }
-    return true;
-  }
-
-  function getConfig() {
-    const scriptEl = document.currentScript || document.querySelector('script[src$="/assets/request-change.js"]');
-    const datasetUrl = scriptEl?.dataset?.appsScriptUrl;
-    const datasetSiteKey = scriptEl?.dataset?.turnstileSiteKey;
-
-    const globalConfig = window.EODI_REQUEST_CHANGE_CONFIG || {};
-    const appsScriptUrl = globalConfig.appsScriptUrl || datasetUrl || APPS_SCRIPT_URL;
-    const turnstileSiteKey = globalConfig.turnstileSiteKey || datasetSiteKey || TURNSTILE_SITE_KEY;
-
-    return {
-      appsScriptUrl,
-      turnstileSiteKey,
-      hasAppsScriptUrl: isConfigured(appsScriptUrl, "appsScriptUrl"),
-      hasTurnstileSiteKey: isConfigured(turnstileSiteKey, "turnstileSiteKey"),
-    };
-  }
-
-  function ensureTurnstileScript() {
-    if (document.querySelector('script[src*="turnstile/v0/api.js"]')) return;
-    const s = document.createElement("script");
-    s.src = "https://challenges.cloudflare.com/turnstile/v0/api.js";
-    s.async = true;
-    s.defer = true;
-    document.head.appendChild(s);
-  }
+  const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyD-fQ_nTtjxCf_JR3cSOZVvQmqmZ5m3ZMgkoYzYHLO-ro__i0Yzxy3nW918ZNl5PvIng/exec";
 
   function monthYear() {
     const now = new Date();
@@ -52,16 +15,7 @@
       .filter(x => x.text.length > 0);
   }
 
-  function buildModalHTML(config) {
-    const turnstileHtml = config.hasTurnstileSiteKey
-      ? `
-            <div class="eodi-verify">
-              <div class="cf-turnstile" data-sitekey="${config.turnstileSiteKey}"></div>
-              <p class="eodi-verify-hint" id="eodiVerifyHint">Verification is required to submit.</p>
-            </div>
-        `
-      : "";
-
+  function buildModalHTML() {
     return `
       <button class="eodi-request-btn" type="button" data-eodi-open-request>Request change</button>
 
@@ -122,9 +76,6 @@
               Rationale
               <textarea name="rationale" rows="4" required></textarea>
             </label>
-
-            ${turnstileHtml}
-
             <div class="eodi-modal__actions">
               <button class="eodi-btn eodi-btn--primary" type="submit" id="eodiSubmitBtn">Submit</button>
               <button class="eodi-btn" type="button" data-eodi-close-request>Cancel</button>
@@ -137,7 +88,7 @@
     `;
   }
 
-  function attach(root, config) {
+  function attach(root) {
     const modal = root.querySelector("#eodiRequestModal");
     const form = root.querySelector("#eodiRequestForm");
     const statusEl = root.querySelector("#eodiRequestStatus");
@@ -145,9 +96,6 @@
     const pageUrlInput = root.querySelector("#eodiPageUrl");
     const pageTitleInput = root.querySelector("#eodiPageTitle");
     const sectionSelect = root.querySelector("#eodiSectionSelect");
-
-    const openers = document.querySelectorAll("[data-eodi-open-request]");
-    const closers = root.querySelectorAll("[data-eodi-close-request]");
 
     function populateSections() {
       const headings = collectHeadings();
@@ -179,15 +127,6 @@
 
       modal.setAttribute("aria-hidden", "false");
       document.body.style.overflow = "hidden";
-
-      setTimeout(() => {
-        const widgetPresent = !!document.querySelector(".cf-turnstile iframe");
-        const hint = document.getElementById("eodiVerifyHint");
-        if (!widgetPresent && hint) {
-          hint.textContent = "Verification widget did not load. Check blockers or replace the Turnstile site key.";
-          hint.classList.add("eodi-error");
-        }
-      }, 800);
     }
 
     function closeModal() {
@@ -195,11 +134,20 @@
       document.body.style.overflow = "";
     }
 
-    openers.forEach(b => b.addEventListener("click", (event) => {
-      event.preventDefault();
-      openModal();
-    }));
-    closers.forEach(b => b.addEventListener("click", closeModal));
+    document.addEventListener("click", (event) => {
+      const opener = event.target.closest("[data-eodi-open-request]");
+      if (opener) {
+        event.preventDefault();
+        openModal();
+        return;
+      }
+
+      const closer = event.target.closest("[data-eodi-close-request]");
+      if (closer && modal.contains(closer)) {
+        event.preventDefault();
+        closeModal();
+      }
+    });
 
     document.addEventListener("keydown", (e) => {
       if (e.key === "Escape" && modal.getAttribute("aria-hidden") === "false") closeModal();
@@ -213,24 +161,6 @@
       statusEl.scrollIntoView({ behavior: "smooth", block: "center" });
 
       const formData = new FormData(form);
-      const token = formData.get("cf-turnstile-response");
-
-      if (!config.hasAppsScriptUrl) {
-        statusEl.textContent = "Form submission is not configured yet. Please contact the site owner.";
-        statusEl.classList.add("eodi-error");
-        statusEl.scrollIntoView({ behavior: "smooth", block: "center" });
-        submitBtn.disabled = false;
-        return;
-      }
-
-      if (!token) {
-        statusEl.textContent = "Verification is missing. If you use an ad blocker, allow Turnstile and try again.";
-        statusEl.classList.add("eodi-error");
-        statusEl.scrollIntoView({ behavior: "smooth", block: "center" });
-        submitBtn.disabled = false;
-        return;
-      }
-
       statusEl.classList.remove("eodi-error");
 
       const payload = {};
@@ -238,51 +168,44 @@
       payload.user_agent = navigator.userAgent || "";
 
       try {
-        const res = await fetch(config.appsScriptUrl, {
+        await fetch(APPS_SCRIPT_URL, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(payload),
         });
-
-        const data = await res.json().catch(() => ({}));
-
-        if (!res.ok || data.ok !== true) {
-          statusEl.textContent = data.message || "Submission failed. Please try again.";
+      } catch (err) {
+        try {
+          await fetch(APPS_SCRIPT_URL, {
+            method: "POST",
+            mode: "no-cors",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload),
+          });
+        } catch (retryErr) {
+          statusEl.textContent = "Network error. Please try again.";
           statusEl.classList.add("eodi-error");
           statusEl.scrollIntoView({ behavior: "smooth", block: "center" });
           submitBtn.disabled = false;
           return;
         }
-
-        statusEl.textContent = "Submitted. Thank you.";
-        statusEl.classList.remove("eodi-error");
-        statusEl.scrollIntoView({ behavior: "smooth", block: "center" });
-        submitBtn.disabled = false;
-
-        setTimeout(closeModal, 900);
-
-      } catch (err) {
-        statusEl.textContent = "Network error. Please try again.";
-        statusEl.classList.add("eodi-error");
-        statusEl.scrollIntoView({ behavior: "smooth", block: "center" });
-        submitBtn.disabled = false;
       }
+
+      statusEl.textContent = "Submitted. Thank you.";
+      statusEl.classList.remove("eodi-error");
+      statusEl.scrollIntoView({ behavior: "smooth", block: "center" });
+      submitBtn.disabled = false;
+      setTimeout(closeModal, 900);
     });
   }
 
   function mount() {
-    const config = getConfig();
-    if (config.hasTurnstileSiteKey) {
-      ensureTurnstileScript();
-    }
-
     const mountPoint = document.createElement("div");
     mountPoint.id = "eodi-request-change-root";
-    mountPoint.innerHTML = buildModalHTML(config);
+    mountPoint.innerHTML = buildModalHTML();
     document.body.appendChild(mountPoint);
     document.documentElement.setAttribute("data-eodi-requestchange", "loaded");
 
-    attach(mountPoint, config);
+    attach(mountPoint);
   }
 
   if (document.readyState === "loading") {
