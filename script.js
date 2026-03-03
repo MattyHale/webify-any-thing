@@ -109,7 +109,7 @@ function insertReviewDate() {
     year: 'numeric'
   }).format(new Date());
 
-  reviewDate.textContent = `Reviewed and revised: ${formattedDate}`;
+  reviewDate.textContent = formattedDate;
   firstHeading.insertAdjacentElement('afterend', reviewDate);
 }
 
