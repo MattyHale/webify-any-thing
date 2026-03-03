@@ -1,0 +1,79 @@
+.eodi-request-btn{
+  font: inherit;
+  padding: 8px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(0,0,0,0.14);
+  background: rgba(255,255,255,0.7);
+  cursor: pointer;
+}
+
+.eodi-modal{ display:none; position:fixed; inset:0; z-index:9999; }
+.eodi-modal[aria-hidden="false"]{ display:block; }
+
+.eodi-modal__backdrop{
+  position:absolute; inset:0;
+  background: rgba(0,0,0,0.35);
+}
+
+.eodi-modal__panel{
+  position:relative;
+  max-width: 720px;
+  margin: 6vh auto;
+  background: #fff;
+  border-radius: 16px;
+  border: 1px solid rgba(0,0,0,0.12);
+  padding: 16px 16px 14px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.18);
+}
+
+.eodi-modal__header{
+  display:flex; align-items:center; justify-content:space-between;
+  gap: 12px; margin-bottom: 10px;
+}
+.eodi-modal__close{
+  font: inherit; font-size: 22px;
+  border: 0; background: transparent; cursor: pointer;
+  padding: 2px 8px;
+}
+
+#eodiRequestForm label{
+  display:block;
+  margin: 10px 0;
+  font-size: 14px;
+}
+#eodiRequestForm input,
+#eodiRequestForm select,
+#eodiRequestForm textarea{
+  width:100%;
+  margin-top: 6px;
+  padding: 10px 10px;
+  border-radius: 12px;
+  border: 1px solid rgba(0,0,0,0.16);
+  font: inherit;
+}
+.eodi-help{ font-size: 12px; opacity: 0.7; margin-top: 6px; }
+
+.eodi-modal__actions{
+  display:flex; gap: 10px; align-items:center;
+  margin-top: 12px;
+}
+.eodi-btn{
+  font: inherit;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(0,0,0,0.16);
+  background: rgba(255,255,255,0.85);
+  cursor: pointer;
+}
+.eodi-btn--primary{
+  background: rgba(0,0,0,0.92);
+  color: #fff;
+  border-color: rgba(0,0,0,0.92);
+}
+.eodi-status{ margin: 10px 0 0; font-size: 13px; min-height: 18px; }
+.eodi-note{ margin: 8px 0 0; font-size: 12px; opacity: 0.75; }
+
+@media (max-width: 760px){
+  .eodi-modal__panel{ margin: 4vh 12px; }
+  .eodi-modal__actions{ flex-direction: column; align-items: stretch; }
+}
