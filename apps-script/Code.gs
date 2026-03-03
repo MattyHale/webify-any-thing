@@ -1,89 +1,73 @@
-const SHEET_NAME = 'Submissions';
+const SHEET_NAME = "Submissions";
 
 function doPost(e) {
   try {
-    const body = JSON.parse(e.postData.contents || '{}');
+    const body = JSON.parse((e && e.postData && e.postData.contents) ? e.postData.contents : "{}");
 
+    // Required fields (NO Turnstile)
     const required = [
-      'name',
-      'email',
-      'org',
-      'type',
-      'proposed_change',
-      'rationale',
-      'page_url',
-      'page_title'
+      "name",
+      "email",
+      "org",
+      "type",
+      "proposed_change",
+      "rationale",
+      "page_url",
+      "page_title"
     ];
 
-    for (const key of required) {
-      if (!body[key] || String(body[key]).trim().length === 0) {
-        return json_(400, { ok: false, message: `Missing field: ${key}` });
+    for (const k of required) {
+      if (!body[k] || String(body[k]).trim().length === 0) {
+        return json_({ ok: false, message: `Missing field: ${k}` });
       }
     }
 
-    const email = String(body.email).trim();
-    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailPattern.test(email)) {
-      return json_(400, { ok: false, message: 'Please provide a valid email address.' });
-    }
+    // Basic sanity limits (prevents huge spam payloads)
+    if (String(body.proposed_change).length > 5000) return json_({ ok: false, message: "Proposed change too long." });
+    if (String(body.rationale).length > 5000) return json_({ ok: false, message: "Rationale too long." });
 
-    const sheet = getOrCreateSheet_();
-    const now = new Date();
-    const ip = ''; // Apps Script does not reliably expose caller IP in Web Apps.
+    const ss = SpreadsheetApp.getActiveSpreadsheet();
+    const sheet = ss.getSheetByName(SHEET_NAME) || ss.insertSheet(SHEET_NAME);
 
     sheet.appendRow([
-      now,
+      new Date(),
       body.page_url,
       body.page_title,
-      body.section || '',
+      body.section || "",
       body.type,
       body.name,
-      email,
+      body.email,
       body.org,
       body.proposed_change,
       body.rationale,
-      body.user_agent || '',
-      ip,
-      'received'
+      body.user_agent || "",
+      "received"
     ]);
 
-    return json_(200, { ok: true });
-  } catch (error) {
-    return json_(500, { ok: false, message: 'Server error.' });
+    return json_({ ok: true });
+
+  } catch (err) {
+    return json_({ ok: false, message: "Server error." });
   }
 }
 
-function getOrCreateSheet_() {
-  const ss = SpreadsheetApp.getActiveSpreadsheet();
-  const sheet = ss.getSheetByName(SHEET_NAME) || ss.insertSheet(SHEET_NAME);
-
-  if (sheet.getLastRow() === 0) {
-    sheet.appendRow([
-      'Timestamp',
-      'Page URL',
-      'Page Title',
-      'Section',
-      'Type',
-      'Name',
-      'Work Email',
-      'Organisation',
-      'Proposed Change',
-      'Rationale',
-      'User Agent',
-      'IP (optional)',
-      'Status'
-    ]);
-  }
-
-  return sheet;
+// Handle preflight requests (helps browsers when doing CORS)
+function doOptions() {
+  return cors_(ContentService.createTextOutput(""));
 }
 
-function json_(status, obj) {
-  const output = ContentService.createTextOutput(JSON.stringify(obj)).setMimeType(
-    ContentService.MimeType.JSON
+function json_(obj) {
+  return cors_(
+    ContentService
+      .createTextOutput(JSON.stringify(obj))
+      .setMimeType(ContentService.MimeType.JSON)
   );
+}
 
-  // Apps Script ContentService cannot set non-200 status codes for Web Apps.
-  // `ok` and `message` in JSON should be used by the caller.
-  return output;
+// Add CORS headers
+function cors_(output) {
+  return output
+    .setHeader("Access-Control-Allow-Origin", "*")
+    .setHeader("Access-Control-Allow-Methods", "POST, OPTIONS")
+    .setHeader("Access-Control-Allow-Headers", "Content-Type");
 }
