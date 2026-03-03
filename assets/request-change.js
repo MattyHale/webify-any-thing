@@ -198,32 +198,20 @@
       formData.forEach((v, k) => (payload[k] = v));
       payload.user_agent = navigator.userAgent || "";
 
-      // Attempt normal CORS fetch first
+      // Fire-and-forget delivery: any resolved fetch counts as submitted.
       try {
-        const res = await fetch(config.appsScriptUrl, {
+        await fetch(config.appsScriptUrl, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(payload),
         });
 
-        // Try to read JSON if possible
-        const data = await res.json().catch(() => ({}));
-
-        // If server responded with an error
-        if (!res.ok || data.ok !== true) {
-          statusEl.textContent = data.message || "Submission failed. Please try again.";
-          statusEl.classList.add("eodi-error");
-          submitBtn.disabled = false;
-          return;
-        }
-
         statusEl.textContent = "Submitted. Thank you.";
         statusEl.classList.remove("eodi-error");
-        submitBtn.disabled = false;
         setTimeout(closeModal, 900);
         return;
       } catch (err) {
-        // If CORS blocks the response, retry using no-cors (cannot read response)
+        // If CORS/network handling blocks the first request, retry using no-cors.
         try {
           await fetch(config.appsScriptUrl, {
             method: "POST",
@@ -234,7 +222,6 @@
 
           statusEl.textContent = "Submitted. Thank you.";
           statusEl.classList.remove("eodi-error");
-          submitBtn.disabled = false;
           setTimeout(closeModal, 900);
           return;
         } catch (err2) {
