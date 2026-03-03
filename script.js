@@ -203,7 +203,7 @@ function ensureRequestChangeUi() {
 }
 
 function initRequestChangeModal() {
-  const APPS_SCRIPT_URL = 'REPLACE_WITH_APPS_SCRIPT_URL';
+  const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyD-fQ_nTtjxCf_JR3cSOZVvQmqmZ5m3ZMgkoYzYHLO-ro__i0Yzxy3nW918ZNl5PvIng/exec';
   ensureRequestChangeUi();
 
   const modal = document.getElementById('eodiRequestModal');
