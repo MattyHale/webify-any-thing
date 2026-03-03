@@ -1,6 +1,29 @@
 (() => {
   console.log("[EODI] request-change.js loaded");
-  const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyD-fQ_nTtjxCf_JR3cSOZVvQmqmZ5m3ZMgkoYzYHLO-ro__i0Yzxy3nW918ZNl5PvIng/exec";
+  const APPS_SCRIPT_URL = "https://script.google.com/macros/s/XXXXX/exec";
+
+  function isConfigured(value, type) {
+    if (typeof value !== "string") return false;
+    const trimmed = value.trim();
+    if (!trimmed) return false;
+    if (type === "appsScriptUrl") {
+      return !trimmed.includes("XXXXX");
+    }
+    return true;
+  }
+
+  function getConfig() {
+    const scriptEl = document.currentScript || document.querySelector('script[src$="/assets/request-change.js"]');
+    const datasetUrl = scriptEl?.dataset?.appsScriptUrl;
+
+    const globalConfig = window.EODI_REQUEST_CHANGE_CONFIG || {};
+    const appsScriptUrl = globalConfig.appsScriptUrl || datasetUrl || APPS_SCRIPT_URL;
+
+    return {
+      appsScriptUrl,
+      hasAppsScriptUrl: isConfigured(appsScriptUrl, "appsScriptUrl"),
+    };
+  }
 
   function monthYear() {
     const now = new Date();
@@ -76,6 +99,7 @@
               Rationale
               <textarea name="rationale" rows="4" required></textarea>
             </label>
+
             <div class="eodi-modal__actions">
               <button class="eodi-btn eodi-btn--primary" type="submit" id="eodiSubmitBtn">Submit</button>
               <button class="eodi-btn" type="button" data-eodi-close-request>Cancel</button>
@@ -161,8 +185,6 @@
       statusEl.scrollIntoView({ behavior: "smooth", block: "center" });
 
       const formData = new FormData(form);
-      statusEl.classList.remove("eodi-error");
-
       const payload = {};
       formData.forEach((v, k) => payload[k] = v);
       payload.user_agent = navigator.userAgent || "";
@@ -173,16 +195,11 @@
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(payload),
         });
-      } catch (err) {
-        try {
-          await fetch(APPS_SCRIPT_URL, {
-            method: "POST",
-            mode: "no-cors",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(payload),
-          });
-        } catch (retryErr) {
-          statusEl.textContent = "Network error. Please try again.";
+
+        const data = await res.json().catch(() => ({}));
+
+        if (!config.hasAppsScriptUrl || !res.ok || data.ok !== true) {
+          statusEl.textContent = data.message || "Submission failed. Please try again.";
           statusEl.classList.add("eodi-error");
           statusEl.scrollIntoView({ behavior: "smooth", block: "center" });
           submitBtn.disabled = false;
@@ -199,6 +216,8 @@
   }
 
   function mount() {
+    const config = getConfig();
+
     const mountPoint = document.createElement("div");
     mountPoint.id = "eodi-request-change-root";
     mountPoint.innerHTML = buildModalHTML();

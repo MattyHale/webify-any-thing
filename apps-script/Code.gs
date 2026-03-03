@@ -1,8 +1,5 @@
 const SHEET_NAME = 'Submissions';
 
-// Script Properties keys:
-// TURNSTILE_SECRET = your Turnstile secret key
-
 function doPost(e) {
   try {
     const body = JSON.parse(e.postData.contents || '{}');
@@ -15,8 +12,7 @@ function doPost(e) {
       'proposed_change',
       'rationale',
       'page_url',
-      'page_title',
-      'cf-turnstile-response'
+      'page_title'
     ];
 
     for (const key of required) {
@@ -25,9 +21,10 @@ function doPost(e) {
       }
     }
 
-    const verified = verifyTurnstile_(body['cf-turnstile-response']);
-    if (!verified) {
-      return json_(403, { ok: false, message: 'Verification failed. Please retry.' });
+    const email = String(body.email).trim();
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(email)) {
+      return json_(400, { ok: false, message: 'Please provide a valid email address.' });
     }
 
     const sheet = getOrCreateSheet_();
@@ -41,13 +38,12 @@ function doPost(e) {
       body.section || '',
       body.type,
       body.name,
-      body.email,
+      email,
       body.org,
       body.proposed_change,
       body.rationale,
       body.user_agent || '',
       ip,
-      'true',
       'received'
     ]);
 
@@ -75,29 +71,11 @@ function getOrCreateSheet_() {
       'Rationale',
       'User Agent',
       'IP (optional)',
-      'Turnstile Verified',
       'Status'
     ]);
   }
 
   return sheet;
-}
-
-function verifyTurnstile_(token) {
-  const secret = PropertiesService.getScriptProperties().getProperty('TURNSTILE_SECRET');
-  if (!secret) return false;
-
-  const res = UrlFetchApp.fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
-    method: 'post',
-    payload: {
-      secret,
-      response: token
-    },
-    muteHttpExceptions: true
-  });
-
-  const data = JSON.parse(res.getContentText() || '{}');
-  return data && data.success === true;
 }
 
 function json_(status, obj) {
