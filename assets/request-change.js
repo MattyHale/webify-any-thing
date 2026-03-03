@@ -109,7 +109,7 @@
     const pageTitleInput = root.querySelector("#eodiPageTitle");
     const sectionSelect = root.querySelector("#eodiSectionSelect");
 
-    const openers = root.querySelectorAll("[data-eodi-open-request]");
+    const openers = document.querySelectorAll("[data-eodi-open-request]");
     const closers = root.querySelectorAll("[data-eodi-close-request]");
 
     function populateSections() {
@@ -148,7 +148,10 @@
       document.body.style.overflow = "";
     }
 
-    openers.forEach(b => b.addEventListener("click", openModal));
+    openers.forEach(b => b.addEventListener("click", (event) => {
+      event.preventDefault();
+      openModal();
+    }));
     closers.forEach(b => b.addEventListener("click", closeModal));
 
     document.addEventListener("keydown", (e) => {
