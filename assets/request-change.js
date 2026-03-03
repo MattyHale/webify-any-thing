@@ -133,7 +133,7 @@
     }
 
     function setReviewedLine() {
-      root.querySelectorAll("[data-eodi-reviewed-date]").forEach(el => {
+      document.querySelectorAll("[data-eodi-reviewed-date]").forEach(el => {
         el.textContent = monthYear();
       });
     }
@@ -179,6 +179,15 @@
 
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
+
+      // If not configured, show visible error and stop
+      if (!config || !config.hasAppsScriptUrl || !config.appsScriptUrl) {
+        statusEl.textContent = "Submission endpoint not configured.";
+        statusEl.classList.add("eodi-error");
+        submitBtn.disabled = false;
+        return;
+      }
+
       submitBtn.disabled = true;
       statusEl.textContent = "Submitting…";
       statusEl.classList.remove("eodi-error");
@@ -186,9 +195,10 @@
 
       const formData = new FormData(form);
       const payload = {};
-      formData.forEach((v, k) => payload[k] = v);
+      formData.forEach((v, k) => (payload[k] = v));
       payload.user_agent = navigator.userAgent || "";
 
+      // Attempt normal CORS fetch first
       try {
         const res = await fetch(config.appsScriptUrl, {
           method: "POST",
@@ -196,28 +206,44 @@
           body: JSON.stringify(payload),
         });
 
+        // Try to read JSON if possible
         const data = await res.json().catch(() => ({}));
 
-        if (!config.hasAppsScriptUrl || !res.ok || data.ok !== true) {
+        // If server responded with an error
+        if (!res.ok || data.ok !== true) {
           statusEl.textContent = data.message || "Submission failed. Please try again.";
           statusEl.classList.add("eodi-error");
-          statusEl.scrollIntoView({ behavior: "smooth", block: "center" });
           submitBtn.disabled = false;
           return;
         }
-      } catch (_) {
-        statusEl.textContent = "Submission failed. Please try again.";
-        statusEl.classList.add("eodi-error");
-        statusEl.scrollIntoView({ behavior: "smooth", block: "center" });
-        submitBtn.disabled = false;
-        return;
-      }
 
-      statusEl.textContent = "Submitted. Thank you.";
-      statusEl.classList.remove("eodi-error");
-      statusEl.scrollIntoView({ behavior: "smooth", block: "center" });
-      submitBtn.disabled = false;
-      setTimeout(closeModal, 900);
+        statusEl.textContent = "Submitted. Thank you.";
+        statusEl.classList.remove("eodi-error");
+        submitBtn.disabled = false;
+        setTimeout(closeModal, 900);
+        return;
+      } catch (err) {
+        // If CORS blocks the response, retry using no-cors (cannot read response)
+        try {
+          await fetch(config.appsScriptUrl, {
+            method: "POST",
+            mode: "no-cors",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload),
+          });
+
+          statusEl.textContent = "Submitted. Thank you.";
+          statusEl.classList.remove("eodi-error");
+          submitBtn.disabled = false;
+          setTimeout(closeModal, 900);
+          return;
+        } catch (err2) {
+          statusEl.textContent = "Network error. Please try again.";
+          statusEl.classList.add("eodi-error");
+          submitBtn.disabled = false;
+          return;
+        }
+      }
     });
   }
 
