@@ -1,6 +1,6 @@
 (() => {
   console.log("[EODI] request-change.js loaded");
-  const APPS_SCRIPT_URL = "https://script.google.com/macros/s/XXXXX/exec";
+  const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyD-fQ_nTtjxCf_JR3cSOZVvQmqmZ5m3ZMgkoYzYHLO-ro__i0Yzxy3nW918ZNl5PvIng/exec";
 
   function isConfigured(value, type) {
     if (typeof value !== "string") return false;
@@ -112,7 +112,7 @@
     `;
   }
 
-  function attach(root) {
+  function attach(root, config) {
     const modal = root.querySelector("#eodiRequestModal");
     const form = root.querySelector("#eodiRequestForm");
     const statusEl = root.querySelector("#eodiRequestStatus");
@@ -190,7 +190,7 @@
       payload.user_agent = navigator.userAgent || "";
 
       try {
-        await fetch(APPS_SCRIPT_URL, {
+        const res = await fetch(config.appsScriptUrl, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(payload),
@@ -205,6 +205,12 @@
           submitBtn.disabled = false;
           return;
         }
+      } catch (_) {
+        statusEl.textContent = "Submission failed. Please try again.";
+        statusEl.classList.add("eodi-error");
+        statusEl.scrollIntoView({ behavior: "smooth", block: "center" });
+        submitBtn.disabled = false;
+        return;
       }
 
       statusEl.textContent = "Submitted. Thank you.";
@@ -224,7 +230,7 @@
     document.body.appendChild(mountPoint);
     document.documentElement.setAttribute("data-eodi-requestchange", "loaded");
 
-    attach(mountPoint);
+    attach(mountPoint, config);
   }
 
   if (document.readyState === "loading") {
