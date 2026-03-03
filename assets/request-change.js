@@ -1,7 +1,28 @@
 (() => {
   console.log("[EODI] request-change.js loaded");
-  const APPS_SCRIPT_URL = "REPLACE_WITH_APPS_SCRIPT_URL";
-  const TURNSTILE_SITE_KEY = "REPLACE_WITH_TURNSTILE_SITE_KEY";
+  const APPS_SCRIPT_URL_PLACEHOLDER = "REPLACE_WITH_APPS_SCRIPT_URL";
+  const TURNSTILE_SITE_KEY_PLACEHOLDER = "REPLACE_WITH_TURNSTILE_SITE_KEY";
+
+  function isConfigured(value, placeholder) {
+    return typeof value === "string" && value.trim().length > 0 && value !== placeholder;
+  }
+
+  function getConfig() {
+    const scriptEl = document.currentScript || document.querySelector('script[src$="/assets/request-change.js"]');
+    const datasetUrl = scriptEl?.dataset?.appsScriptUrl;
+    const datasetSiteKey = scriptEl?.dataset?.turnstileSiteKey;
+
+    const globalConfig = window.EODI_REQUEST_CHANGE_CONFIG || {};
+    const appsScriptUrl = globalConfig.appsScriptUrl || datasetUrl || APPS_SCRIPT_URL_PLACEHOLDER;
+    const turnstileSiteKey = globalConfig.turnstileSiteKey || datasetSiteKey || TURNSTILE_SITE_KEY_PLACEHOLDER;
+
+    return {
+      appsScriptUrl,
+      turnstileSiteKey,
+      hasAppsScriptUrl: isConfigured(appsScriptUrl, APPS_SCRIPT_URL_PLACEHOLDER),
+      hasTurnstileSiteKey: isConfigured(turnstileSiteKey, TURNSTILE_SITE_KEY_PLACEHOLDER),
+    };
+  }
 
   function ensureTurnstileScript() {
     if (document.querySelector('script[src*="turnstile/v0/api.js"]')) return;
@@ -25,7 +46,11 @@
       .filter(x => x.text.length > 0);
   }
 
-  function buildModalHTML() {
+  function buildModalHTML(config) {
+    const turnstileHtml = config.hasTurnstileSiteKey
+      ? `<div class="cf-turnstile" data-sitekey="${config.turnstileSiteKey}"></div>`
+      : "";
+
     return `
       <button class="eodi-request-btn" type="button" data-eodi-open-request>Request change</button>
 
@@ -85,7 +110,7 @@
               <textarea name="rationale" rows="4" required></textarea>
             </label>
 
-            <div class="cf-turnstile" data-sitekey="${TURNSTILE_SITE_KEY}"></div>
+            ${turnstileHtml}
 
             <div class="eodi-modal__actions">
               <button class="eodi-btn eodi-btn--primary" type="submit" id="eodiSubmitBtn">Submit</button>
@@ -100,7 +125,7 @@
     `;
   }
 
-  function attach(root) {
+  function attach(root, config) {
     const modal = root.querySelector("#eodiRequestModal");
     const form = root.querySelector("#eodiRequestForm");
     const statusEl = root.querySelector("#eodiRequestStatus");
@@ -165,7 +190,13 @@
 
       const formData = new FormData(form);
 
-      if (!formData.get("cf-turnstile-response")) {
+      if (!config.hasAppsScriptUrl) {
+        statusEl.textContent = "Form submission is not configured yet. Please contact the site owner.";
+        submitBtn.disabled = false;
+        return;
+      }
+
+      if (config.hasTurnstileSiteKey && !formData.get("cf-turnstile-response")) {
         statusEl.textContent = "Please complete the verification step.";
         submitBtn.disabled = false;
         return;
@@ -176,7 +207,7 @@
       payload.user_agent = navigator.userAgent || "";
 
       try {
-        const res = await fetch(APPS_SCRIPT_URL, {
+        const res = await fetch(config.appsScriptUrl, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(payload),
@@ -203,15 +234,18 @@
   }
 
   function mount() {
-    ensureTurnstileScript();
+    const config = getConfig();
+    if (config.hasTurnstileSiteKey) {
+      ensureTurnstileScript();
+    }
 
     const mountPoint = document.createElement("div");
     mountPoint.id = "eodi-request-change-root";
-    mountPoint.innerHTML = buildModalHTML();
+    mountPoint.innerHTML = buildModalHTML(config);
     document.body.appendChild(mountPoint);
     document.documentElement.setAttribute("data-eodi-requestchange", "loaded");
 
-    attach(mountPoint);
+    attach(mountPoint, config);
   }
 
   if (document.readyState === "loading") {
