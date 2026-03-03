@@ -124,7 +124,7 @@
 
     function setReviewedLine() {
       root.querySelectorAll("[data-eodi-reviewed-date]").forEach(el => {
-        el.textContent = `Reviewed and revised: ${monthYear()}`;
+        el.textContent = monthYear();
       });
     }
 
