@@ -198,20 +198,29 @@
       formData.forEach((v, k) => (payload[k] = v));
       payload.user_agent = navigator.userAgent || "";
 
-      // Fire-and-forget delivery: any resolved fetch counts as submitted.
       try {
-        await fetch(config.appsScriptUrl, {
+        const res = await fetch(config.appsScriptUrl, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(payload),
         });
 
+        const data = await res.json().catch(() => ({}));
+
+        if (data.ok !== true) {
+          statusEl.textContent = data.message || "Submission failed. Please try again.";
+          statusEl.classList.add("eodi-error");
+          submitBtn.disabled = false;
+          return;
+        }
+
         statusEl.textContent = "Submitted. Thank you.";
         statusEl.classList.remove("eodi-error");
+        submitBtn.disabled = false;
         setTimeout(closeModal, 900);
         return;
       } catch (err) {
-        // If CORS/network handling blocks the first request, retry using no-cors.
+        // Retry with no-cors mode when the CORS-enabled request cannot be completed.
         try {
           await fetch(config.appsScriptUrl, {
             method: "POST",
@@ -220,9 +229,9 @@
             body: JSON.stringify(payload),
           });
 
-          statusEl.textContent = "Submitted. Thank you.";
+          statusEl.textContent = "Submitted (unable to verify response). If it doesn't appear in the sheet, try again.";
           statusEl.classList.remove("eodi-error");
-          setTimeout(closeModal, 900);
+          submitBtn.disabled = false;
           return;
         } catch (err2) {
           statusEl.textContent = "Network error. Please try again.";
