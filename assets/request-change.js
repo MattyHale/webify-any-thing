@@ -1,10 +1,16 @@
 (() => {
   console.log("[EODI] request-change.js loaded");
-  const APPS_SCRIPT_URL_PLACEHOLDER = "REPLACE_WITH_APPS_SCRIPT_URL";
-  const TURNSTILE_SITE_KEY_PLACEHOLDER = "REPLACE_WITH_TURNSTILE_SITE_KEY";
+  const APPS_SCRIPT_URL = "https://script.google.com/macros/s/XXXXX/exec";
+  const TURNSTILE_SITE_KEY = "1x00000000000000000000AA";
 
-  function isConfigured(value, placeholder) {
-    return typeof value === "string" && value.trim().length > 0 && value !== placeholder;
+  function isConfigured(value, type) {
+    if (typeof value !== "string") return false;
+    const trimmed = value.trim();
+    if (!trimmed) return false;
+    if (type === "appsScriptUrl") {
+      return !trimmed.includes("XXXXX");
+    }
+    return true;
   }
 
   function getConfig() {
@@ -13,14 +19,14 @@
     const datasetSiteKey = scriptEl?.dataset?.turnstileSiteKey;
 
     const globalConfig = window.EODI_REQUEST_CHANGE_CONFIG || {};
-    const appsScriptUrl = globalConfig.appsScriptUrl || datasetUrl || APPS_SCRIPT_URL_PLACEHOLDER;
-    const turnstileSiteKey = globalConfig.turnstileSiteKey || datasetSiteKey || TURNSTILE_SITE_KEY_PLACEHOLDER;
+    const appsScriptUrl = globalConfig.appsScriptUrl || datasetUrl || APPS_SCRIPT_URL;
+    const turnstileSiteKey = globalConfig.turnstileSiteKey || datasetSiteKey || TURNSTILE_SITE_KEY;
 
     return {
       appsScriptUrl,
       turnstileSiteKey,
-      hasAppsScriptUrl: isConfigured(appsScriptUrl, APPS_SCRIPT_URL_PLACEHOLDER),
-      hasTurnstileSiteKey: isConfigured(turnstileSiteKey, TURNSTILE_SITE_KEY_PLACEHOLDER),
+      hasAppsScriptUrl: isConfigured(appsScriptUrl, "appsScriptUrl"),
+      hasTurnstileSiteKey: isConfigured(turnstileSiteKey, "turnstileSiteKey"),
     };
   }
 
@@ -48,7 +54,12 @@
 
   function buildModalHTML(config) {
     const turnstileHtml = config.hasTurnstileSiteKey
-      ? `<div class="cf-turnstile" data-sitekey="${config.turnstileSiteKey}"></div>`
+      ? `
+            <div class="eodi-verify">
+              <div class="cf-turnstile" data-sitekey="${config.turnstileSiteKey}"></div>
+              <p class="eodi-verify-hint" id="eodiVerifyHint">Verification is required to submit.</p>
+            </div>
+        `
       : "";
 
     return `
@@ -64,6 +75,8 @@
           </div>
 
           <form id="eodiRequestForm">
+            <p class="eodi-status" id="eodiRequestStatus" aria-live="polite"></p>
+
             <input type="hidden" name="page_url" id="eodiPageUrl">
             <input type="hidden" name="page_title" id="eodiPageTitle">
 
@@ -117,7 +130,6 @@
               <button class="eodi-btn" type="button" data-eodi-close-request>Cancel</button>
             </div>
 
-            <p class="eodi-status" id="eodiRequestStatus" aria-live="polite"></p>
             <p class="eodi-note">Thanks — submissions are reviewed monthly. <span data-eodi-reviewed-date></span></p>
           </form>
         </div>
@@ -156,6 +168,7 @@
 
     function openModal() {
       statusEl.textContent = "";
+      statusEl.classList.remove("eodi-error");
       form.reset();
 
       pageUrlInput.value = window.location.href;
@@ -166,6 +179,15 @@
 
       modal.setAttribute("aria-hidden", "false");
       document.body.style.overflow = "hidden";
+
+      setTimeout(() => {
+        const widgetPresent = !!document.querySelector(".cf-turnstile iframe");
+        const hint = document.getElementById("eodiVerifyHint");
+        if (!widgetPresent && hint) {
+          hint.textContent = "Verification widget did not load. Check blockers or replace the Turnstile site key.";
+          hint.classList.add("eodi-error");
+        }
+      }, 800);
     }
 
     function closeModal() {
@@ -185,22 +207,31 @@
 
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
-      statusEl.textContent = "";
       submitBtn.disabled = true;
+      statusEl.textContent = "Submitting…";
+      statusEl.classList.remove("eodi-error");
+      statusEl.scrollIntoView({ behavior: "smooth", block: "center" });
 
       const formData = new FormData(form);
+      const token = formData.get("cf-turnstile-response");
 
       if (!config.hasAppsScriptUrl) {
         statusEl.textContent = "Form submission is not configured yet. Please contact the site owner.";
+        statusEl.classList.add("eodi-error");
+        statusEl.scrollIntoView({ behavior: "smooth", block: "center" });
         submitBtn.disabled = false;
         return;
       }
 
-      if (config.hasTurnstileSiteKey && !formData.get("cf-turnstile-response")) {
-        statusEl.textContent = "Please complete the verification step.";
+      if (!token) {
+        statusEl.textContent = "Verification is missing. If you use an ad blocker, allow Turnstile and try again.";
+        statusEl.classList.add("eodi-error");
+        statusEl.scrollIntoView({ behavior: "smooth", block: "center" });
         submitBtn.disabled = false;
         return;
       }
+
+      statusEl.classList.remove("eodi-error");
 
       const payload = {};
       formData.forEach((v, k) => payload[k] = v);
@@ -217,17 +248,23 @@
 
         if (!res.ok || data.ok !== true) {
           statusEl.textContent = data.message || "Submission failed. Please try again.";
+          statusEl.classList.add("eodi-error");
+          statusEl.scrollIntoView({ behavior: "smooth", block: "center" });
           submitBtn.disabled = false;
           return;
         }
 
         statusEl.textContent = "Submitted. Thank you.";
+        statusEl.classList.remove("eodi-error");
+        statusEl.scrollIntoView({ behavior: "smooth", block: "center" });
         submitBtn.disabled = false;
 
         setTimeout(closeModal, 900);
 
       } catch (err) {
         statusEl.textContent = "Network error. Please try again.";
+        statusEl.classList.add("eodi-error");
+        statusEl.scrollIntoView({ behavior: "smooth", block: "center" });
         submitBtn.disabled = false;
       }
     });
