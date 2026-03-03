@@ -112,7 +112,7 @@
     `;
   }
 
-  function attach(root, config) {
+  function attach(root) {
     const modal = root.querySelector("#eodiRequestModal");
     const form = root.querySelector("#eodiRequestForm");
     const statusEl = root.querySelector("#eodiRequestStatus");
@@ -120,9 +120,6 @@
     const pageUrlInput = root.querySelector("#eodiPageUrl");
     const pageTitleInput = root.querySelector("#eodiPageTitle");
     const sectionSelect = root.querySelector("#eodiSectionSelect");
-
-    const openers = document.querySelectorAll("[data-eodi-open-request]");
-    const closers = root.querySelectorAll("[data-eodi-close-request]");
 
     function populateSections() {
       const headings = collectHeadings();
@@ -161,11 +158,20 @@
       document.body.style.overflow = "";
     }
 
-    openers.forEach(b => b.addEventListener("click", (event) => {
-      event.preventDefault();
-      openModal();
-    }));
-    closers.forEach(b => b.addEventListener("click", closeModal));
+    document.addEventListener("click", (event) => {
+      const opener = event.target.closest("[data-eodi-open-request]");
+      if (opener) {
+        event.preventDefault();
+        openModal();
+        return;
+      }
+
+      const closer = event.target.closest("[data-eodi-close-request]");
+      if (closer && modal.contains(closer)) {
+        event.preventDefault();
+        closeModal();
+      }
+    });
 
     document.addEventListener("keydown", (e) => {
       if (e.key === "Escape" && modal.getAttribute("aria-hidden") === "false") closeModal();
@@ -184,7 +190,7 @@
       payload.user_agent = navigator.userAgent || "";
 
       try {
-        const res = await fetch(config.appsScriptUrl, {
+        await fetch(APPS_SCRIPT_URL, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(payload),
@@ -199,20 +205,13 @@
           submitBtn.disabled = false;
           return;
         }
-
-        statusEl.textContent = "Submitted. Thank you.";
-        statusEl.classList.remove("eodi-error");
-        statusEl.scrollIntoView({ behavior: "smooth", block: "center" });
-        submitBtn.disabled = false;
-
-        setTimeout(closeModal, 900);
-
-      } catch (err) {
-        statusEl.textContent = "Network error. Please try again.";
-        statusEl.classList.add("eodi-error");
-        statusEl.scrollIntoView({ behavior: "smooth", block: "center" });
-        submitBtn.disabled = false;
       }
+
+      statusEl.textContent = "Submitted. Thank you.";
+      statusEl.classList.remove("eodi-error");
+      statusEl.scrollIntoView({ behavior: "smooth", block: "center" });
+      submitBtn.disabled = false;
+      setTimeout(closeModal, 900);
     });
   }
 
@@ -225,7 +224,7 @@
     document.body.appendChild(mountPoint);
     document.documentElement.setAttribute("data-eodi-requestchange", "loaded");
 
-    attach(mountPoint, config);
+    attach(mountPoint);
   }
 
   if (document.readyState === "loading") {
