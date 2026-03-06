@@ -34,7 +34,10 @@
       <section class="hero" aria-labelledby="hero-title">
         <div class="container narrow">
           <h1 id="hero-title">Infrastructure</h1>
-          <p class="reviewed-line">Reviewed and revised: <span data-eodi-reviewed-date></span></p>
+          <p class="reviewed-line">
+            <span class="reviewed-label">Reviewed and revised:</span>
+            <time id="reviewedDate" datetime=""></time>
+          </p>
           <p class="orientation-copy">The platform foundation for ingesting, storing, processing, and delivering EO data at mission scale.</p>
         </div>
       </section>
@@ -147,5 +150,6 @@
       </div>
     </footer>
   <script src="/assets/request-change.js"></script>
+    <script src="/assets/site.js" defer></script>
   </body>
 </html>
