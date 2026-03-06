@@ -34,7 +34,10 @@
       <section class="hero" id="introduction" aria-labelledby="hero-title">
         <div class="container">
                     <h1 id="hero-title">Earth Observation Data Infrastructure (EODI) Standard</h1>
-          <p class="reviewed-line">Reviewed and revised: <span data-eodi-reviewed-date></span></p>
+          <p class="reviewed-line">
+            <span class="reviewed-label">Reviewed and revised:</span>
+            <time id="reviewedDate" datetime=""></time>
+          </p>
           <div class="homepage-support-copy">
             <p>Earth Observation Data Infrastructure (EODI) is the operating standard for how Earth observation data is acquired, structured, governed, and delivered under the control of the buyer. It is not a reseller portal dressed up as infrastructure. It is the framework that gives the customer authority over how data enters the system, how it is normalised, how it is accessed, and how it is used downstream.</p>
             <p>It is a standard because the rules matter. Without a standard, every integration becomes ad hoc, every dataset behaves differently, and every workflow bends around the commercial interests of whoever happens to be supplying the imagery. EODI imposes order. It defines the minimum conditions required for Earth observation to function as dependable infrastructure rather than a patchwork of vendor-led products.</p>
@@ -84,5 +87,6 @@
       </div>
     </footer>
   <script src="/assets/request-change.js"></script>
+    <script src="/assets/site.js" defer></script>
   </body>
 </html>

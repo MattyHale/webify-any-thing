@@ -35,7 +35,10 @@
       <section class="hero" aria-labelledby="overview-title">
         <div class="container">
           <h1 id="overview-title">EODI Standard Overview</h1>
-          <p class="reviewed-line">Reviewed and revised: <span data-eodi-reviewed-date></span></p>
+          <p class="reviewed-line">
+            <span class="reviewed-label">Reviewed and revised:</span>
+            <time id="reviewedDate" datetime=""></time>
+          </p>
           <p class="blog-intro">
             This page is a practical index to the standard. Each domain includes a short “why it matters” preview,
             then links to the full domain guidance.
@@ -121,5 +124,6 @@
       </div>
     </footer>
   <script src="/assets/request-change.js"></script>
+    <script src="/assets/site.js" defer></script>
   </body>
 </html>

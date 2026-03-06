@@ -33,7 +33,10 @@
       <section class="hero" aria-labelledby="changelog-title">
         <div class="container narrow">
           <h1 id="changelog-title">Changelog</h1>
-          <p class="reviewed-line">Reviewed and revised: <span data-eodi-reviewed-date></span></p>
+          <p class="reviewed-line">
+            <span class="reviewed-label">Reviewed and revised:</span>
+            <time id="reviewedDate" datetime=""></time>
+          </p>
           <p class="orientation-copy">Track published updates to the EODI standard.</p>
         </div>
       </section>
@@ -64,5 +67,6 @@
       </div>
     </footer>
     <script src="/assets/request-change.js"></script>
+    <script src="/assets/site.js" defer></script>
   </body>
 </html>
