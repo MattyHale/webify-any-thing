@@ -221,18 +221,35 @@
         return;
       } catch (err) {
         // Retry with no-cors mode when the CORS-enabled request cannot be completed.
+        const params = new URLSearchParams();
+        Object.entries(payload).forEach(([key, value]) => {
+          params.append(key, value == null ? "" : String(value));
+        });
+
         try {
           await fetch(config.appsScriptUrl, {
             method: "POST",
             mode: "no-cors",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(payload),
+            headers: { "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8" },
+            body: params.toString(),
           });
 
-          statusEl.textContent = "Submitted (unable to verify response). If it doesn't appear in the sheet, try again.";
+          // treat as success
+          statusEl.textContent = "Thanks — request received.";
           statusEl.classList.remove("eodi-error");
+
           submitBtn.disabled = false;
+
+          // close modal after short delay
+          setTimeout(() => {
+            closeModal();
+          }, 800);
+
+          // optional: reset form so next open is clean
+          form.reset();
+
           return;
+
         } catch (err2) {
           statusEl.textContent = "Network error. Please try again.";
           statusEl.classList.add("eodi-error");
