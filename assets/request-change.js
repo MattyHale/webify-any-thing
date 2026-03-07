@@ -1,27 +1,10 @@
 (() => {
   console.log("[EODI] request-change.js loaded");
-  const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyD-fQ_nTtjxCf_JR3cSOZVvQmqmZ5m3ZMgkoYzYHLO-ro__i0Yzxy3nW918ZNl5PvIng/exec";
-
-  function isConfigured(value, type) {
-    if (typeof value !== "string") return false;
-    const trimmed = value.trim();
-    if (!trimmed) return false;
-    if (type === "appsScriptUrl") {
-      return !trimmed.includes("XXXXX");
-    }
-    return true;
-  }
 
   function getConfig() {
-    const scriptEl = document.currentScript || document.querySelector('script[src$="/assets/request-change.js"]');
-    const datasetUrl = scriptEl?.dataset?.appsScriptUrl;
-
     const globalConfig = window.EODI_REQUEST_CHANGE_CONFIG || {};
-    const appsScriptUrl = globalConfig.appsScriptUrl || datasetUrl || APPS_SCRIPT_URL;
-
     return {
-      appsScriptUrl,
-      hasAppsScriptUrl: isConfigured(appsScriptUrl, "appsScriptUrl"),
+      appsScriptUrl: globalConfig.appsScriptUrl,
     };
   }
 
@@ -180,8 +163,7 @@
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
 
-      // If not configured, show visible error and stop
-      if (!config || !config.hasAppsScriptUrl || !config.appsScriptUrl) {
+      if (!config || !config.appsScriptUrl) {
         statusEl.textContent = "Submission endpoint not configured.";
         statusEl.classList.add("eodi-error");
         submitBtn.disabled = false;
@@ -191,71 +173,41 @@
       submitBtn.disabled = true;
       statusEl.textContent = "Submitting…";
       statusEl.classList.remove("eodi-error");
-      statusEl.scrollIntoView({ behavior: "smooth", block: "center" });
 
       const formData = new FormData(form);
       const payload = {};
       formData.forEach((v, k) => (payload[k] = v));
       payload.user_agent = navigator.userAgent || "";
 
+      const params = new URLSearchParams();
+      Object.entries(payload).forEach(([k, v]) => {
+        params.append(k, String(v ?? ""));
+      });
+
       try {
-        const res = await fetch(config.appsScriptUrl, {
+        await fetch(config.appsScriptUrl, {
           method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(payload),
+          mode: "no-cors",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+          },
+          body: params.toString()
         });
 
-        const data = await res.json().catch(() => ({}));
-
-        if (data.ok !== true) {
-          statusEl.textContent = data.message || "Submission failed. Please try again.";
-          statusEl.classList.add("eodi-error");
-          submitBtn.disabled = false;
-          return;
-        }
-
-        statusEl.textContent = "Submitted. Thank you.";
+        statusEl.textContent = "Thanks — request received.";
         statusEl.classList.remove("eodi-error");
         submitBtn.disabled = false;
-        setTimeout(closeModal, 900);
-        return;
+
+        form.reset();
+
+        setTimeout(() => {
+          closeModal();
+        }, 800);
+
       } catch (err) {
-        // Retry with no-cors mode when the CORS-enabled request cannot be completed.
-        const params = new URLSearchParams();
-        Object.entries(payload).forEach(([key, value]) => {
-          params.append(key, value == null ? "" : String(value));
-        });
-
-        try {
-          await fetch(config.appsScriptUrl, {
-            method: "POST",
-            mode: "no-cors",
-            headers: { "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8" },
-            body: params.toString(),
-          });
-
-          // treat as success
-          statusEl.textContent = "Thanks — request received.";
-          statusEl.classList.remove("eodi-error");
-
-          submitBtn.disabled = false;
-
-          // close modal after short delay
-          setTimeout(() => {
-            closeModal();
-          }, 800);
-
-          // optional: reset form so next open is clean
-          form.reset();
-
-          return;
-
-        } catch (err2) {
-          statusEl.textContent = "Network error. Please try again.";
-          statusEl.classList.add("eodi-error");
-          submitBtn.disabled = false;
-          return;
-        }
+        statusEl.textContent = "Network error. Please try again.";
+        statusEl.classList.add("eodi-error");
+        submitBtn.disabled = false;
       }
     });
   }
