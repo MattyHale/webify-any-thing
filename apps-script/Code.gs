@@ -1,8 +1,20 @@
 const SHEET_NAME = "Submissions";
+const SPREADSHEET_ID = "YOUR_SPREADSHEET_ID"; // Paste your Google Spreadsheet ID on this line.
 
 function doPost(e) {
   try {
-    const body = JSON.parse((e && e.postData && e.postData.contents) ? e.postData.contents : "{}");
+    const rawContents = (e && e.postData && e.postData.contents) ? e.postData.contents : "{}";
+    let body;
+
+    try {
+      body = JSON.parse(rawContents);
+    } catch (parseErr) {
+      console.error("Invalid JSON payload", parseErr, rawContents);
+      Logger.log(`Invalid JSON payload: ${rawContents}`);
+      return json_({ ok: false, message: "Server error." });
+    }
+
+    Logger.log(`Received submission with keys: ${Object.keys(body).join(", ")}`);
 
     // Required fields (NO Turnstile)
     const required = [
@@ -18,15 +30,22 @@ function doPost(e) {
 
     for (const k of required) {
       if (!body[k] || String(body[k]).trim().length === 0) {
+        Logger.log(`Validation failed: missing field '${k}'`);
         return json_({ ok: false, message: `Missing field: ${k}` });
       }
     }
 
     // Basic sanity limits (prevents huge spam payloads)
-    if (String(body.proposed_change).length > 5000) return json_({ ok: false, message: "Proposed change too long." });
-    if (String(body.rationale).length > 5000) return json_({ ok: false, message: "Rationale too long." });
+    if (String(body.proposed_change).length > 5000) {
+      Logger.log("Validation failed: proposed_change exceeded 5000 chars");
+      return json_({ ok: false, message: "Proposed change too long." });
+    }
+    if (String(body.rationale).length > 5000) {
+      Logger.log("Validation failed: rationale exceeded 5000 chars");
+      return json_({ ok: false, message: "Rationale too long." });
+    }
 
-    const ss = SpreadsheetApp.getActiveSpreadsheet();
+    const ss = SpreadsheetApp.openById(SPREADSHEET_ID);
     const sheet = ss.getSheetByName(SHEET_NAME) || ss.insertSheet(SHEET_NAME);
 
     sheet.appendRow([
@@ -44,9 +63,12 @@ function doPost(e) {
       "received"
     ]);
 
+    Logger.log(`Submission appended successfully for email: ${body.email}`);
     return json_({ ok: true });
 
   } catch (err) {
+    console.error("doPost failed", err);
+    Logger.log(`doPost failed: ${err && err.stack ? err.stack : err}`);
     return json_({ ok: false, message: "Server error." });
   }
 }
