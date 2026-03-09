@@ -3,8 +3,12 @@
 
   function getConfig() {
     const globalConfig = window.EODI_REQUEST_CHANGE_CONFIG || {};
+    // If no URL is provided via global config, use your default Apps Script endpoint.
+    const defaultUrl =
+      'https://script.google.com/macros/s/AKfycbyD-fQ_nTtjxCf_JR3cSOZVvQmqmZ5m3ZMgkoYzYHLO-ro__i0Yzxy3nW918ZNl5PvIng/exec';
+
     return {
-      appsScriptUrl: globalConfig.appsScriptUrl,
+      appsScriptUrl: globalConfig.appsScriptUrl || defaultUrl,
     };
   }
 
