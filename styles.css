@@ -591,14 +591,15 @@ a:focus {
 }
 
 .domain-card {
-  display: block;
+  display: grid;
+  gap: 0.75rem;
   padding: 1.25rem 1.25rem;
   border: 1px solid rgba(0,0,0,0.10);
   border-radius: 12px;
   text-decoration: none;
   color: inherit;
   background: rgba(255,255,255,0.72);
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
 }
 
 .domain-title {
@@ -615,13 +616,28 @@ a:focus {
   overflow-wrap: anywhere;
 }
 
+.domain-cta {
+  margin-top: auto;
+  font-weight: 650;
+  color: var(--accent);
+}
 
+.domain-cta span {
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
 
 .domain-card:hover,
 .domain-card:focus-visible {
   border-color: rgba(29, 78, 216, 0.35);
   box-shadow: 0 10px 22px rgba(30, 64, 175, 0.1);
+  transform: translateY(-2px);
   text-decoration: none;
+}
+
+.domain-card:hover .domain-cta span,
+.domain-card:focus-visible .domain-cta span {
+  transform: translateX(4px);
 }
 
 .homepage-support-copy {
