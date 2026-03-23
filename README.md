@@ -13,7 +13,7 @@ robots.txt   # Basic crawler directives
 
 ## Icon assets
 
-To keep the repository free of binary assets, the site now uses a temporary blank favicon (`<link rel="icon" href="data:,">`). Browsers will show a neutral placeholder until a new branded icon is added.
+To keep the repository free of binary assets, the site uses an inline SVG favicon (`<link rel="icon" href="data:image/svg+xml,...">`) that renders a satellite icon directly in the browser tab without adding a separate image asset to the repo.
 
 ## Viewing the Site Locally
 
