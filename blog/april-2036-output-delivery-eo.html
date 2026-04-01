@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>April 2036: EO Became an Output Delivery Business | EODI</title>
+    <meta name="description" content="A forward-looking field note on how Earth observation shifted from raw imagery delivery to audited output delivery, and why EODI made that transition workable." />
+    <link rel="canonical" href="https://eodatainfrastructure.com/blog/april-2036-output-delivery-eo.html" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="April 2036: EO Became an Output Delivery Business | EODI" />
+    <meta property="og:description" content="A forward-looking field note on how Earth observation shifted from raw imagery delivery to audited output delivery, and why EODI made that transition workable." />
+    <meta property="og:url" content="https://eodatainfrastructure.com/blog/april-2036-output-delivery-eo.html" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://eodatainfrastructure.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Blog",
+            "item": "https://eodatainfrastructure.com/blog.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "April 2036: EO Became an Output Delivery Business",
+            "item": "https://eodatainfrastructure.com/blog/april-2036-output-delivery-eo.html"
+          }
+        ]
+      }
+    </script>
+    <link rel="stylesheet" href="../styles.css" />
+<script src="../script.js" defer></script>
+  <link rel="stylesheet" href="../assets/request-change.css" />
+  </head>
+  <body id="top" data-disable-toc="true">
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <header class="site-header">
+      <div class="container">
+        <div class="brand">
+          <span class="brand-name">Earth Observation Data Infrastructure</span>
+        </div>
+        <nav class="site-nav" aria-label="Primary navigation">
+          <ul>
+            <li><a href="../index.html#introduction">Introduction</a></li>
+            <li><a href="../blog.html" aria-current="page">Blog</a></li>
+            <li><a href="../index.html#domains">Domains</a></li>
+          <li><a href="#" class="nav-link" data-eodi-open-request>Request change</a></li></ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main-content" class="section blog-article">
+      <div class="container narrow">
+        <h1>April 2036: EO Became an Output Delivery Business</h1>
+          <p class="reviewed-line">
+            <span class="reviewed-label">Reviewed and revised:</span>
+            <time id="reviewedDate" datetime=""></time>
+          </p>
+        <p class="authority-copy">Maintained as a living reference by practitioners working across Earth observation data infrastructure, automation, and downstream operations.</p>
+
+        <p>It is April 2036.</p>
+        <p>
+          Ten years ago, people said Earth observation would “scale.” What they meant was more satellites, more sensors, and more imagery. That was never the blocker. The blocker was always the operating model on the ground. Teams took huge captures, paid to downlink them, paid to store them, then paid skilled people to extract a few numbers: petabytes in, kilobytes out. Slow, expensive, and impossible to run as a dependable program.
+        </p>
+        <p>That stopped being acceptable.</p>
+
+        <h2>Outputs first, imagery optional</h2>
+        <p>
+          Onboard processing became the default, not as a demo but as production infrastructure. Most EO systems now deliver outputs first. A capture happens, processing runs in orbit, and the downlink is the result package: counts, detections, changes, tracks, confidence, timestamps, and provenance. It is small enough to move fast and cheap enough to run continuously.
+        </p>
+        <p>
+          This shift did not happen because the industry became excited. It happened because bandwidth is finite and the old workflow was waste.
+        </p>
+
+        <h2>The 2026 objection: audit</h2>
+        <p>
+          In 2026, the obvious objection was audit: if you delete the image, how do you prove the output was correct? Early systems tried to solve this with branding and promises. They failed. What worked was moving the audit layer away from “trust the pixels” and into “trust the proof.”
+        </p>
+        <p>So the output became the audited artefact.</p>
+
+        <h2>What a serious 2036 result package includes</h2>
+        <p>
+          A credible result in 2036 carries its own verification record. It can be inspected without calling the operator and without asking an analyst to interpret a scene manually.
+        </p>
+        <ul>
+          <li>Model identity and version used for inference.</li>
+          <li>Sensor state and relevant capture conditions.</li>
+          <li>Parameter sets and processing configuration.</li>
+          <li>Confidence distribution and quality indicators.</li>
+          <li>Signed lineage back to a specific capture event.</li>
+        </ul>
+        <p>
+          That record is what made deletion possible in the first place: not optimism, not marketing, but evidence that can be validated independently.
+        </p>
+
+        <h2>Imagery did not disappear, but defaults changed</h2>
+        <p>
+          For routine monitoring, raw capture often never comes down. Where consequences are high or regulation demands it, imagery is retained under policy. But “download everything just in case” died. Retention became an explicit decision, not a reflex.
+        </p>
+
+        <h2>Procurement also became measurable</h2>
+        <p>
+          Operators stopped being bought on promises and started being bought on audited capability. A claim such as “we can count ships in this coastal AOI” became meaningless without a published, task-specific accuracy score tied to a benchmark suite, an audit date, and independent verification.
+        </p>
+        <p>
+          Without that, onboard analytics is just another black box.
+        </p>
+
+        <h2>Why EODI sat beneath the shift</h2>
+        <p>
+          EODI was never the glamorous layer. It was structure: common metadata, lineage, entitlements, dissemination rules, delivery states, and audit trails. These are the parts teams often try to skip because they feel slow. Without them, you cannot compare outputs across operators, distribute results safely, or run independent audits without rewriting workflows vendor by vendor.
+        </p>
+        <p>
+          EODI made results portable. It made trust enforceable. It made the transition to onboard processing survivable.
+        </p>
+
+        <p>
+          April 2036 reality is simple: EO stopped being a file delivery business and became an output delivery business. The hard part was never getting data from space. The hard part was making results trusted, distributed, and usable at scale. That is what EODI was built for. The rest followed.
+        </p>
+
+        <section class="article-footer" aria-label="Article references and navigation">
+          <aside class="article-helper-note" aria-label="Usage guidance">
+            <p>Use this page as a practical reference and revisit only the sections needed for your current workflow.</p>
+          </aside>
+
+          <div class="article-support-zone">
+          <div class="article-footer-block article-references">
+            <h2>References</h2>
+            <ul>
+          <li><a href="https://stacspec.org/en" target="_blank" rel="noopener noreferrer">SpatioTemporal Asset Catalog (STAC) Specification</a></li>
+          <li><a href="https://www.ogc.org/standards/ogcapi/" target="_blank" rel="noopener noreferrer">OGC API Standards</a></li>
+          <li><a href="https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-53r5.pdf" target="_blank" rel="noopener noreferrer">NIST SP 800-53 Rev. 5 (Audit and Accountability)</a></li>
+        </ul>
+          </div>
+
+          <div class="article-footer-block article-related">
+            <h2>Related posts</h2>
+            <ul>
+              <li><a href="eo-data-infrastructure-for-isr.html">EO Data Infrastructure for ISR Workflows</a></li>
+              <li><a href="stac-compliant-eo-data-for-ai-models.html">STAC-Compliant EO Data for AI Models</a></li>
+              <li><a href="the-missing-layer-in-earth-observation.html">The Missing Layer in Earth Observation</a></li>
+            </ul>
+          </div>
+
+          <nav class="article-utility-nav" aria-label="Article utility links">
+            <a href="#top">Back to top</a>
+            <a href="../blog.html">Back to blog index</a>
+            <a href="../index.html">Return to standard</a>
+          </nav>
+        </div>
+        </section>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-content">
+          <p><strong>EODI Standard</strong> documents the operational baseline for modern Earth observation platforms.</p>
+        </div>
+        <nav aria-label="Footer navigation">
+          <ul>
+            <li><a href="../index.html#introduction">Introduction</a></li>
+            <li><a href="../blog.html" aria-current="page">Blog</a></li>
+            <li><a href="../index.html#domains">Domains</a></li>
+          <li><a href="../changelog.html">Changelog</a></li></ul>
+        </nav>
+      </div>
+    </footer>
+  <script src="../assets/request-change.js"></script>
+    <script src="../assets/site.js" defer></script>
+  </body>
+</html>
