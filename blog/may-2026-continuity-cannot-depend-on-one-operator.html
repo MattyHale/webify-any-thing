@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>May 2026: Continuity Cannot Depend on One Operator | EODI</title>
+    <meta name="description" content="Why resilient EO programs need multi-region, multi-vendor failover infrastructure across tasking, archive, licensing, normalization, fulfilment, and dissemination." />
+    <link rel="canonical" href="https://eodatainfrastructure.com/blog/may-2026-continuity-cannot-depend-on-one-operator.html" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="May 2026: Continuity Cannot Depend on One Operator | EODI" />
+    <meta property="og:description" content="Why resilient EO programs need multi-region, multi-vendor failover infrastructure across tasking, archive, licensing, normalization, fulfilment, and dissemination." />
+    <meta property="og:url" content="https://eodatainfrastructure.com/blog/may-2026-continuity-cannot-depend-on-one-operator.html" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://eodatainfrastructure.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Blog",
+            "item": "https://eodatainfrastructure.com/blog.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "May 2026: Continuity Cannot Depend on One Operator",
+            "item": "https://eodatainfrastructure.com/blog/may-2026-continuity-cannot-depend-on-one-operator.html"
+          }
+        ]
+      }
+    </script>
+    <link rel="stylesheet" href="../styles.css" />
+<script src="../script.js" defer></script>
+  <link rel="stylesheet" href="../assets/request-change.css" />
+  </head>
+  <body id="top" data-disable-toc="true">
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <header class="site-header">
+      <div class="container">
+        <div class="brand">
+          <span class="brand-name">Earth Observation Data Infrastructure</span>
+        </div>
+        <nav class="site-nav" aria-label="Primary navigation">
+          <ul>
+            <li><a href="../index.html#introduction">Introduction</a></li>
+            <li><a href="../blog.html" aria-current="page">Blog</a></li>
+            <li><a href="../index.html#domains">Domains</a></li>
+          <li><a href="#" class="nav-link" data-eodi-open-request>Request change</a></li></ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main-content" class="section blog-article">
+      <div class="container narrow">
+        <h1>May 2026: Continuity Cannot Depend on One Operator</h1>
+          <p class="reviewed-line">
+            <span class="reviewed-label">Reviewed and revised:</span>
+            <time datetime="2026-05">May 2026</time>
+          </p>
+
+        <p>The recent restrictions around commercial satellite imagery did not create a new problem.</p>
+
+        <p>They exposed an old one.</p>
+
+        <p>For years, Earth observation programs have treated supplier diversity as a procurement preference. Nice to have. Useful for price tension. Helpful when one constellation misses a collection window.</p>
+
+        <p>That is too small.</p>
+
+        <p>Supplier diversity is now an operational continuity requirement.</p>
+
+        <p>When a single operator, region, jurisdiction, licence model, distribution rule, or policy decision can interrupt access to imagery, the issue is no longer vendor management. It is infrastructure design.</p>
+
+        <h2>The lesson from the latest US operator restrictions</h2>
+
+        <p>The important point is not whether one provider made the right decision in one conflict zone.</p>
+
+        <p>The important point is that commercial access can change quickly when imagery becomes operationally sensitive.</p>
+
+        <p>Planet’s restrictions showed how access to fresh imagery can be delayed or withheld when national security concerns override normal commercial distribution. Vantor’s enhanced access controls showed the same broader pattern. BlackSky sits in the same strategic category for buyers that depend heavily on US-operated commercial imagery.</p>
+
+        <p>That does not make US operators unreliable.</p>
+
+        <p>It means US operators are not infrastructure by themselves.</p>
+
+        <p>They are inputs into infrastructure.</p>
+
+        <p>If a program depends on one operator, one country, one licensing pathway, or one commercial archive, then it has built a single point of failure into its operating model.</p>
+
+        <h2>This is not a sensor problem</h2>
+
+        <p>Most EO failure is not caused by a lack of satellites.</p>
+
+        <p>It is caused by brittle access.</p>
+
+        <p>A collection plan can fail because of weather, off-nadir constraints, revisit timing, regional restrictions, tasking priority, export controls, licensing terms, distribution rules, archive access delays, or customer eligibility.</p>
+
+        <p>Those risks do not disappear because the supplier is large.</p>
+
+        <p>They become more dangerous when the supplier is large enough that the customer stops designing for failure.</p>
+
+        <p>A serious EO program should assume disruption. Not as an exception. As a normal operating condition.</p>
+
+        <h2>One vendor is not a continuity strategy</h2>
+
+        <p>A single-vendor model is simple until it breaks.</p>
+
+        <p>When it breaks, the buyer usually discovers the same gaps:</p>
+
+        <ul>
+          <li>no secondary tasking pathway</li>
+          <li>no equivalent archive source</li>
+          <li>no licensing fallback</li>
+          <li>no automated vendor substitution</li>
+          <li>no normalized metadata across providers</li>
+          <li>no entitlement model that survives provider change</li>
+          <li>no common delivery state across operators</li>
+          <li>no clean way to compare latency, quality, cost, and tasking confidence</li>
+        </ul>
+
+        <p>At that point, the team is not switching vendors.</p>
+
+        <p>It is rebuilding the workflow under pressure.</p>
+
+        <p>That is exactly what infrastructure is meant to prevent.</p>
+
+        <h2>Multi-region matters as much as multi-vendor</h2>
+
+        <p>Vendor diversity is not enough if every fallback sits under the same jurisdictional, regulatory, or distribution risk.</p>
+
+        <p>A resilient EO architecture needs multi-region access.</p>
+
+        <p>That means the operating layer should be able to route demand across different operators, different regions, different data types, and different commercial models. It should know which providers can serve the area, which ones can legally distribute the data, which ones can meet latency, and which ones have archive depth.</p>
+
+        <p>The customer should not be manually discovering this during an incident.</p>
+
+        <p>The system should already know.</p>
+
+        <h2>Failover needs to be designed before the outage</h2>
+
+        <p>Failover is not a contact list.</p>
+
+        <p>It is not a spreadsheet of alternative suppliers.</p>
+
+        <p>It is not someone emailing three account managers and hoping one replies quickly.</p>
+
+        <p>Real failover requires pre-integrated supplier pathways, normalized ordering, comparable metadata, entitlement-aware dissemination, and delivery states that are consistent across providers.</p>
+
+        <p>When a primary source is constrained, the workflow should not stop. It should evaluate alternatives:</p>
+
+        <ul>
+          <li>Can another optical provider meet the requirement?</li>
+          <li>Is SAR more appropriate because of weather or conflict conditions?</li>
+          <li>Is archive sufficient?</li>
+          <li>Is lower resolution acceptable for the mission?</li>
+          <li>Is a non-US operator required?</li>
+          <li>Does licensing permit internal use, partner sharing, or public release?</li>
+          <li>Can the result be delivered into the same downstream system without manual rework?</li>
+        </ul>
+
+        <p>That is the difference between supplier optionality and operational continuity.</p>
+
+        <h2>Why EODI is the core layer</h2>
+
+        <p>EODI exists because EO programs should not be hardwired to one operator.</p>
+
+        <p>The infrastructure layer should sit above individual vendors and manage the operational contract: discovery, tasking, archive access, licensing, normalization, fulfilment, entitlements, audit trails, and dissemination.</p>
+
+        <p>Operators remain critical.</p>
+
+        <p>But the customer should not have to rebuild their workflow every time the best operator changes.</p>
+
+        <p>A mature EO program needs the ability to move between providers without changing the customer experience, the downstream pipeline, or the governance model.</p>
+
+        <p>That requires common infrastructure.</p>
+
+        <p>Not another portal.</p>
+
+        <p>Not another catalogue.</p>
+
+        <p>Not another supplier-specific workflow.</p>
+
+        <h2>What continuity should look like</h2>
+
+        <p>The minimum standard is clear.</p>
+
+        <p>An EO system should be able to:</p>
+
+        <ul>
+          <li>identify viable providers across regions</li>
+          <li>compare tasking and archive options</li>
+          <li>route requests based on latency, cost, licence, sensor type, and access constraints</li>
+          <li>substitute vendors when restrictions, weather, capacity, or priority block the preferred path</li>
+          <li>normalize metadata and delivery outputs</li>
+          <li>preserve permissions, usage rights, and audit records across providers</li>
+          <li>keep downstream systems stable even when upstream suppliers change</li>
+        </ul>
+
+        <p>That is the operating layer.</p>
+
+        <p>That is what continuity means in Earth observation.</p>
+
+        <p>The recent news did not prove that one supplier is bad. It proved that no single supplier should be treated as the system.</p>
+
+        <p>EO programs that bank on one region or one operator are not buying resilience. They are buying exposure.</p>
+
+        <p>EODI is the multi-region, multi-vendor failover structure that turns EO access from a supplier dependency into dependable infrastructure.</p>
+
+        <section class="article-footer" aria-label="Article references and navigation">
+          <aside class="article-helper-note" aria-label="Usage guidance">
+            <p>Use this page as a practical reference and revisit only the sections needed for your current workflow.</p>
+          </aside>
+
+          <div class="article-support-zone">
+          <div class="article-footer-block article-references">
+            <h2>References</h2>
+            <ul>
+          <li><a href="https://stacspec.org/en" target="_blank" rel="noopener noreferrer">SpatioTemporal Asset Catalog (STAC) Specification</a></li>
+          <li><a href="https://www.ogc.org/standards/ogcapi/" target="_blank" rel="noopener noreferrer">OGC API Standards</a></li>
+          <li><a href="https://www.ecfr.gov/current/title-15/subtitle-B/chapter-IX/subchapter-D/part-960" target="_blank" rel="noopener noreferrer">15 CFR Part 960: Licensing of Private Remote Sensing Space Systems</a></li>
+        </ul>
+          </div>
+
+          <div class="article-footer-block article-related">
+            <h2>Related posts</h2>
+            <ul>
+              <li><a href="eo-data-infrastructure-for-isr.html">EO Data Infrastructure for ISR Workflows</a></li>
+              <li><a href="the-uncomfortable-truth-about-the-large-imagery-supplier.html">The Uncomfortable Truth About the Large Imagery Supplier</a></li>
+              <li><a href="the-missing-layer-in-earth-observation.html">The Missing Layer in Earth Observation</a></li>
+            </ul>
+          </div>
+
+          <nav class="article-utility-nav" aria-label="Article utility links">
+            <a href="#top">Back to top</a>
+            <a href="../blog.html">Back to blog index</a>
+            <a href="../index.html">Return to standard</a>
+          </nav>
+        </div>
+        </section>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-content">
+          <p><strong>EODI Standard</strong> documents the operational baseline for modern Earth observation platforms.</p>
+        </div>
+        <nav aria-label="Footer navigation">
+          <ul>
+            <li><a href="../index.html#introduction">Introduction</a></li>
+            <li><a href="../blog.html" aria-current="page">Blog</a></li>
+            <li><a href="../index.html#domains">Domains</a></li>
+          <li><a href="../changelog.html">Changelog</a></li></ul>
+        </nav>
+      </div>
+    </footer>
+  <script src="../assets/request-change.js"></script>
+    <script src="../assets/site.js" defer></script>
+  </body>
+</html>
