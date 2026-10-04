@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Review, rank, and track procurement opportunities relevant to your team.">
+  <title>Tenders · Seller workspace</title>
+  <link rel="stylesheet" href="assets/tenders.css">
+  <script src="assets/tenders.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#tender-results">Skip to tender opportunities</a>
+  <header class="app-bar">
+    <a class="product-mark" href="index.html" aria-label="Workspace home">
+      <span class="mark" aria-hidden="true">A</span><span>Atlas</span>
+    </a>
+    <nav aria-label="Primary navigation">
+      <a href="#">Today</a><a href="#">Accounts</a><a class="active" href="tenders.html" aria-current="page">Tenders</a><a href="#">Playbooks</a>
+    </nav>
+    <div class="app-actions"><button class="icon-button" aria-label="Notifications">◌</button><button class="avatar" aria-label="Open user menu">JM</button></div>
+  </header>
+
+  <main>
+    <section class="page-heading" aria-labelledby="page-title">
+      <div>
+        <p class="eyebrow">SELLER WORKSPACE</p>
+        <h1 id="page-title">Tenders</h1>
+        <p>Procurement opportunities relevant to what your team sells.</p>
+      </div>
+      <div class="freshness">
+        <span>Updated 12 min ago</span>
+        <button class="coverage-trigger" type="button" aria-expanded="false" aria-controls="coverage-drawer"><span aria-hidden="true">◐</span> Coverage incomplete</button>
+      </div>
+    </section>
+
+    <section class="workspace" aria-label="Tender workspace">
+      <div class="tabs" role="tablist" aria-label="Tender views">
+        <button role="tab" aria-selected="true" data-view="attention">Needs attention <span>8</span></button>
+        <button role="tab" aria-selected="false" data-view="all">All discovered <span>2,000+</span></button>
+        <button role="tab" aria-selected="false" data-view="tracked">Tracked <span>4</span></button>
+      </div>
+
+      <form class="filters" role="search" id="tender-filters">
+        <label class="search-field"><span class="sr-only">Search tenders</span><span aria-hidden="true">⌕</span><input id="tender-search" type="search" placeholder="Search title, buyer, reference or requirement"></label>
+        <div class="desktop-filters">
+          <label><span class="sr-only">Geography</span><select id="geography"><option value="">Geography</option><option value="AU">Australia</option><option value="EU">Europe</option><option value="US">United States</option></select></label>
+          <label><span class="sr-only">Playbook</span><select id="playbook"><option value="">Playbook</option><option>Defence</option><option>Earth Observation</option><option>Mining</option></select></label>
+          <label><span class="sr-only">Source</span><select id="source"><option value="">Source</option><option>AusTender</option><option>TED</option><option>SAM.gov</option></select></label>
+          <button class="filter-button" type="button" data-open-filters>More <span aria-hidden="true">⌄</span></button>
+        </div>
+        <button class="mobile-filter-button" type="button" data-open-filters>Filters <span class="filter-count">2</span></button>
+      </form>
+
+      <div class="result-summary">
+        <p id="result-label"><strong>8 opportunities</strong> ordered by what needs your attention</p>
+        <button class="refresh" type="button" aria-label="Refresh tenders"><span aria-hidden="true">↻</span> Refresh</button>
+      </div>
+
+      <section class="tender-list" id="tender-results" aria-live="polite" aria-label="Tender opportunities"></section>
+      <div class="empty-state" hidden>
+        <h2>Nothing needs your attention right now.</h2>
+        <button type="button" data-show-all>View all discovered tenders</button>
+        <p>Coverage is currently incomplete.</p>
+      </div>
+    </section>
+  </main>
+
+  <aside class="drawer" id="coverage-drawer" aria-hidden="true" aria-labelledby="coverage-title">
+    <div class="drawer-backdrop" data-close-drawer></div>
+    <div class="drawer-panel" role="dialog" aria-modal="true">
+      <button class="drawer-close" type="button" aria-label="Close coverage details" data-close-drawer>×</button>
+      <p class="eyebrow">COLLECTION COVERAGE</p>
+      <h2 id="coverage-title">Coverage incomplete</h2>
+      <p><strong>38 of 65 configured sources need attention.</strong></p>
+      <p>Some opportunities may arrive later than usual. Your team can still review every tender collected so far.</p>
+      <a href="#">Open workspace setup <span aria-hidden="true">→</span></a>
+    </div>
+  </aside>
+
+  <dialog class="filter-dialog" id="filter-dialog">
+    <form method="dialog">
+      <header><div><p class="eyebrow">REFINE RESULTS</p><h2>More filters</h2></div><button value="cancel" aria-label="Close filters">×</button></header>
+      <fieldset><legend>Lifecycle and activity</legend><label><input type="checkbox" value="closing"> Closing soon</label><label><input type="checkbox" value="new"> New</label><label><input type="checkbox" value="changed"> Changed</label><label><input type="checkbox" value="open" checked> Open</label><label><input type="checkbox" value="planned" checked> Planned</label><label><input type="checkbox" value="closed"> Closed</label><label><input type="checkbox" value="awarded"> Awarded</label><label><input type="checkbox" value="dismissed"> Dismissed</label></fieldset>
+      <footer><button class="clear" type="reset">Clear all</button><button class="apply" value="apply">Show results</button></footer>
+    </form>
+  </dialog>
+</body>
+</html>
